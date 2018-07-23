@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nukex1122/School-Portal/issues"
   },
-  "homepage": "https://github.com/nukex1122/School-Portal#readme"
+  "homepage": "https://github.com/nukex1122/School-Portal#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
