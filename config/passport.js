@@ -19,7 +19,7 @@ passport.use('local.signup',new LocalStratergy({
     passwordField: 'password',
     passReqToCallback : true
 },function (req,email,password, done) {
-
+console.log(req);
     User.findOne({'email':email},function (err,user) {
         if(err){
             return done(err);

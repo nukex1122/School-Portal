@@ -1,4 +1,5 @@
 const express=require('express');
+const path =require('path');
 const body_parser=require('body-parser');
 const cookieParser=require('cookie-parser');
 const session=require('express-session');
@@ -16,6 +17,28 @@ mongoose.connect('mongodb://mohan_kukreja:school_portal1@ds247171.mlab.com:47171
         console.log('Connected to Server successfully!');
     }
 });
+
+
+app.use(body_parser.urlencoded({extended:true}));
+app.use(body_parser.json());
+app.use(cookieParser())
+app.use('/',express.static(path.join(__dirname,'frontend')));
+//passport is initialized after session is declared
+app.use(session({
+    secret:'mysecretsessionkey',
+    resave:true,
+    saveUninitialized:true,
+    store: new MongoStore({mongooseConnection : mongoose.connection })
+}));
+app.use(flash());
+require('./config/passport');
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+var main = require('./controllers/user');
+
+app.use('/', main);
 
 app.listen(3000,function () {
     console.log('server started');
