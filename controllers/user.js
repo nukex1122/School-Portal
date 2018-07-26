@@ -20,6 +20,11 @@ var obj = req.user._doc;
 res.json(obj);
 })
 
+router.use('/Oauth',isLoggedIn,express.static(path.join(__dirname,'../frontend/Oauth')));
+router.use('/',express.static(path.join(__dirname,'../frontend/withoutOauth')));
+
+
+
 router.post('/signup',passport.authenticate('local.signup',{
 
 
@@ -28,10 +33,10 @@ router.post('/signup',passport.authenticate('local.signup',{
 
 }),function (req,res) {
     if(req.user._doc.typeOf == 'student'){
-        res.redirect('/studentDashboard.html');
+        res.redirect('/Oauth/studentDashboard.html');
     }
     else if(req.user._doc.typeOf == 'teacher'){
-        res.redirect('/teacherDashboard.html');
+        res.redirect('/Oauth/teacherDashboard.html');
     }
 })
 
@@ -46,10 +51,10 @@ router.post('/login',passport.authenticate('local.login',{
 }),function (req,res) {
 
     if(req.user._doc.typeOf == 'student'){
-        res.redirect('/studentDashboard.html');
+        res.redirect('/Oauth/studentDashboard.html');
     }
     else if(req.user._doc.typeOf == 'teacher'){
-        res.redirect('/teacherDashboard.html');
+        res.redirect('/Oauth/teacherDashboard.html');
     }
 })
 

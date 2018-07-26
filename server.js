@@ -22,7 +22,7 @@ mongoose.connect('mongodb://mohan_kukreja:school_portal1@ds247171.mlab.com:47171
 app.use(body_parser.urlencoded({extended:true}));
 app.use(body_parser.json());
 app.use(cookieParser())
-app.use('/',express.static(path.join(__dirname,'frontend')));
+
 //passport is initialized after session is declared
 app.use(session({
     secret:'mysecretsessionkey',
