@@ -1,11 +1,28 @@
 var mongoose=require('mongoose');
 var bcrypt=require('bcrypt-nodejs');
 
-var userSchema=mongoose.Schema({
-    firstname : {
+var studentSchema=mongoose.Schema({
+    AdmissionNumber : {
         type:String,
 	    default: null
     },
+	rollNumber:{
+		type:String,
+		default: null
+	},
+	Address:{
+		type:String,
+		default: null
+	},
+	phone:{
+		type:String,
+		default: null
+	},
+	firstname :{
+		type:String,
+		default: null
+	},
+
     lastname:{
         type:String,
 	    default: null
@@ -29,17 +46,93 @@ var userSchema=mongoose.Schema({
 	password:{
 		type:String,
 		default: null
+	},
+	age:{
+		type:String,
+		default: null
+	},
+	subject:{
+		type:Array,
+		default: null
 	}
 
 
 });
 
-userSchema.methods.encryptPassword=function (password) {
+var teacherSchema=mongoose.Schema({
+	firstname : {
+		type:String,
+		default: null
+	},
+	lastname:{
+		type:String,
+		default: null
+	},
+
+	email:{
+		type:String,
+		default: null
+	},
+	typeOf: {
+		type:String,
+		default: null
+	},
+	password:{
+		type:String,
+		default: null
+	}
+
+
+});
+
+
+var schoolSchema=mongoose.Schema({
+	name : {
+		type:String,
+		default: null
+	},
+	email:{
+		type:String,
+		default: null
+	},
+	typeOf: {
+		type:String,
+		default: null
+	},
+	password:{
+		type:String,
+		default: null
+	}
+
+
+});
+
+schoolSchema.methods.encryptPassword=function (password) {
     return bcrypt.hashSync(password,bcrypt.genSaltSync(10),null);
 }
 
-userSchema.methods.validPassword = function (password) {
+schoolSchema.methods.validPassword = function (password) {
     return bcrypt.compareSync(password,this.password);
 }
 
-module.exports=  mongoose.model('User',userSchema);;
+teacherSchema.methods.encryptPassword=function (password) {
+	return bcrypt.hashSync(password,bcrypt.genSaltSync(10),null);
+}
+
+teacherSchema.methods.validPassword = function (password) {
+	return bcrypt.compareSync(password,this.password);
+}
+
+studentSchema.methods.encryptPassword=function (password) {
+	return bcrypt.hashSync(password,bcrypt.genSaltSync(10),null);
+}
+
+studentSchema.methods.validPassword = function (password) {
+	return bcrypt.compareSync(password,this.password);
+}
+var obj ={};
+obj.student =  mongoose.model('student',studentSchema);
+obj.teacher =  mongoose.model('teacher',studentSchema);
+obj.school  =  mongoose.model('school', schoolSchema);
+
+module.exports = obj;

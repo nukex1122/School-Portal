@@ -1,26 +1,41 @@
 const passport=require('passport');
 var LocalStratergy=require('passport-local');
 
-var User = require('../model/user');
+var School = require('../model/user').school;
+var Teacher = require('../model/user').teacher;
+var Student = require('../model/user').student;
+
 
 passport.serializeUser(function(user, done) {
-    done(null, user.id);
+
+	var key = {
+		id: user.id,
+		type: user._doc.typeOf
+	}
+	done(null, key)
+})
+
+passport.deserializeUser(function(key, done) {
+    if(key.type == 'School'){
+	    School.findById(key.id, function (err, user) {
+	        done(err, user);
+	    });
+    }
+    else if(key.type == 'Student'){
+	    Student.findById(key.id, function (err, user) {
+		    done(err, user);
+	    });
+    }
 });
 
-passport.deserializeUser(function(id, done) {
-    User.findById(id, function (err, user) {
-        done(err, user);
-    });
-});
 
-
-passport.use('local.signup',new LocalStratergy({
+passport.use('school.signup',new LocalStratergy({
     usernameField: 'email',
     passwordField: 'password',
     passReqToCallback : true
 },function (req,email,password, done) {
 
-    User.findOne({'email':email},function (err,user) {
+    School.findOne({'email':email},function (err,user) {
         if(err){
             return done(err);
         }
@@ -28,12 +43,9 @@ passport.use('local.signup',new LocalStratergy({
             req.flash('userError', 'user already exists')
             return done(null,false);
         }
-        var newUser=new User();
-        newUser.typeOf = req.body.type;
-        newUser.firstname= req.body.firstname;
-        newUser.lastname = req.body.lastname;
-        newUser.class = req.body.class;
-        newUser.section = req.body.section;
+        var newUser=new School();
+        newUser.typeOf = 'School';
+        newUser.name = req.body.name;
         newUser.email=req.body.email;
         newUser.password=newUser.encryptPassword(req.body.password);
         newUser.save(function (err) {
@@ -44,13 +56,41 @@ passport.use('local.signup',new LocalStratergy({
     })
 }));
 
-passport.use('local.login',new LocalStratergy({
+passport.use('student.signup',new LocalStratergy({
+	usernameField: 'email',
+	passwordField: 'password',
+	passReqToCallback : true
+},function (req,email,password, done) {
+
+	Student.findOne({'email':email},function (err,user) {
+		if(err){
+			return done(err);
+		}
+		if(user){
+			req.flash('userError', 'user already exists')
+			return done(null,false);
+		}
+		var newUser=new Student();
+		newUser.typeOf = 'Student';
+
+		newUser.email=req.body.email;
+		newUser.password=newUser.encryptPassword(req.body.password);
+		newUser.save(function (err) {
+			if(err) return done(err);
+
+			return done(null,newUser);
+		})
+	})
+}));
+
+
+passport.use('school.login',new LocalStratergy({
     usernameField: 'email',
     passwordField: 'password',
     passReqToCallback : true
 },function (req,email,password, done) {
 
-    User.findOne({'email':email},function (err,user) {
+    School.findOne({'email':email},function (err,user) {
         if(err){
             return done(err);
         }
