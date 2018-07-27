@@ -19,7 +19,7 @@ passport.use('local.signup',new LocalStratergy({
     passwordField: 'password',
     passReqToCallback : true
 },function (req,email,password, done) {
-console.log(req);
+
     User.findOne({'email':email},function (err,user) {
         if(err){
             return done(err);
@@ -30,7 +30,10 @@ console.log(req);
         }
         var newUser=new User();
         newUser.typeOf = req.body.type;
-        newUser.fullname= req.body.name;
+        newUser.firstname= req.body.firstname;
+        newUser.lastname = req.body.lastname;
+        newUser.class = req.body.class;
+        newUser.section = req.body.section;
         newUser.email=req.body.email;
         newUser.password=newUser.encryptPassword(req.body.password);
         newUser.save(function (err) {

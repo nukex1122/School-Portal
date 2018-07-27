@@ -2,18 +2,36 @@ var mongoose=require('mongoose');
 var bcrypt=require('bcrypt-nodejs');
 
 var userSchema=mongoose.Schema({
-    fullname : {
-        type:String
+    firstname : {
+        type:String,
+	    default: null
     },
-    email:{
-        type:String
+    lastname:{
+        type:String,
+	    default: null
     },
-    password:{
-        type:String
+    class:{
+        type:String,
+	    default: null
     },
-    typeOf:{
-        type:String
-    }
+    section:{
+        type:String,
+	    default: null
+    },
+	email:{
+		type:String,
+		default: null
+	},
+	typeOf: {
+    	type:String,
+		default: null
+	},
+	password:{
+		type:String,
+		default: null
+	}
+
+
 });
 
 userSchema.methods.encryptPassword=function (password) {
