@@ -16,16 +16,16 @@
   <header>
     <nav class="light-blue lighten-1">
       <div class="nav-wrapper container">
-        <a href="#!" class="brand-logo" style="font-size:1.5em"><i class="material-icons">cloud</i>Focado <span> - Student Dashboard</span></a>
+        <a href="studentDashboard.html" class="brand-logo" style="font-size:1.5em"><i class="material-icons">cloud</i>Focado <span> - Student Dashboard</span></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li>
-            <a href="#">Mr. Dhruv Jain</a>
+            <a href="#">Mr. <span class="name">Dhruv Jain</span></a>
           </li>
           <li>
             <a class="waves-effect waves-teal btn-flat" style="color:#fff"><b>Sign Out</b></a>
           </li>
-          <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+          <li><a href="#"><i class="material-icons">more_vert</i></a></li>
         </ul>
       </div>
     </nav>
@@ -44,13 +44,13 @@
         <div class="card">
         <div class="card-image">
           <img src="images/1.jpg">
-          <span class="card-title">Dhruv Jain</span>
+          <span class="card-title name"></span>
           <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">edit</i></a>
         </div>
-        
+
       </div>
     </div>
-  
+
     <div class="col s12 m12 l6">
       <div class="card ">
         <div class="card-content">
@@ -72,29 +72,29 @@
 -->
            <div class="row">
         <div class="input-field col s6">
-          <input disabled value="Dhruv" id="disabled" type="text" class="validate">
+          <input disabled value=" " id="disabled" type="text" class="validate first-name">
           <label for="disabled">First Name</label>
         </div>
-      
+
         <div class="input-field col s6">
-          <input disabled value="Jain" id="disabled" type="text" class="validate">
+          <input disabled value=" " id="disabled" type="text" class="validate last-name">
           <label for="disabled">Last Name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input disabled value="dhruv2703@gmail.com" id="disabled" type="text" class="validate">
+          <input disabled value=" " id="disabled" type="text" class="validate email">
           <label for="disabled">E-Mail</label>
         </div>
       </div>
           <div class="row">
         <div class="input-field col s6">
-          <input disabled value="XII" id="disabled" type="text" class="validate">
+          <input disabled value=" " id="disabled" type="text" class="validate class">
           <label for="disabled">Class</label>
         </div>
-      
+
         <div class="input-field col s6">
-          <input disabled value="A" id="disabled" type="text" class="validate">
+          <input disabled value=" " id="disabled" type="text" class="validate section">
           <label for="disabled">Section</label>
         </div>
       </div>
@@ -115,11 +115,11 @@
       </div>
     </div>
   </div>
-            
-     
-     
+
+
+
      </div>
-    
+
     </main>
 
   <footer class="page-footer grey ">
@@ -153,16 +153,26 @@
   <script type="text/javascript" src="js/materialize.min.js"></script>
 
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-  });
-
-  // Or with jQuery
 
   $(document).ready(function(){
     $('.sidenav').sidenav();
   });
+
+
+	$.ajax({
+		url: '/profile',
+		type: 'GET',
+		success: function(data){
+        console.log(data);
+        $('.first-name').val(data.firstname);
+        $('.last-name').val(data.lastname);
+        $('.email').val(data.email);
+        $('.class').val(data.class);
+        $('.section').val(data.section);
+        $('.name').text(data.firstname + " " + data.lastname);
+
+      }
+    })
 
   </script>
 </body>
