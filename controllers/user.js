@@ -8,7 +8,7 @@ const passport=require('passport')
 
 
 router.get('/login',function (req,res) {
-    res.redirect('/login.html')
+    res.redirect('/login2.html')
 })
 
 router.get('/signup',function (req,res) {
