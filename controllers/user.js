@@ -1,7 +1,7 @@
 const express=require('express');
 const path =require('path');
 const router=express.Router();
-
+var Student = require('../model/user').student;
 
 const passport=require('passport')
 
@@ -22,20 +22,13 @@ router.get('/student-login',function (req,res) {
 router.get('/teacher-login',function (req,res) {
 	res.redirect('/loginTeacher.html')
 })
+router.use('/schoolOauth',isSchool,express.static(path.join(__dirname,'../frontend/SchoolOauth')));
 
-
-router.get('/profile',isLoggedIn,function (req,res) {
-var obj = req.user._doc;
-console.log(obj);
-res.json(obj);
-})
-
-
-router.use('/Oauth',isLoggedIn,express.static(path.join(__dirname,'../frontend/Oauth')));
+router.use('/Oauth',isStudent,express.static(path.join(__dirname,'../frontend/Oauth')));
 router.use('/',express.static(path.join(__dirname,'../frontend/withoutOauth')));
 
 router.get('/studentSignup',isSchool ,function (req,res) {
-	res.redirect('/signup.html')
+	res.redirect('/schoolOauth/studentSignup.html')
 })
 
 
@@ -48,22 +41,42 @@ router.post('/schoolSignup',passport.authenticate('school.signup',{
 
 }),function (req,res) {
     console.log(req);
-    res.redirect('/Oauth/teacherDashboard.html');
+    res.send('school logged in');
 
 })
 
+router.post('/studentlogin', passport.authenticate('student.login',{
 
-router.post('/studentSignup',passport.authenticate('student.signup',{
 
-
-	failureRedirect: '/studentSignup',  // to do
+	failureRedirect: '/student-login',
 	failureFlash: true
 
 }),function (req,res) {
-
-	res.redirect('/');
-
+	res.redirect('/Oauth/studentDashboard.html');
 })
+
+router.post('/studentSignup', function(req,res){
+	Student.findOne({'email':req.body.email},function (err,user) {
+		if(err){
+			throw err;
+		}
+		if(user){
+			req.flash('userError', 'user already exists')
+			res.redirect('/schoolOauth/schoolDashboard.html')
+		}
+		var newUser=new Student();
+		newUser.typeOf = 'Student';
+
+		newUser.email=req.body.email;
+		newUser.password=newUser.encryptPassword(req.body.password);
+		newUser.save(function (err) {
+			if(err) throw (err);
+
+			res.redirect('/schoolOauth/schoolDashboard.html')
+		})
+	})
+
+	})
 
 
 
@@ -83,6 +96,7 @@ router.post('/login',passport.authenticate('school.login',{
         res.redirect('/Oauth/teacherDashboard.html');
     }
 })
+router.get()
 
 
 router.get('/logout',function (req,res) {
@@ -92,16 +106,16 @@ router.get('/logout',function (req,res) {
 })
 
 function isSchool(req,res,next) {
-	console.log(req);
-	if (req.user._doc.typeof == 'School') { return next(); }
+	//console.log(req);
+	if (req.user._doc.typeOf == 'School') { return next(); }
 	res.redirect('/login') // to do
 }
 
 
 function isStudent(req,res,next) {
-    console.log(req);
-	if (req.user._doc.typeof == 'Student') { return next(); }
-    res.redirect('/login') // to do
+
+	if (req.user._doc.typeOf == 'Student') { return next(); }
+    res.redirect('/student-login') // to do
 }
 
 module.exports = router;

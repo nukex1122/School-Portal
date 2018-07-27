@@ -56,32 +56,32 @@ passport.use('school.signup',new LocalStratergy({
     })
 }));
 
-passport.use('student.signup',new LocalStratergy({
-	usernameField: 'email',
-	passwordField: 'password',
-	passReqToCallback : true
-},function (req,email,password, done) {
-
-	Student.findOne({'email':email},function (err,user) {
-		if(err){
-			return done(err);
-		}
-		if(user){
-			req.flash('userError', 'user already exists')
-			return done(null,false);
-		}
-		var newUser=new Student();
-		newUser.typeOf = 'Student';
-
-		newUser.email=req.body.email;
-		newUser.password=newUser.encryptPassword(req.body.password);
-		newUser.save(function (err) {
-			if(err) return done(err);
-
-			return done(null,newUser);
-		})
-	})
-}));
+// passport.use('student.signup',new LocalStratergy({
+// 	usernameField: 'email',
+// 	passwordField: 'password',
+// 	passReqToCallback : true
+// },function (req,email,password, done) {
+//
+// 	Student.findOne({'email':email},function (err,user) {
+// 		if(err){
+// 			return done(err);
+// 		}
+// 		if(user){
+// 			req.flash('userError', 'user already exists')
+// 			return done(null,false);
+// 		}
+// 		var newUser=new Student();
+// 		newUser.typeOf = 'Student';
+//
+// 		newUser.email=req.body.email;
+// 		newUser.password=newUser.encryptPassword(req.body.password);
+// 		newUser.save(function (err) {
+// 			if(err) return done(err);
+//
+// 			return done(null,newUser);
+// 		})
+// 	})
+// }));
 
 
 passport.use('school.login',new LocalStratergy({
@@ -104,5 +104,29 @@ passport.use('school.login',new LocalStratergy({
         }
         return done(null,user);
     })
+
+}));
+
+
+passport.use('student.login',new LocalStratergy({
+	usernameField: 'email',
+	passwordField: 'password',
+	passReqToCallback : true
+},function (req,email,password, done) {
+
+	Student.findOne({'email':email},function (err,user) {
+		if(err){
+			return done(err);
+		}
+		if(!user){
+			req.flash('loggingError', 'user email not found')
+			return done(null,false);
+		}
+		if(!user.validPassword(req.body.password)){
+			req.flash('passworderror', 'incorrect password')
+			return done(null,false);
+		}
+		return done(null,user);
+	})
 
 }));
