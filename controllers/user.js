@@ -17,6 +17,10 @@ router.get('/signup',function (req,res) {
 
 router.get('/profile',isLoggedIn,function (req,res) {
 var obj = req.user._doc;
+obj.firstname= "test firstname";
+obj.lastname = "test lastname";
+obj.class = "test class";
+obj.section = "test section";
 res.json(obj);
 })
 

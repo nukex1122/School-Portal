@@ -4,18 +4,6 @@
     <list default="true" id="25b85a59-8112-447e-b9b0-810850ae574b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/css/materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Oauth/css/materialize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/css/materialize.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Oauth/css/materialize.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/guruJi.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Oauth/guruJi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/withoutOauth/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/jquery-3.2.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Oauth/js/jquery-3.2.1.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Oauth/js/materialize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/js/materialize.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Oauth/js/materialize.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/withoutOauth/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/withoutOauth/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/studentDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Oauth/studentDashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/teacherDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Oauth/teacherDashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,41 +18,47 @@
     <session id="-833769908">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="2" />
-          <entry key="js" value="3" />
+          <entry key="js" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="2" />
-          <entry key="JavaScript" value="3" />
+          <entry key="JavaScript" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="89" />
+          <entry key="js" value="104" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="89" />
+          <entry key="JavaScript" value="104" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/Oauth/studentDashboard.html">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/controllers/user.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -91,13 +85,24 @@
         <option value="$PROJECT_DIR$/frontend/teacherDashboard.html" />
         <option value="$PROJECT_DIR$/frontend/login.html" />
         <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/controllers/user.js" />
         <option value="$PROJECT_DIR$/frontend/Oauth/studentDashboard.html" />
+        <option value="$PROJECT_DIR$/controllers/user.js" />
       </list>
     </option>
   </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
@@ -121,6 +126,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -164,18 +170,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.4.1" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -212,23 +217,24 @@
       <updated>1532317350505</updated>
       <workItem from="1532317357680" duration="15464000" />
       <workItem from="1532343922376" duration="317000" />
-      <workItem from="1532574662809" duration="528000" />
+      <workItem from="1532574662809" duration="1361000" />
+      <workItem from="1532681599158" duration="278000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15459000" />
+    <option name="totallyTimeSpent" value="16570000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="799" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32748538" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3986135" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32748538" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39766082" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -267,6 +273,18 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/controllers/user.js</url>
+          <line>19</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/config/passport.js">
@@ -325,20 +343,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="766">
-          <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/Oauth/guruJi.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1453" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/Oauth/studentDashboard.html">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        </state>
+      </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
