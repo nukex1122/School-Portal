@@ -7,11 +7,40 @@
 <body>
 <h1>signup</h1>
 <form action="/signup" method="post">
-    <input type="text" name="name">
-    <input type="email" name="email">
+    <input type="text" name="firstname" placeholder="First name">
+    <input type="text" name="lastname" placeholder="Last name">
+    <select name="class">
+      <option value="I">I</option>
+      <option value="II">II</option>
+      <option value="III">III</option>
+      <option value="IV">IV</option>
+      <option value="V">V</option>
+      <option value="VI">VI</option>
+      <option value="VII">VII</option>
+      <option value="VIII">VIII</option>
+      <option value="IX">IX</option>
+      <option value="X">X</option>
+      <option value="XI">XI</option>
+      <option value="XII">XII</option>
+    </select>
+    <select name="section">
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+      <option value="E">E</option>
+      <option value="F">F</option>
+      <option value="G">G</option>
+      <option value="H">H</option>
+    </select>
+    <input type="email" name="email" placeholder="email">
+
+    <br />
+    <br />
     <input type="radio" name="type" value="student" checked> student<br>
+
     <input type="radio" name="type" value="teacher"> teacher<br>
-    <input type="password" name="password">
+    <input type="password" name="password" placeholder="password">
     <input type="submit">
 </form>
 </body>

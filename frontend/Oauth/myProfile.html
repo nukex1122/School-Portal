@@ -163,6 +163,7 @@
 		url: '/profile',
 		type: 'GET',
 		success: function(data){
+        console.log(data);
         $('.first-name').val(data.firstname);
         $('.last-name').val(data.lastname);
         $('.email').val(data.email);
