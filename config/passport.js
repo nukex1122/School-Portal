@@ -26,6 +26,11 @@ passport.deserializeUser(function(key, done) {
 		    done(err, user);
 	    });
     }
+    else if(key.type =='Teacher'){
+	    Teacher.findById(key.id, function (err, user) {
+		    done(err, user);
+	    });
+    }
 });
 
 
@@ -108,13 +113,14 @@ passport.use('school.login',new LocalStratergy({
 }));
 
 
-passport.use('student.login',new LocalStratergy({
+
+passport.use('teacher.login',new LocalStratergy({
 	usernameField: 'email',
 	passwordField: 'password',
 	passReqToCallback : true
 },function (req,email,password, done) {
 
-	Student.findOne({'email':email},function (err,user) {
+	Teacher.findOne({'email':email},function (err,user) {
 		if(err){
 			return done(err);
 		}
