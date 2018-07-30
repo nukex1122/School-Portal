@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Notice</title>
+</head>
+<body>
+<h1>upload notice</h1>
+<form action="/uploadNotice" method="post" enctype="multipart/form-data">
+    <input type="text" name="topic" placeholder="topic">
+    <input type="date" name="date"></input>
+    <input type="text" name="description" placeholder="description">
+    <input type="file" name="file" >
+    <select name="target" id="select" >
+        <!--this should be radio button-->
+        <option>student</option>
+        <option>teacher</option>
+        <option>student and teacher</option>
+
+
+
+    </select>
+
+
+    <br />
+    <br />
+
+
+    <input type="submit">
+</form>
+
+</body>
+</html>

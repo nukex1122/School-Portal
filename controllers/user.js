@@ -3,6 +3,7 @@ const path =require('path');
 const router=express.Router();
 var Student = require('../model/user').student;
 var Teacher = require('../model/user').teacher;
+var upload = require('../config/multer');
 
 const passport=require('passport')
 
@@ -34,6 +35,9 @@ router.get('/studentSignup',isSchool ,function (req,res) {
 
 router.get('/teacherSignup',isSchool , function (req,res) {
 	res.redirect('/schoolOauth/teacherSignup.html');
+})
+router.get('/uploadNotice', isSchool, function (req,res) {
+	res.redirect('/schoolOauth/uploadNotice.html');
 })
 
 
@@ -130,6 +134,19 @@ router.post('/login',passport.authenticate('school.login',{
 }),function (req,res) {
 	res.redirect('/schoolOauth/schoolDashboard.html')
 })
+
+
+router.post('/uploadNotice',(req,res)=> {
+	upload(req, res, function (err) {
+		if (err) {
+			// An error occurred when uploading
+			console.log(err);
+			return;
+		}
+		console.log(req);
+
+	})
+});
 
 
 

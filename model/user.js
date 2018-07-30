@@ -173,6 +173,33 @@ var teacherSchema=mongoose.Schema({
 
 });
 
+
+var noticeSchema=mongoose.Schema({
+	topic : {
+		type:String,
+		default: null
+	},
+	date:{
+		type:String,
+		default: null
+	},
+	filePath: {
+		type:String,
+		default: null
+	},
+
+	description:{
+		type:String,
+		default: null
+	},
+	target: {
+		type:String,
+		default: null
+	}
+
+
+});
+
 schoolSchema.methods.encryptPassword=function (password) {
     return bcrypt.hashSync(password,bcrypt.genSaltSync(10),null);
 }
