@@ -168,6 +168,10 @@ var teacherSchema=mongoose.Schema({
 	subject:{
 		type:String,
 		default: null
+	},
+	school: {
+		type:String,
+		default: null
 	}
 
 
@@ -193,6 +197,10 @@ var noticeSchema=mongoose.Schema({
 		default: null
 	},
 	target: {
+		type:String,
+		default: null
+	},
+	school:{
 		type:String,
 		default: null
 	}
@@ -225,17 +233,12 @@ studentSchema.methods.validPassword = function (password) {
 }
 
 
-teacherSchema.methods.encryptPassword=function (password) {
-	return bcrypt.hashSync(password,bcrypt.genSaltSync(10),null);
-}
 
-teacherSchema.methods.validPassword = function (password) {
-	return bcrypt.compareSync(password,this.password);
-}
 
 var obj ={};
 obj.student =  mongoose.model('student',studentSchema);
 obj.teacher =  mongoose.model('teacher',teacherSchema);
 obj.school  =  mongoose.model('school', schoolSchema);
+obj.notice  =  mongoose.model('notice', noticeSchema);
 
 module.exports = obj;

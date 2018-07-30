@@ -4,6 +4,7 @@ const router=express.Router();
 var Student = require('../model/user').student;
 var Teacher = require('../model/user').teacher;
 var upload = require('../config/multer');
+var Notice = require('../model/user').notice;
 
 const passport=require('passport')
 
@@ -112,6 +113,7 @@ router.post('/teacherSignup', function(req,res){
 		newUser.typeOf = 'Teacher';
 		newUser.school = req.user._doc.name;
 		newUser.email=req.body.email;
+		newUser.school = req.user._doc.name;
 		newUser.password=newUser.encryptPassword(req.body.password);
 		newUser.save(function (err) {
 			if(err) throw (err);
@@ -143,11 +145,61 @@ router.post('/uploadNotice',(req,res)=> {
 			console.log(err);
 			return;
 		}
-		console.log(req);
 
+		var newNotice = new Notice();
+		newNotice.topic = req.body.topic;
+		newNotice.target = req.body.target;
+		newNotice.date = req.body.date;
+		newNotice.description = req.body.description;
+		newNotice.filePath = req.file.path;
+		newNotice.school = req.user._doc.name;
+		newNotice.save(function (err) {
+			if(err) throw (err);
+
+			res.redirect('/schoolOauth/schoolDashboard.html')
+		})
 	})
 });
 
+
+ router.get('/getNoticeSchool', isSchool, function (req,res) {
+	 Notice.find({school : req.user._doc.name},function (err,data) {
+	 	var arr=[];
+	 	for(var i=0;i<data.length;i++){
+	 		arr.push(data[i]._doc);
+	    }
+		res.json(arr);
+	 })
+ })
+
+router.get('/getNoticeStudent', isStudent, function (req,res) {
+	Notice.find({school : req.user._doc.school,
+		$or:[
+			{'target':'student'}, {'target':'student and teacher'}
+		]
+	},function (err,data) {
+		var arr=[];
+		for(var i=0;i<data.length;i++){
+			arr.push(data[i]._doc);
+		}
+		res.json(arr);
+	})
+})
+
+router.get('/getNoticeTeacher', isTeacher, function (req,res) {
+	Notice.find({school : req.user._doc.school,
+		$or:[
+			{'target':'teacher'}, {'target':'student and teacher'}
+		]
+
+	},function (err,data) {
+		var arr=[];
+		for(var i=0;i<data.length;i++){
+			arr.push(data[i]._doc);
+		}
+		res.json(arr);
+	})
+})
 
 
 router.get('/logout',function (req,res) {

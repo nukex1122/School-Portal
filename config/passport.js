@@ -112,6 +112,29 @@ passport.use('school.login',new LocalStratergy({
 
 }));
 
+passport.use('student.login',new LocalStratergy({
+	usernameField: 'email',
+	passwordField: 'password',
+	passReqToCallback : true
+},function (req,email,password, done) {
+
+	Student.findOne({'email':email},function (err,user) {
+		if(err){
+			return done(err);
+		}
+		if(!user){
+			req.flash('loggingError', 'user email not found')
+			return done(null,false);
+		}
+		if(!user.validPassword(req.body.password)){
+			req.flash('passworderror', 'incorrect password')
+			return done(null,false);
+		}
+		return done(null,user);
+	})
+
+}));
+
 
 
 passport.use('teacher.login',new LocalStratergy({
