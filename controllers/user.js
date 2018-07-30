@@ -79,9 +79,10 @@ router.post('/studentSignup', function(req,res){
 			req.flash('userError', 'user already exists')
 			res.redirect('/schoolOauth/schoolDashboard.html')
 		}
+
 		var newUser=new Student();
 		newUser.typeOf = 'Student';
-
+		newUser.school = req.user._doc.name;
 		newUser.email=req.body.email;
 		newUser.password=newUser.encryptPassword(req.body.password);
 		newUser.save(function (err) {
@@ -105,7 +106,7 @@ router.post('/teacherSignup', function(req,res){
 		}
 		var newUser=new Teacher();
 		newUser.typeOf = 'Teacher';
-
+		newUser.school = req.user._doc.name;
 		newUser.email=req.body.email;
 		newUser.password=newUser.encryptPassword(req.body.password);
 		newUser.save(function (err) {

@@ -10,6 +10,10 @@ var studentSchema=mongoose.Schema({
 		type:String,
 		default: null
 	},
+	school:{
+		type:String,
+		default: null
+	},
 	address:{
 		type:String,
 		default: null
@@ -74,6 +78,10 @@ var teacherSchema=mongoose.Schema({
 	},
 
 	email:{
+		type:String,
+		default: null
+	},
+	school:{
 		type:String,
 		default: null
 	},
