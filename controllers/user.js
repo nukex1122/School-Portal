@@ -5,6 +5,7 @@ var Student = require('../model/user').student;
 var Teacher = require('../model/user').teacher;
 var upload = require('../config/multer');
 var Notice = require('../model/user').notice;
+var School = require('../model/user').school;
 
 const passport=require('passport')
 
@@ -41,6 +42,9 @@ router.get('/uploadNotice', isSchool, function (req,res) {
 	res.redirect('/schoolOauth/uploadNotice.html');
 })
 
+router.get('/updateSubjects', isSchool, function (req,res) {
+	res.redirect('/schoolOauth/fillSubjects.html');
+})
 
 router.post('/schoolSignup',passport.authenticate('school.signup',{
 
@@ -160,6 +164,18 @@ router.post('/uploadNotice',(req,res)=> {
 		})
 	})
 });
+
+router.post('/fillSubjects',isSchool, function (req,res) {
+	var query = { name: req.user._doc.name };
+	var arr=[];
+	var ans = req.body.subject;
+	arr=ans.split(',');
+
+	School.update(query, {subject : arr}, function (err,data) {
+		console.log(data);
+		res.redirect('/schoolOauth/schoolDashboard.html')
+	})
+})
 
 
  router.get('/getNoticeSchool', isSchool, function (req,res) {

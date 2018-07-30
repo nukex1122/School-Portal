@@ -31,11 +31,7 @@ var studentSchema=mongoose.Schema({
         type:String,
 	    default: null
     },
-    class:{
-        type:String,
-	    default: null
-    },
-    section:{
+    class_section:{
         type:String,
 	    default: null
     },
@@ -89,8 +85,16 @@ var teacherSchema=mongoose.Schema({
 		type:String,
 		default: null
 	},
+	class_section:{
+		type:String,
+		default: null
+	},
 	password:{
 		type:String,
+		default: null
+	},
+	subject:{
+		type:Array,
 		default: null
 	}
 
@@ -114,6 +118,10 @@ var schoolSchema=mongoose.Schema({
 
 	password:{
 		type:String,
+		default: null
+	},
+	subject:{
+		type:Array,
 		default: null
 	}
 
