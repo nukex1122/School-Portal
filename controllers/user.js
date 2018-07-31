@@ -47,10 +47,10 @@ router.get('/updateSubjects', isSchool, function (req,res) {
 	res.redirect('/schoolOauth/fillSubjects.html');
 })
 
-router.get('/contact' , isStudent, function (req,res) {
+router.get('/contactStudent' , isStudent, function (req,res) {
 	res.redirect('/studentOauth/contact.html');
 })
-router.get('/contact' , isTeacher, function (req,res) {
+router.get('/contactTeacher' , isTeacher, function (req,res) {
 	res.redirect('/teacherOauth/contact.html');
 })
 
@@ -279,7 +279,17 @@ router.post('/contact',function (req,res) {
 		})
 
 	}
-})l
+})
+
+router.get('/getContact',isSchool,function (req,res) {
+	Contact.find({school: req.user._doc.name},function(err,data){
+		var arr=[];
+		for(var i=0;i<data.length;i++){
+			arr.push(data[i]._doc);
+		}
+		res.json(arr);
+	})
+})
 
 
 router.get('/logout',function (req,res) {
