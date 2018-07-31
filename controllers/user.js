@@ -3,10 +3,12 @@ const path =require('path');
 const router=express.Router();
 var Student = require('../model/user').student;
 var Teacher = require('../model/user').teacher;
-var upload = require('../config/multer');
+var upload = require('../config/multer').noticeUpload;
+var uploadAssignment = require('../config/multer').assignmentUpload;
 var Notice = require('../model/user').notice;
 var School = require('../model/user').school;
 var Contact = require('../model/user').contact;
+var Assignment = require('../model/user').assignment;
 
 const passport=require('passport')
 
@@ -295,7 +297,26 @@ router.get('/getContact',isSchool,function (req,res) {
 
 
 router.post('/uploadAssignment',function (req,res) {
-	console.log(req);
+	uploadAssignment(req, res, function (err) {
+		if (err) {
+			// An error occurred when uploading
+			console.log(err);
+			return;
+		}
+		console.log(req);
+		var newAssignment = new Assignment();
+		// newNotice.topic = req.body.topic;
+		// newNotice.target = req.body.target;
+		// newNotice.deadline = req.body.deadline;
+		// newNotice.description = req.body.description;
+		// newNotice.filePath = req.file.path;
+		// newNotice.school = req.user._doc.name;
+		// newNotice.save(function (err) {
+		// 	if(err) throw (err);
+		//
+		// 	res.redirect('/schoolOauth/schoolDashboard.html')
+		// })
+	})
 })
 
 

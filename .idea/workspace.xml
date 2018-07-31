@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25b85a59-8112-447e-b9b0-810850ae574b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/teacherOauth/uploadAssignment.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/multer.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/multer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,29 +32,29 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="2" />
-          <entry key="html" value="130" />
+          <entry key="html" value="133" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="194" />
+          <entry key="js" value="199" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="2" />
-          <entry key="HTML" value="130" />
+          <entry key="HTML" value="133" />
           <entry key="Image" value="1" />
-          <entry key="JavaScript" value="194" />
+          <entry key="JavaScript" value="199" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="1170" />
-          <entry key="js" value="5838" />
+          <entry key="js" value="6144" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1170" />
-          <entry key="JavaScript" value="5838" />
+          <entry key="JavaScript" value="6144" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -66,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="297" column="21" selection-start-line="297" selection-start-column="21" selection-end-line="297" selection-end-column="21" />
+            <state relative-caret-position="206">
+              <caret line="314" column="32" lean-forward="true" selection-start-line="314" selection-start-column="32" selection-end-line="314" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -81,6 +80,11 @@
         <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>uploadN</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -105,7 +109,6 @@
         <option value="$PROJECT_DIR$/frontend/SchoolOauth/teacherSignup.html" />
         <option value="$PROJECT_DIR$/frontend/withoutOauth/loginTeacher.html" />
         <option value="$PROJECT_DIR$/frontend/schoolOauth/uploadNotice.html" />
-        <option value="$PROJECT_DIR$/config/multer.js" />
         <option value="$PROJECT_DIR$/config/passport.js" />
         <option value="$PROJECT_DIR$/frontend/schoolOauth/fillSubjects.html" />
         <option value="$PROJECT_DIR$/frontend/teacherOauth/contact.html" />
@@ -114,6 +117,7 @@
         <option value="$PROJECT_DIR$/frontend/schoolOauth/studentSignup.html" />
         <option value="$PROJECT_DIR$/model/user.js" />
         <option value="$PROJECT_DIR$/frontend/teacherOauth/uploadAssignment.html" />
+        <option value="$PROJECT_DIR$/config/multer.js" />
         <option value="$PROJECT_DIR$/controllers/user.js" />
       </list>
     </option>
@@ -272,12 +276,12 @@
       <workItem from="1532876707459" duration="15682000" />
       <workItem from="1532966217757" duration="613000" />
       <workItem from="1533010923130" duration="6872000" />
-      <workItem from="1533037485625" duration="1061000" />
+      <workItem from="1533037485625" duration="3637000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55855000" />
+    <option name="totallyTimeSpent" value="58431000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="794" extended-state="0" />
@@ -288,8 +292,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32547864" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3976436" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32547864" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3976436" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -334,9 +338,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>297</line>
+          <line>305</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -404,13 +408,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/teacherOauth/teacherDashboard.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/multer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uploads/notice_uploads/file-1532925897790.jpg" />
     <entry file="file://$PROJECT_DIR$/frontend/schoolOauth/fillSubjects.html">
@@ -493,14 +490,21 @@
     <entry file="file://$PROJECT_DIR$/frontend/teacherOauth/uploadAssignment.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="31" />
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/multer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="34" column="18" lean-forward="true" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="297" column="21" selection-start-line="297" selection-start-column="21" selection-end-line="297" selection-end-column="21" />
+        <state relative-caret-position="206">
+          <caret line="314" column="32" lean-forward="true" selection-start-line="314" selection-start-column="32" selection-end-line="314" selection-end-column="32" />
         </state>
       </provider>
     </entry>

@@ -10,6 +10,16 @@ const storage = multer.diskStorage({
 	}
 });
 
+
+const storage1 = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, './uploads/assignment_uploads')
+	},
+	filename: function(req, file, cb){
+		cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+	}
+});
+
 const upload = multer({
 	storage: storage,
 
@@ -17,5 +27,15 @@ const upload = multer({
 
 }).single('file');
 
+const upload1 = multer({
+	storage: storage1,
 
-module.exports = upload;
+
+
+}).single('file');
+
+var obj = {};
+obj.noticeUpload = upload;
+obj.assignmentUpload = upload1;
+
+module.exports = obj;
