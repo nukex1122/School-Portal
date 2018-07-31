@@ -215,6 +215,47 @@ var noticeSchema=mongoose.Schema({
 
 });
 
+var contactSchema=mongoose.Schema({
+	topic : {
+		type:String,
+		default: null
+	},
+
+	firstname:{
+		type:String,
+		default: null
+	},
+	lastname:{
+		type:String,
+		default: null
+	},
+	class_section:{
+		type:Array,
+		default:null
+	},
+	typeOf:{
+		type:String,
+		default: null
+	},
+	description:{
+		type:String,
+		default: null
+	},
+	target: {
+		type:String,
+		default: null
+	},
+	school:{
+		type:String,
+		default: null
+	}
+
+
+});
+
+
+
+
 schoolSchema.methods.encryptPassword=function (password) {
     return bcrypt.hashSync(password,bcrypt.genSaltSync(10),null);
 }
@@ -243,6 +284,7 @@ studentSchema.methods.validPassword = function (password) {
 
 
 var obj ={};
+obj.contact =  mongoose.model('contact', contactSchema);
 obj.student =  mongoose.model('student',studentSchema);
 obj.teacher =  mongoose.model('teacher',teacherSchema);
 obj.school  =  mongoose.model('school', schoolSchema);

@@ -6,6 +6,7 @@ var Teacher = require('../model/user').teacher;
 var upload = require('../config/multer');
 var Notice = require('../model/user').notice;
 var School = require('../model/user').school;
+var Contact = require('../model/user').contact;
 
 const passport=require('passport')
 
@@ -45,6 +46,15 @@ router.get('/uploadNotice', isSchool, function (req,res) {
 router.get('/updateSubjects', isSchool, function (req,res) {
 	res.redirect('/schoolOauth/fillSubjects.html');
 })
+
+router.get('/contact' , isStudent, function (req,res) {
+	res.redirect('/studentOauth/contact.html');
+})
+router.get('/contact' , isTeacher, function (req,res) {
+	res.redirect('/teacherOauth/contact.html');
+})
+
+
 
 router.post('/schoolSignup',passport.authenticate('school.signup',{
 
@@ -243,6 +253,33 @@ router.get('/getNoticeTeacher', isTeacher, function (req,res) {
 		res.json(arr);
 	})
 })
+
+router.post('/contact',function (req,res) {
+	var contact = new Contact();
+	if(req.body.tosend == 'School'){
+		contact.description = req.body.description;
+		contact.topic = req.body.subject;
+		contact.firstname = req.user._doc.firstname;
+		contact.lastname = req.user._doc.lastname;
+		contact.school = req.user._doc.school;
+		contact.target = req.body.tosend;
+		contact.typeOf = req.user._doc.typeOf;
+		if(contact.typeOf == "Student"){
+			contact.class_section = req.user._doc.class_section;
+		}
+		contact.save(function (err) {
+			if(err) throw (err);
+			if(req.user._doc.typeOf == 'Student'){
+				res.redirect('/studentOauth/studentDashboard.html');
+			}
+			else{
+				res.redirect('/teacherOauth/teacherDashboard.html');
+			}
+
+		})
+
+	}
+})l
 
 
 router.get('/logout',function (req,res) {
