@@ -54,7 +54,9 @@ router.get('/contactTeacher' , isTeacher, function (req,res) {
 	res.redirect('/teacherOauth/contact.html');
 })
 
-
+router.get('/assignment',isTeacher, function (req,res) {
+	res.redirect('/teacherOauth/uploadAssignment.html');
+})
 
 router.post('/schoolSignup',passport.authenticate('school.signup',{
 
@@ -289,6 +291,11 @@ router.get('/getContact',isSchool,function (req,res) {
 		}
 		res.json(arr);
 	})
+})
+
+
+router.post('/uploadAssignment',function (req,res) {
+	console.log(req);
 })
 
 

@@ -254,6 +254,46 @@ var contactSchema=mongoose.Schema({
 });
 
 
+var assignmentSchema=mongoose.Schema({
+	topic : {
+		type:String,
+		default: null
+	},
+	deadline:{
+		type:String,
+		default: null
+	},
+	filePath: {
+		type:String,
+		default: null
+	},
+
+	description:{
+		type:String,
+		default: null
+	},
+	class_section:{
+		type:Array,
+		default:null
+	},
+	teacherFirstname:{
+		type:String,
+		default: null
+	},
+	teacherLastname:{
+		type:String,
+		default: null
+	},
+	school:{
+		type:String,
+		default: null
+	}
+
+
+});
+
+
+
 
 
 schoolSchema.methods.encryptPassword=function (password) {
@@ -289,5 +329,6 @@ obj.student =  mongoose.model('student',studentSchema);
 obj.teacher =  mongoose.model('teacher',teacherSchema);
 obj.school  =  mongoose.model('school', schoolSchema);
 obj.notice  =  mongoose.model('notice', noticeSchema);
+obj.assignment = mongoose.model('assignment',assignmentSchema);
 
 module.exports = obj;
