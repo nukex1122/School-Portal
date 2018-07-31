@@ -91,8 +91,24 @@ router.post('/studentSignup', function(req,res){
 
 		var newUser=new Student();
 		newUser.typeOf = 'Student';
+		newUser.firstname = req.body.firstname;
+		newUser.lastname = req.body.lastname;
+		newUser.phone = req.body.phone;
+		newUser.age= req.body.age;
+		newUser.admissionNumber=req.body.admissionNumber;
+		newUser.rollNumber=req.body.rollNumber;
+		newUser.address=req.body.address
 		newUser.school = req.user._doc.name;
 		newUser.email=req.body.email;
+		var arr=[];
+		var ans = req.body.subject;
+		arr=ans.split(',');
+		newUser.subject = arr;
+		var classarr =[];
+		var ans1 = req.body.class_section;
+		classarr = ans1.split(',');
+		newUser.class_section = classarr;
+
 		newUser.password=newUser.encryptPassword(req.body.password);
 		newUser.save(function (err) {
 			if(err) throw (err);
@@ -117,7 +133,18 @@ router.post('/teacherSignup', function(req,res){
 		newUser.typeOf = 'Teacher';
 		newUser.school = req.user._doc.name;
 		newUser.email=req.body.email;
+		newUser.firstname = req.body.firstname;
+		newUser.lastname = req.body.lastname;
+		newUser.phone = req.body.phone;
 		newUser.school = req.user._doc.name;
+		var arr=[];
+		var ans = req.body.subject;
+		arr=ans.split(',');
+		newUser.subject = arr;
+		var classarr =[];
+		var ans1 = req.body.class_section;
+		classarr = ans1.split(',');
+		newUser.class_section = classarr;
 		newUser.password=newUser.encryptPassword(req.body.password);
 		newUser.save(function (err) {
 			if(err) throw (err);

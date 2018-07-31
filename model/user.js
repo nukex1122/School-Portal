@@ -2,7 +2,7 @@ var mongoose=require('mongoose');
 var bcrypt=require('bcrypt-nodejs');
 
 var studentSchema=mongoose.Schema({
-    AdmissionNumber : {
+    admissionNumber : {
         type:String,
 	    default: null
     },
@@ -32,7 +32,7 @@ var studentSchema=mongoose.Schema({
 	    default: null
     },
     class_section:{
-        type:String,
+        type:Array,
 	    default: null
     },
 	email:{
@@ -72,7 +72,10 @@ var teacherSchema=mongoose.Schema({
 		type:String,
 		default: null
 	},
-
+	phone:{
+		type:String,
+		default: null
+	},
 	email:{
 		type:String,
 		default: null
@@ -86,7 +89,7 @@ var teacherSchema=mongoose.Schema({
 		default: null
 	},
 	class_section:{
-		type:String,
+		type:Array,
 		default: null
 	},
 	password:{
@@ -160,11 +163,7 @@ var teacherSchema=mongoose.Schema({
 		type:String,
 		default: null
 	},
-	class:{
-		type:Array,
-		default: null
-	},
-	section:{
+	class_section:{
 		type:Array,
 		default: null
 	},
@@ -174,7 +173,7 @@ var teacherSchema=mongoose.Schema({
 		default: null
 	},
 	subject:{
-		type:String,
+		type:Array,
 		default: null
 	},
 	school: {
