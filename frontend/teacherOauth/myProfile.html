@@ -16,7 +16,7 @@
   <header>
     <nav class="light-blue lighten-1">
       <div class="nav-wrapper container">
-        <a href="studentDashboard.html" class="brand-logo" style="font-size:1.5em"><i class="material-icons">cloud</i>Focado <span> - Student Dashboard</span></a>
+        <a href="teacherDashboard.html" class="brand-logo" style="font-size:1.5em"><i class="material-icons">cloud</i>Focado <span> - Teacher Dashboard</span></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li>
@@ -88,16 +88,20 @@
         </div>
       </div>
           <div class="row">
-        <div class="input-field col s6">
-          <input disabled value=" " id="disabled" type="text" class="validate class">
+        <div class="input-field col s12">
+          <input disabled value=" " id="disabled" type="text" class="validate class-section">
           <label for="disabled">Class</label>
         </div>
 
-        <div class="input-field col s6">
-          <input disabled value=" " id="disabled" type="text" class="validate section">
-          <label for="disabled">Section</label>
-        </div>
       </div>
+
+      <div class="row">
+    <div class="input-field col s12">
+      <input disabled value=" " id="disabled" type="text" class="validate subjects">
+      <label for="disabled">Subjects</label>
+    </div>
+
+  </div>
            <div class="row">
         <div class="input-field col s12">
           <input disabled value="**********" id="disabled" type="text" class="validate">
@@ -159,21 +163,20 @@
   });
 
 
-	$.ajax({
-		url: '/profile',
-		type: 'GET',
-		success: function(data){
+  $.ajax({
+  url: '/data',
+  type: 'GET',
+  success: function(data){
         console.log(data);
         $('.first-name').val(data.firstname);
         $('.last-name').val(data.lastname);
         $('.email').val(data.email);
-        $('.class').val(data.class);
-        $('.section').val(data.section);
+        $('.class-section').val(data.class_section.join(", "));
+        $('.subjects').val(data.subject.join(", "));
         $('.name').text(data.firstname + " " + data.lastname);
 
       }
     })
-
   </script>
 </body>
 </html>

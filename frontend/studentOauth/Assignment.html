@@ -9,6 +9,12 @@
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+  <style>
+  .header {
+    color: #ee6e73;
+    font-weight: 300;
+}
+</style>
 
 </head>
 
@@ -20,7 +26,7 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li>
-            <a href="#">Mr. Lorem Ipsum</a>
+            <a href="#" class="name"></a>
           </li>
           <li>
             <a class="waves-effect waves-teal btn-flat" style="color:#fff"><b>Sign Out</b></a>
@@ -37,67 +43,50 @@
     </ul>
 
   </header>
-  
-
 
   <main>
 
-
-     <div style='margin-top:100px;'>
-      <div style='margin-bottom:100px;'>
+<div class="row">
 
 
-  <div class="center-align">
- <h2> ASSIGNMENT  </h2>
+    <div class="col offset-m2 m8  s12">
+      <div id="highlight" class="section scrollspy">
+          <h3 class="header">Assignments</h3>
+          <div class="row">
+            <div class="col s12">
+              <table class=" assignments highlight responsive-table">
+                      <thead>
+                        <tr>
+                          <th>S No.</th>
+                          <th>Subject</th>
+                          <th>Description of Assignment</th>
+                          <th>Date</th>
+                          <th>Download Option</th>
+                        </tr>
+                      </thead>
 
- <div class="row">
-    <div class="col offset-s3 s6 center-align">
-      <div class="card large grey lighten-1">
-        <div class="card-content black-text">
-
-
-      <table>
-        <thead>
-          <tr>
-              <th>S No.</th>
-              <th>Subject</th>
-              <th>Description of Assignment</th>
-              <th>Date</th>
-              <th>Download Option</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mathematics</td>
-            <td>Module -1</td>
-            <td>01/06</td>
-            <td>Assignment 123.pdf <i class="fa fa-download" aria-hidden="true"></i></td>
-       
-              
-          </tr>
-         
-        </tbody>
-      </table>
+                      <tbody>
 
 
+                      </tbody>
+                    </table>
+            </div>
+          </div>
         </div>
-      </div>
+
     </div>
-  </div>
-</div>
+    </div>
 
 </main>
 
    <footer class="page-footer">
           <div class="container">
             <div class="row">
-              <div class="col l6 s12">
+              <div class="col l6">
                 <h5 class="white-text">Focado</h5>
                 <p class="grey-text text-lighten-4">Lorem Ipsum Dolor Sit Amet.</p>
               </div>
-              <div class="col l4 offset-l2 s12">
+              <div class="col l4 offset-l2">
                 <h5 class="white-text">Links</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
@@ -123,7 +112,7 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
+    var instances = M.Sidenav.init(elems);
   });
 
   // Or with jQuery
@@ -131,6 +120,36 @@
   $(document).ready(function(){
     $('.sidenav').sidenav();
   });
+
+  $.ajax({
+		url: '/data',
+		type: 'GET',
+		success: function(data){
+        $('.name').text(data.firstname + " " + data.lastname);
+
+      }
+    })
+
+  $.ajax({
+    url: '/getAssignment',
+    type: 'GET',
+    success: function(data){
+      console.log(data);
+        var k = 1
+        for(var i=0; i<data.length;i++){
+          console.log(data[i]);
+          var str="<td>" + k + "</td>"
+          str+="<td>" + data[i].subject + "</td>"
+          str+="<td>" + data[i].description + "</td>"
+          str+="<td>" + data[i].date + "</td>"
+          str+=`<td><a href=${data[i].filePath}>` + data[i].filePath.split("/")[data[i].filePath.split("/").length-1] + ' <i class="fa fa-download" aria-hidden="true"></i></a></td>'
+            $('.notices tbody').append(`<tr>${str}</tr>`);
+
+          k++
+        }
+
+      }
+    })
 
   </script>
 </body>

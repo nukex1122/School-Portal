@@ -1,33 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Upload Notice</title>
-</head>
-<body>
-<h1>upload notice</h1>
-<form action="/uploadNotice" method="post" enctype="multipart/form-data">
-    <input type="text" name="topic" placeholder="topic">
-    <input type="date" name="date"></input>
-    <input type="text" name="description" placeholder="description">
-    <input type="file" name="file" >
-    <select name="target" id="select" >
-        <!--this should be radio button-->
-        <option>student</option>
-        <option>teacher</option>
-        <option>student and teacher</option>
+<html>
+   <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   </head>
+   <style>
+      html, body{
+      width: 100%;
+      }
+      .waves-button-input{
+        color: #fff;
+      }
+   </style>
+   <body class="cyan">
+      <main>
+         <div class="container" style="margin-top:1%">
+            <div id="login-page" class="row">
+               <div class="col m12 s12 z-depth-4 card-panel" >
+                  <form class="login-form" style="padding: 0 0.75rem" action="/uploadNotice" method="post" enctype="multipart/form-data">
+
+                     <div class="row">
+                        <div class="input-field col s12 center">
+                           <img src="images/logo.png" alt="" class="circle responsive-img valign profile-image-login">
+                           <h5 class="center login-form-text">Upload Notice</h5>
+                        </div>
+                     </div>
+
+                     <div class="row margin">
+                        <div class="input-field col s12">
+                           <i class="mdi-social-person-outline prefix material-icons">person_outline</i>
+                           <input type="text" id="topic" name="topic">
+                           <label class="center-align">Topic</label>
+                        </div>
+
+                        <div class="input-field col m6 s12">
+                           <i class="prefix material-icons">date_range</i>
+                           <input id="date" type="text" class="datepicker"/>
+                           <label for="date">Date of Notice</label>
+                        </div>
 
 
 
-    </select>
+                        <div class="input-field col m6 s12">
+                           <i class="prefix material-icons">description</i>
+                           <input type="text" id="description" name="description" >
+                           <label>Description</label>
+                        </div>
 
 
-    <br />
-    <br />
+                        <div class="input-field col m6 s12">
+                          <i class="prefix material-icons">class</i>
+                            <select id="select" name="target">
+                              <option value="" disabled selected>Choose your option</option>
+                              <option>Student</option>
+                              <option>Teacher</option>
+                              <option>Student and Teacher</option>
+                            </select>
+                            <label>Choose Class</label>
+                          </div>
+
+                        <div class="file-field input-field col m6 s12">
+                          <div class="btn">
+                            <span>File</span>
+                            <input id="file" type="file" name="file">
+                          </div>
+                          <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Choose the File">
+                          </div>
+                        </div>
 
 
-    <input type="submit">
-</form>
+                     </div>
+                     <div class="row"  style="margin-bottom:0">
+                        <div class="input-field col m6 s12 offset-m3">
+                          <input type="submit" class="btn col s12 pink accent-2 login-btn" value="Login">
+                        </div>
+                     </div>
 
-</body>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </main>
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script>
+         var window_width = $(window).width();
+
+           /*Preloader*/
+
+
+           // Search class for focus
+           $('.header-search-input').focus(
+           function(){
+               $(this).parent('div').addClass('header-search-wrapper-focus');
+           }).blur(
+           function(){
+               $(this).parent('div').removeClass('header-search-wrapper-focus');
+           });
+
+           // Check first if any of the task is checked
+           $('#task-card input:checkbox').each(function() {
+             checkbox_check(this);
+           });
+
+           // Task check box
+           $('#task-card input:checkbox').change(function() {
+             checkbox_check(this);
+           });
+
+           $(document).ready(function(){
+            $('select').formSelect();
+          });
+
+          $(document).ready(function(){
+            $('.datepicker').datepicker();
+          });
+
+
+           // Check Uncheck function
+           function checkbox_check(el){
+               if (!$(el).is(':checked')) {
+                   $(el).next().css('text-decoration', 'none'); // or addClass
+               } else {
+                   $(el).next().css('text-decoration', 'line-through'); //or addClass
+               }
+             }
+
+             $('.login-btn').click(function(e){
+               var noticeData = $('input[name="file"]').get(0).files[0];
+               var formData = new FormData();
+               formData.append('file', noticeData);
+               formData.append('topic', $('#topic').val());
+               formData.append('date', $('#date').val());
+               formData.append('description', $('#description').val());
+               formData.append('target', $('#select').val());
+
+               console.log()
+               $.ajax({
+                 type: "POST",
+                 url: '/uploadNotice',
+                 data: formData,
+                 contentType: false,
+                 processData: false,
+                 cache: false,
+                 complete: function(data) {
+                 }
+               });
+
+             })
+      </script>
+   </body>
 </html>

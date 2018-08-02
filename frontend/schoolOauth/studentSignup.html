@@ -1,36 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>student Signup</title>
-</head>
-<body>
-<h1>student signup</h1>
-<form action="/studentSignup" method="post">
+<html>
+   <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
 
 
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   </head>
+   <style>
+      html, body{
+      width: 100%;
+      }
+      .waves-button-input{
+        color: #fff;
+      }
+   </style>
+   <body class="cyan">
+      <main>
+         <div class="container" style="margin-top:1%">
+            <div id="login-page" class="row">
+               <div class="col m12 s12 z-depth-4 card-panel" >
+                  <form class="login-form" style="padding: 0 0.75rem" action="/studentLogin" method="post">
 
-    <input type="email" name="email" placeholder="email">
+                     <div class="row">
+                        <div class="input-field col s12 center">
+                           <img src="images/logo.png" alt="" class="circle responsive-img valign profile-image-login">
+                           <p class="center login-form-text">Login Form (Student)</p>
+                        </div>
+                     </div>
 
-    <br />
-    <br />
-    <input type="text" name="admissionNumber" placeholder="admissionNumber"><br>
-    <input type="text" name="rollNumber" placeholder="rollNumber"><br>
+                     <div class="row margin">
+                        <div class="input-field col s12">
+                           <i class="mdi-social-person-outline prefix material-icons">person_outline</i>
+                           <input id="username" type="email" name="email">
+                           <label for="username" class="center-align">Username</label>
+                        </div>
 
-    <input type="text" name="address" placeholder="address"><br>
-    <input type="text" name="phone" placeholder="phone"><br>
-    <input type="text" name="firstname" placeholder="firstname"><br>
-    <input type="text" name="lastname" placeholder="lastname"><br>
-    <input type="text" name="class_section" placeholder="6-B,7-A"><br>
-    <input type="text" name="age" placeholder="age"><br>
-    <input type="text" name="subject" placeholder="chemsitry,maths"><br>
+                        <div class="input-field col s12">
+                           <i class="prefix material-icons">lock_outline</i>
+                           <input id="password" type="password" name="password">
+                           <label for="password" name="password">Password</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                           <i class="mdi-action-lock-w prefix material-icons">confirmation_number</i>
+                           <input type="text" id="admissionNumber" name="admissionNumber"  />
+                           <label for="admissionNumber" name="admissionNumber">Admission Number</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                           <i class="prefix material-icons">lock_outline</i>
+                           <input type="text" id="phone" name="phone"  />
+                           <label for="phone" name="phone">Phone Number</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                           <i class="prefix material-icons">person_pin</i>
+                           <input type="text" id="firstname" name="firstname"  />
+                           <label for="firstname" name="firstname">First Name</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                           <i class="prefix material-icons">person_pin</i>
+                           <input type="text" id="lastname" name="lastname"  />
+                           <label for="lastname" name="lastname">Last Name</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                           <i class="prefix material-icons">confirmation_number</i>
+                           <input type="text" id="rollNumber" name="rollNumber"  />
+                           <label for="rollNumber" name="rollNumber">Roll Number</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                           <i class="prefix material-icons">class</i>
+                           <input type="text" id="class_section" name="class_section"  />
+                           <label >Class/Section</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                           <i class="prefix material-icons">date_range</i>
+                           <input type="text" id="age" name="age"  />
+                           <label >Age</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                           <i class="prefix material-icons">subject</i>
+                           <input type="text" id="subject" name="subject"  />
+                           <label >Subjects</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                           <i class="prefix material-icons">home</i>
+                           <input type="text" id="address" name="address"  />
+                           <label >Address</label>
+                        </div>
+
+                     </div>
+                     <div class="row"  style="margin-bottom:0">
+                        <div class="input-field col m6 s12 offset-m3">
+                          <input type="submit" class="btn col s12 pink accent-2 login-btn" value="Login">
+                        </div>
+                     </div>
+                     <div class="row"  style="padding:0">
+                        <div class="input-field col s6 m6 l6"  style="margin:0; padding-top:0">
+                           <p class="margin medium-small"><a href="page-register.html">Sign Up!</a></p>
+                        </div>
+                        <div class="input-field col s6 m6 l6" style="margin:0; padding-top:0">
+                           <p class="margin right-align medium-small"><a href="page-forgot-password.html">Forgot password ?</a></p>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </main>
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script>
+         var window_width = $(window).width();
+
+           /*Preloader*/
 
 
+           // Search class for focus
+           $('.header-search-input').focus(
+           function(){
+               $(this).parent('div').addClass('header-search-wrapper-focus');
+           }).blur(
+           function(){
+               $(this).parent('div').removeClass('header-search-wrapper-focus');
+           });
+
+           // Check first if any of the task is checked
+           $('#task-card input:checkbox').each(function() {
+             checkbox_check(this);
+           });
+
+           // Task check box
+           $('#task-card input:checkbox').change(function() {
+             checkbox_check(this);
+           });
+
+           // Check Uncheck function
+           function checkbox_check(el){
+               if (!$(el).is(':checked')) {
+                   $(el).next().css('text-decoration', 'none'); // or addClass
+               } else {
+                   $(el).next().css('text-decoration', 'line-through'); //or addClass
+               }
+             }
+
+             $('.login-btn').click(function(){
+               var data = {
+                 email:$("#username").val(),
+                 password:$("#password").val(),
+                 admissionNumber:$("#admissionNumber").val(),
+                 phone:$("#phone").val(),
+                 firstname:$("#firstname").val(),
+                 lastname:$("#lastname").val(),
+                 rollNumber:$("#rollNumber").val(),
+                 class_section:$("#class_section").val(),
+                 age:$("#age").val(),
+                 subject:$("#subject").val(),
+                 address:$("#address").val()
+               }
 
 
-    <input type="password" name="password" placeholder="password">
-
-    <input type="submit">
-</form>
-</body>
+               console.log(data);
+               $.ajax({
+                 url: '/studentSignup',
+                 type: 'POST',
+                 data:data,
+                 success: function(data){
+                      console.log(data);
+                    }
+                  })
+             })
+      </script>
+   </body>
 </html>

@@ -1,23 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>School Signup</title>
-</head>
-<body>
-<h1>school signup</h1>
-<form action="/schoolSignup" method="post">
-    <input type="text" name="name" placeholder="name">
+<html>
+   <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
 
 
-    <input type="email" name="email" placeholder="email">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   </head>
+   <style>
+      html, body{
+      width: 100%;
+      }
+      .waves-button-input{
+        color: #fff;
+      }
+   </style>
+   <body class="cyan">
+      <main>
+         <div class="container" style="margin-top:1%">
+            <div id="login-page" class="row">
+               <div class="col m8 s12 z-depth-4 card-panel offset-m2" >
+                  <form class="login-form" style="padding: 0 0.75rem" action="/schoolSignup" method="post">
 
-    <br />
-    <br />
+                     <div class="row">
+                        <div class="input-field col s12 center">
+                           <img src="images/logo.png" alt="" class="circle responsive-img valign profile-image-login">
+                           <p class="center login-form-text">Sign Up Forms (School)</p>
+                        </div>
+                     </div>
+                     <div class="row margin">
+                       <div class="input-field col s12">
+                          <i class="mdi-social-person-outline prefix material-icons">school</i>
+                          <input type="text" id="school-name" name="school-name">
+                          <label for="school-name" class="center-align">School Name</label>
+                       </div>
 
-    <input type="password" name="password" placeholder="password">
-    <input type="submit">
-</form>
-</body>
+                        <div class="input-field col s12">
+                           <i class="mdi-social-person-outline prefix material-icons">person_outline</i>
+                           <input id="username" type="email" name="email">
+                           <label for="username" class="center-align">Username</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                           <i class="mdi-action-lock-outline prefix material-icons">lock_outline</i>
+                           <input id="password" type="password" name="password">
+                           <label for="password" name="password">Password</label>
+                        </div>
+                     </div>
+                     <div class="row"  style="margin-bottom:0">
+                        <div class="input-field col s12">
+                          <input type="submit" class="btn col s12 pink accent-2 signup-btn" value="Sign Up">
+                        </div>
+                     </div>
+
+                  </form>
+               </div>
+            </div>
+         </div>
+      </main>
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script>
+         var window_width = $(window).width();
+
+           /*Preloader*/
+
+
+           // Search class for focus
+           $('.header-search-input').focus(
+           function(){
+               $(this).parent('div').addClass('header-search-wrapper-focus');
+           }).blur(
+           function(){
+               $(this).parent('div').removeClass('header-search-wrapper-focus');
+           });
+
+           // Check first if any of the task is checked
+           $('#task-card input:checkbox').each(function() {
+             checkbox_check(this);
+           });
+
+           // Task check box
+           $('#task-card input:checkbox').change(function() {
+             checkbox_check(this);
+           });
+
+           // Check Uncheck function
+           function checkbox_check(el){
+               if (!$(el).is(':checked')) {
+                   $(el).next().css('text-decoration', 'none'); // or addClass
+               } else {
+                   $(el).next().css('text-decoration', 'line-through'); //or addClass
+               }
+             }
+
+
+
+             $('.signup-btn').click(function(){
+               var data = {name:$("#school-name").val(), email:$("#username").val(), password:$("#password").val()}
+               console.log(data);
+               $.ajax({
+                 url: '/schoolSignup',
+                 type: 'POST',
+                 data:data,
+                 success: function(data){
+                      console.log(data);
+
+                    }
+                  })
+             })
+
+
+
+      </script>
+   </body>
 </html>
-
