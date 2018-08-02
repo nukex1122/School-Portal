@@ -303,19 +303,25 @@ router.post('/uploadAssignment',function (req,res) {
 			console.log(err);
 			return;
 		}
-		console.log(req);
 		var newAssignment = new Assignment();
-		// newNotice.topic = req.body.topic;
-		// newNotice.target = req.body.target;
-		// newNotice.deadline = req.body.deadline;
-		// newNotice.description = req.body.description;
-		// newNotice.filePath = req.file.path;
-		// newNotice.school = req.user._doc.name;
-		// newNotice.save(function (err) {
-		// 	if(err) throw (err);
-		//
-		// 	res.redirect('/schoolOauth/schoolDashboard.html')
-		// })
+		newAssignment.topic = req.body.topic;
+		newAssignment.filePath = req.file.Path;
+		newAssignment.deadline = req.body.deadline;
+		newAssignment.description = req.body.description;
+		newAssignment.teacherFirstname = req.user._doc.firstname;
+		newAssignment.teacherLastname = req.user._doc.lastname;
+		newAssignment.school = req.user._doc.school;
+		var classarr =[];
+		var ans1 = req.body.class_section;
+		classarr = ans1.split(',');
+		newAssignment.class_section = classarr;
+
+
+		newAssignment.save(function (err) {
+			if(err) throw (err);
+
+			res.redirect('/teacherOauth/teacherDashboard.html');
+		})
 	})
 })
 
