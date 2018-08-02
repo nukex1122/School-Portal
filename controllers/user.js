@@ -12,6 +12,13 @@ var Assignment = require('../model/user').assignment;
 
 const passport=require('passport');
 
+router.get('/data',function (req,res) {
+	res.json(req.user._doc);
+})
+
+router.get('/teacherData',isTeacher,function (req,res) {
+	res.json()
+})
 
 router.get('/login',function (req,res) {
     res.redirect('/login.html')
