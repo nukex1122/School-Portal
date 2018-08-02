@@ -32,7 +32,7 @@ var studentSchema=mongoose.Schema({
 	    default: null
     },
     class_section:{
-        type:Array,
+        type:String,
 	    default: null
     },
 	email:{
@@ -324,6 +324,7 @@ studentSchema.methods.validPassword = function (password) {
 
 
 var obj ={};
+
 obj.contact =  mongoose.model('contact', contactSchema);
 obj.student =  mongoose.model('student',studentSchema);
 obj.teacher =  mongoose.model('teacher',teacherSchema);

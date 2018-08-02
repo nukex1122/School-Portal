@@ -10,8 +10,7 @@ var School = require('../model/user').school;
 var Contact = require('../model/user').contact;
 var Assignment = require('../model/user').assignment;
 
-const passport=require('passport')
-
+const passport=require('passport');
 
 
 router.get('/login',function (req,res) {
@@ -118,10 +117,8 @@ router.post('/studentSignup', function(req,res){
 		var ans = req.body.subject;
 		arr=ans.split(',');
 		newUser.subject = arr;
-		var classarr =[];
-		var ans1 = req.body.class_section;
-		classarr = ans1.split(',');
-		newUser.class_section = classarr;
+
+		newUser.class_section = req.body.class_section;
 
 		newUser.password=newUser.encryptPassword(req.body.password);
 		newUser.save(function (err) {
@@ -228,6 +225,16 @@ router.post('/fillSubjects',isSchool, function (req,res) {
 		res.json(arr);
 	 })
  })
+
+
+router.get('/getAssignment' ,function (req,res) {
+	Assignment.find({school : req.user._doc.school,
+		class_section : req.user._doc.class_section
+	},function (err,data) {
+		console.log(data);
+	})
+
+})
 
 router.get('/getNoticeStudent', isStudent, function (req,res) {
 	Notice.find({school : req.user._doc.school,
