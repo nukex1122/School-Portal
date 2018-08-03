@@ -38,6 +38,7 @@ router.get('/teacher-login',function (req,res) {
 router.use('/schoolOauth',isSchool,express.static(path.join(__dirname,'../frontend/schoolOauth')));
 router.use('/teacherOauth',isTeacher,express.static(path.join(__dirname,'../frontend/teacherOauth')));
 router.use('/studentOauth',isStudent,express.static(path.join(__dirname,'../frontend/studentOauth')));
+router.use('/uploads',isStudent,express.static(path.join(__dirname,'../uploads')));
 router.use('/',express.static(path.join(__dirname,'../frontend/withoutOauth')));
 
 router.get('/studentSignup',isSchool ,function (req,res) {
@@ -201,7 +202,7 @@ router.post('/uploadNotice',(req,res)=> {
 			console.log(err);
 			return;
 		}
-
+		console.log(req);
 		var newNotice = new Notice();
 		newNotice.topic = req.body.topic;
 		newNotice.target = req.body.target;
@@ -267,7 +268,7 @@ router.get('/getNoticeStudent', isStudent, function (req,res) {
 router.get('/getNoticeTeacher', isTeacher, function (req,res) {
 	Notice.find({school : req.user._doc.school,
 		$or:[
-			{'target':'teacher'}, {'target':'student and teacher'}
+			{'target':'Teacher'}, {'target':'Student and Teacher'}
 		]
 
 	},function (err,data) {
@@ -379,3 +380,5 @@ function isStudent(req,res,next) {
 }
 
 module.exports = router;
+
+//http://localhost:3000/uploads/notice_uploads/notice-1533308933304.jpg

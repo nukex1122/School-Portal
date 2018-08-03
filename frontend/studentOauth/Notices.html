@@ -121,13 +121,14 @@
 			  url: '/getNoticeStudent',
 			  type: 'GET',
 			  success: function(data){
+			  	console.log(data);
 			      var k = 1
 			      for(var i=0; i<data.length;i++){
 			        console.log(data[i]);
 			        var str="<td>" + k + "</td>"
 			        str+="<td>" + data[i].description + "</td>"
 			        str+="<td>" + data[i].date + "</td>"
-			        str+=`<td><a href=${data[i].filePath}>` + data[i].filePath.split("/")[data[i].filePath.split("/").length-1] + ' <i class="fa fa-download" aria-hidden="true"></i></a></td>'
+			        str+=`<td><a href=../${data[i].filePath}>` + data[i].filePath.split("/")[data[i].filePath.split("/").length-1] + ' <i class="fa fa-download" aria-hidden="true"></i></a></td>'
 			          $('.notices tbody').append(`<tr>${str}</tr>`);
 
 			        k++

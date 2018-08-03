@@ -25,14 +25,14 @@ const upload = multer({
 
 
 
-}).single('file');
+}).single('notice');
 
 const upload1 = multer({
 	storage: storage1,
 
 
 
-}).single('file');
+}).single('assignment');
 
 var obj = {};
 obj.noticeUpload = upload;
