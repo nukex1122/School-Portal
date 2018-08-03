@@ -105,14 +105,12 @@ router.post('/studentSignup', function(req,res){
 		if(err){
 			throw err;
 		}
-		if(user){
+		else if(user){
 			req.flash('userError', 'user already exists')
 			res.redirect('/schoolOauth/schoolDashboard.html')
 		}
-		if(req.body.password != req.body.confirmpassword){
-			req.flash('passError', 'confirm password is not equal to password');
-			rres.redirect('/schoolOauth/schoolDashboard.html')
-		}
+
+
 		var newUser=new Student();
 		newUser.typeOf = 'Student';
 		newUser.firstname = req.body.firstname;
@@ -135,7 +133,7 @@ router.post('/studentSignup', function(req,res){
 		newUser.save(function (err) {
 			if(err) throw (err);
 
-			res.redirect('/schoolOauth/schoolDashboard.html')
+			return res.redirect('/schoolOauth/schoolDashboard.html')
 		})
 	})
 
@@ -147,14 +145,11 @@ router.post('/teacherSignup', function(req,res){
 		if(err){
 			throw err;
 		}
-		if(user){
+		else if(user){
 			req.flash('userError', 'user already exists')
 			res.redirect('/schoolOauth/schoolDashboard.html')
 		}
-		if(req.body.password != req.body.confirmpassword){
-			req.flash('passError', 'confirm password is not equal to password');
-			rres.redirect('/schoolOauth/schoolDashboard.html')
-		}
+
 		var newUser=new Teacher();
 		newUser.typeOf = 'Teacher';
 		newUser.school = req.user._doc.name;
@@ -357,7 +352,7 @@ router.get('/logout',function (req,res) {
 function isSchool(req,res,next) {
 	//console.log(req);
 	if(!req.user){
-		res.redirect('/login')
+		return res.redirect('/login')
 	}
 	if (req.user._doc.typeOf == 'School') { return next(); }
 	res.redirect('/login') // to do
@@ -365,7 +360,7 @@ function isSchool(req,res,next) {
 
 function isTeacher(req,res,next){
 	if(!req.user){
-		res.redirect('/teacher-login')
+		return res.redirect('/teacher-login')
 	}
 	if (req.user._doc.typeOf == 'Teacher') { return next(); }
 	res.redirect('/teacher-login') // to do
@@ -373,7 +368,7 @@ function isTeacher(req,res,next){
 
 function isStudent(req,res,next) {
 	if(!req.user){
-		res.redirect('/student-login')
+		return res.redirect('/student-login')
 	}
 	if (req.user._doc.typeOf == 'Student') { return next(); }
     res.redirect('/student-login') // to do
