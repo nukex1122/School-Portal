@@ -48,6 +48,10 @@ passport.use('school.signup',new LocalStratergy({
             req.flash('userError', 'user already exists')
             return done(null,false);
         }
+	    if(req.body.password != req.body.confirmpassword){
+		    req.flash('passError', 'confirm password is not equal to password');
+		    res.redirect('/signup')
+	    }
         var newUser=new School();
         newUser.typeOf = 'School';
         newUser.name = req.body.name;
