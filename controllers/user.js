@@ -246,7 +246,7 @@ router.get('/getAssignment' ,function (req,res) {
 router.get('/getNoticeStudent', isStudent, function (req,res) {
 	Notice.find({school : req.user._doc.school,
 		$or:[
-			{'target':'student'}, {'target':'student and teacher'}
+			{'target':'Student'}, {'target':'Student and Teacher'}
 		]
 	},function (err,data) {
 		var arr=[];

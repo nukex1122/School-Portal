@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25b85a59-8112-447e-b9b0-810850ae574b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.js" afterDir="false" />
-    </list>
+    <list default="true" id="25b85a59-8112-447e-b9b0-810850ae574b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -32,7 +30,7 @@
           <entry key="css" value="2" />
           <entry key="html" value="161" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="220" />
+          <entry key="js" value="221" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -40,7 +38,7 @@
           <entry key="CSS" value="2" />
           <entry key="HTML" value="161" />
           <entry key="Image" value="1" />
-          <entry key="JavaScript" value="220" />
+          <entry key="JavaScript" value="221" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -61,10 +59,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllers/user.js">
+        <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="300">
+              <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -82,6 +80,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>uploadN</find>
+      <find>fron</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,6 +155,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -182,41 +182,27 @@
               <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
               <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="schoolOauth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="studentOauth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="teacherOauth" type="462c0819:PsiDirectoryNode" />
+              <item name="withoutOauth" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
               <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="withoutOauth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
               <item name="uploads" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="withoutOauth" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+              <item name="notice_uploads" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -230,14 +216,14 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend/teacherOauth" />
-      <recent name="$PROJECT_DIR$/frontend" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/SchoolOauth" />
       <recent name="$PROJECT_DIR$/frontend/withoutOauth" />
       <recent name="$PROJECT_DIR$/frontend/Oauth" />
+      <recent name="$PROJECT_DIR$/frontend" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/teacherOauth" />
       <recent name="$PROJECT_DIR$/frontend" />
     </key>
   </component>
@@ -281,7 +267,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63315000" />
+    <option name="totallyTimeSpent" value="63476000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="794" extended-state="0" />
@@ -418,13 +404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/withoutOauth/loginStudent.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-978">
@@ -501,8 +480,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="150">
+          <caret line="243" column="2" selection-start-line="243" selection-start-column="2" selection-end-line="243" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
         </state>
       </provider>
     </entry>
