@@ -12,11 +12,11 @@
 		<header>
 			<nav class="light-blue lighten-1">
 				<div class="nav-wrapper container">
-					<a href="#!" class="brand-logo" style="font-size:1.5em"><i class="material-icons">cloud</i>Focado <span> - Teacher Dashboard</span></a>
+					<a href="#!" class="brand-logo" style="font-size:1.5em"><i class="material-icons">cloud</i>Focado <span> - School Dashboard</span></a>
 					<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 						<li>
-							<a href="#">Mr. Lorem Ipsum</a>
+							<a href="#" class="name">Mr. Lorem Ipsum</a>
 						</li>
 						<li>
 							<a class="waves-effect waves-teal btn-flat" style="color:#fff"><b>Sign Out</b></a>
@@ -114,17 +114,21 @@
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
 		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-			  var elems = document.querySelectorAll('.sidenav');
-			  var instances = M.Sidenav.init(elems, options);
-			});
 
 			// Or with jQuery
 
 			$(document).ready(function(){
-			  $('.sidenav').sidenav();
-			});
+				$('.sidenav').sidenav();
 
+				$.ajax({
+					url: '/data',
+					type: 'GET',
+					success: function(data){
+						$('.name').text(data.name);
+					}
+				})
+
+			});
 
 
 		</script>
