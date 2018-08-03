@@ -246,7 +246,7 @@ router.get('/getAssignment' ,function (req,res) {
 router.get('/getNoticeStudent', isStudent, function (req,res) {
 	Notice.find({school : req.user._doc.school,
 		$or:[
-			{'target':'student'}, {'target':'student and teacher'}
+			{'target':'Student'}, {'target':'Student and Teacher'}
 		]
 	},function (err,data) {
 		var arr=[];
@@ -348,17 +348,25 @@ router.get('/logout',function (req,res) {
 
 function isSchool(req,res,next) {
 	//console.log(req);
+	if(!req.user){
+		res.redirect('/login')
+	}
 	if (req.user._doc.typeOf == 'School') { return next(); }
 	res.redirect('/login') // to do
 }
 
 function isTeacher(req,res,next){
+	if(!req.user){
+		res.redirect('/teacher-login')
+	}
 	if (req.user._doc.typeOf == 'Teacher') { return next(); }
 	res.redirect('/teacher-login') // to do
 }
 
 function isStudent(req,res,next) {
-
+	if(!req.user){
+		res.redirect('/student-login')
+	}
 	if (req.user._doc.typeOf == 'Student') { return next(); }
     res.redirect('/student-login') // to do
 }
