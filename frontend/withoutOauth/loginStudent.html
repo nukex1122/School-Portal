@@ -103,19 +103,7 @@
 
 
 
-             $('.login-btn').click(function(){
-               var data = {email:$("#username").val(), password:$("#password").val()}
-               console.log(data);
-               $.ajax({
-                 url: '/studentLogin',
-                 type: 'POST',
-                 data:data,
-                 success: function(data){
-                      console.log(data);
 
-                    }
-                  })
-             })
 
 
 

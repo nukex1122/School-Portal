@@ -118,27 +118,7 @@
 			      }
 			    }
 
-			    $('.login-btn').click(function(){
-			      var data = {
-			        email:$("#username").val(),
-			        password:$("#password").val(),
-			        phone:$("#phone").val(),
-			        firstname:$("#firstname").val(),
-			        lastname:$("#lastname").val(),
-			        class_section:$("#class_section").val(),
-			        subject:$("#subject").val()
-			      }
 
-
-			      console.log(data);
-			      $.ajax({
-			        url: '/teacherSignup',
-			        type: 'POST',
-			        data:data,
-			        success: function(data){
-			           }
-			         })
-			    })
 		</script>
 	</body>
 </html>

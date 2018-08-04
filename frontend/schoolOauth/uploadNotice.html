@@ -121,28 +121,7 @@
 			      }
 			    }
 
-			    $('.login-btn').click(function(e){
-			      var noticeData = $('input[name="file"]').get(0).files[0];
-			      var formData = new FormData();
-			      formData.append('file', noticeData);
-			      formData.append('topic', $('#topic').val());
-			      formData.append('date', $('#date').val());
-			      formData.append('description', $('#description').val());
-			      formData.append('target', $('#select').val());
 
-			      console.log()
-			      $.ajax({
-			        type: "POST",
-			        url: '/uploadNotice',
-			        data: formData,
-			        contentType: false,
-			        processData: false,
-			        cache: false,
-			        complete: function(data) {
-			        }
-			      });
-
-			    })
 		</script>
 	</body>
 </html>

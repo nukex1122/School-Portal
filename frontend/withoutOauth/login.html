@@ -99,18 +99,6 @@
 			    }
 
 
-			    $('.login-btn').click(function(){
-			      var data = {email:$("#email").val(), password:$("#password").val()}
-			      console.log(data);
-			      $.ajax({
-			        url: '/login',
-			        type: 'POST',
-			        data:data,
-			        success: function(data){
-			             console.log(data);
-			           }
-			         })
-			    })
 
 		</script>
 	</body>

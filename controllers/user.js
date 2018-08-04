@@ -110,7 +110,7 @@ router.post('/studentSignup', function(req,res){
 			res.redirect('/schoolOauth/schoolDashboard.html')
 		}
 
-
+		console.log(req);
 		var newUser=new Student();
 		newUser.typeOf = 'Student';
 		newUser.firstname = req.body.firstname;
@@ -149,7 +149,7 @@ router.post('/teacherSignup', function(req,res){
 			req.flash('userError', 'user already exists')
 			res.redirect('/schoolOauth/schoolDashboard.html')
 		}
-
+		console.log(req);
 		var newUser=new Teacher();
 		newUser.typeOf = 'Teacher';
 		newUser.school = req.user._doc.name;

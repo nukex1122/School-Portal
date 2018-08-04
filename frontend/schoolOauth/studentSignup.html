@@ -42,7 +42,7 @@
 								</div>
 								<div class="input-field col s12">
 									<i class="prefix material-icons">lock_outline</i>
-									<input id="confirmpassword" type="password" name="password">
+									<input id="confirmpassword" type="password" name="confirmpassword">
 									<label for="confirmpassword" name="confirmpassword">Confirm Password</label>
 								</div>
 								<div class="input-field col s6">
@@ -139,32 +139,7 @@
 			      }
 			    }
 
-			    $('.login-btn').click(function(){
-			      var data = {
-			        email:$("#username").val(),
-			        password:$("#password").val(),
-			        admissionNumber:$("#admissionNumber").val(),
-			        phone:$("#phone").val(),
-			        firstname:$("#firstname").val(),
-			        lastname:$("#lastname").val(),
-			        rollNumber:$("#rollNumber").val(),
-			        class_section:$("#class_section").val(),
-			        age:$("#age").val(),
-			        subject:$("#subject").val(),
-			        address:$("#address").val()
-			      }
 
-
-			      console.log(data);
-			      $.ajax({
-			        url: '/studentSignup',
-			        type: 'POST',
-			        data:data,
-			        success: function(data){
-			             console.log(data);
-			           }
-			         })
-			    })
 		</script>
 	</body>
 </html>

@@ -106,19 +106,7 @@
 
 
 
-             $('.signup-btn').click(function(){
-               var data = {name:$("#school-name").val(), email:$("#username").val(), password:$("#password").val()}
-               console.log(data);
-               $.ajax({
-                 url: '/schoolSignup',
-                 type: 'POST',
-                 data:data,
-                 success: function(data){
-                      console.log(data);
 
-                    }
-                  })
-             })
 
 
 

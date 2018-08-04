@@ -124,14 +124,19 @@ passport.use('student.login',new LocalStratergy({
 
 	Student.findOne({'email':email},function (err,user) {
 		if(err){
+			console.log('hello');
 			return done(err);
+
 		}
 		if(!user){
 			req.flash('loggingError', 'user email not found')
+			console.log('hello');
 			return done(null,false);
 		}
 		if(!user.validPassword(req.body.password)){
+
 			req.flash('passworderror', 'incorrect password')
+			console.log('hello');
 			return done(null,false);
 		}
 		return done(null,user);
@@ -153,10 +158,12 @@ passport.use('teacher.login',new LocalStratergy({
 		}
 		if(!user){
 			req.flash('loggingError', 'user email not found')
+			console.log('hello');
 			return done(null,false);
 		}
 		if(!user.validPassword(req.body.password)){
 			req.flash('passworderror', 'incorrect password')
+			console.log('hello');
 			return done(null,false);
 		}
 		return done(null,user);
