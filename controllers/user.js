@@ -10,6 +10,18 @@ var School = require('../model/user').school;
 var Contact = require('../model/user').contact;
 var Assignment = require('../model/user').assignment;
 
+
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+		user: 'focado11@gmail.com',
+		pass: 'schoolportal'
+	}
+});
+
+
 const passport=require('passport');
 
 router.get('/data',function (req,res) {
@@ -277,7 +289,8 @@ router.get('/getNoticeTeacher', isTeacher, function (req,res) {
 
 router.post('/contact',function (req,res) {
 	var contact = new Contact();
-	if(req.body.tosend == 'School'){
+	console.log(req);
+	if(req.body.tosend == 'School Administration'){
 		contact.description = req.body.description;
 		contact.topic = req.body.subject;
 		contact.firstname = req.user._doc.firstname;
@@ -297,6 +310,33 @@ router.post('/contact',function (req,res) {
 				res.redirect('/teacherOauth/teacherDashboard.html');
 			}
 
+		})
+
+	}
+	if(req.body.tosend == 'Focado Team'){
+		var mailOptions = {
+			from: 'focado11@gmail.com',
+			to: 'mohankukreja1@gmail.com',
+			subject: req.body.subject,
+			text: `firstname : ${req.user._doc.firstname},
+				   lastname : ${req.user._doc.lastname},
+				   school : ${req.user._doc.school}
+				   description: ${req.body.description}
+			`
+		};
+
+		transporter.sendMail(mailOptions, function(error, info){
+			if (error) {
+				console.log(error);
+			} else {
+				console.log('Email sent: ' + info.response);
+				if(req.user._doc.typeOf == 'Student'){
+					res.redirect('/studentOauth/studentDashboard.html');
+				}
+				else{
+					res.redirect('/teacherOauth/teacherDashboard.html');
+				}
+			}
 		})
 
 	}
