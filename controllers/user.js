@@ -241,7 +241,7 @@ router.get('/getAssignment' ,function (req,res) {
 	Assignment.find({school : req.user._doc.school,
 		class_section : req.user._doc.class_section
 	},function (err,data) {
-		console.log(data);
+		res.json(data);
 	})
 
 })

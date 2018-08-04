@@ -3,19 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="25b85a59-8112-447e-b9b0-810850ae574b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/schoolOauth/studentSignup.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/schoolOauth/studentSignup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/schoolOauth/teacherSignup.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/schoolOauth/teacherSignup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/schoolOauth/uploadNotice.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/schoolOauth/uploadNotice.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/withoutOauth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/withoutOauth/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/withoutOauth/loginStudent.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/withoutOauth/loginStudent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/withoutOauth/loginTeacher.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/withoutOauth/loginTeacher.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/withoutOauth/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/withoutOauth/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/notice_uploads/notice-1533308933304.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/notice_uploads/notice-1533309074321.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/notice_uploads/notice-1533309827870.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/notice_uploads/notice-1533310134968.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/assignment_uploads/assignment-1533311604863.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/assignment_uploads/file-1533183327816.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/assignment_uploads/file-1533183644862.php" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -44,29 +35,29 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="2" />
-          <entry key="html" value="210" />
+          <entry key="html" value="216" />
           <entry key="jpg" value="2" />
-          <entry key="js" value="256" />
+          <entry key="js" value="259" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="2" />
-          <entry key="HTML" value="210" />
+          <entry key="HTML" value="216" />
           <entry key="Image" value="2" />
-          <entry key="JavaScript" value="256" />
+          <entry key="JavaScript" value="259" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="1394" />
-          <entry key="js" value="7031" />
+          <entry key="html" value="1401" />
+          <entry key="js" value="7045" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1394" />
-          <entry key="JavaScript" value="7031" />
+          <entry key="HTML" value="1401" />
+          <entry key="JavaScript" value="7045" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -77,8 +68,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="112" column="25" selection-start-line="112" selection-start-column="25" selection-end-line="112" selection-end-column="25" />
+            <state relative-caret-position="135">
+              <caret line="239" column="17" selection-start-line="239" selection-start-column="13" selection-end-line="239" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -101,6 +92,7 @@
       <find>studentSignup</find>
       <find>teacherSignup</find>
       <find>teacherLog</find>
+      <find>getA</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -135,7 +127,6 @@
         <option value="$PROJECT_DIR$/frontend/teacherOauth/uploadAssignment.html" />
         <option value="$PROJECT_DIR$/frontend/studentOauth/Notices.html" />
         <option value="$PROJECT_DIR$/frontend/teacherOauth/teacherDashboard.html" />
-        <option value="$PROJECT_DIR$/frontend/schoolOauth/studentSignup.html" />
         <option value="$PROJECT_DIR$/frontend/schoolOauth/teacherSignup.html" />
         <option value="$PROJECT_DIR$/config/passport.js" />
         <option value="$PROJECT_DIR$/frontend/withoutOauth/loginStudent.html" />
@@ -143,6 +134,7 @@
         <option value="$PROJECT_DIR$/frontend/withoutOauth/signup.html" />
         <option value="$PROJECT_DIR$/frontend/schoolOauth/uploadNotice.html" />
         <option value="$PROJECT_DIR$/frontend/withoutOauth/login.html" />
+        <option value="$PROJECT_DIR$/frontend/schoolOauth/studentSignup.html" />
         <option value="$PROJECT_DIR$/controllers/user.js" />
       </list>
     </option>
@@ -216,6 +208,12 @@
               <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
               <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="studentOauth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="withoutOauth" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -227,12 +225,6 @@
               <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
               <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
               <item name="uploads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment_uploads" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -300,24 +292,24 @@
       <workItem from="1533182564105" duration="2993000" />
       <workItem from="1533220351434" duration="1464000" />
       <workItem from="1533305135873" duration="3595000" />
-      <workItem from="1533354382250" duration="1498000" />
+      <workItem from="1533354382250" duration="2289000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71426000" />
+    <option name="totallyTimeSpent" value="72217000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="794" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32547864" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3976436" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32547864" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3976436" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -439,11 +431,6 @@
         <state relative-caret-position="165">
           <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/studentOauth/Assignment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-435" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/studentOauth/contact.html">
@@ -576,27 +563,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/schoolOauth/teacherSignup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/schoolOauth/studentSignup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+        <state relative-caret-position="660">
+          <caret line="44" column="93" selection-start-line="44" selection-start-column="93" selection-end-line="44" selection-end-column="93" />
           <folding>
             <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/schoolOauth/teacherSignup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/frontend/studentOauth/Assignment.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="112" column="25" selection-start-line="112" selection-start-column="25" selection-end-line="112" selection-end-column="25" />
+        <state relative-caret-position="135">
+          <caret line="239" column="17" selection-start-line="239" selection-start-column="13" selection-end-line="239" selection-end-column="17" />
         </state>
       </provider>
     </entry>
