@@ -63,46 +63,6 @@ var studentSchema=mongoose.Schema({
 
 });
 
-var teacherSchema=mongoose.Schema({
-	firstname : {
-		type:String,
-		default: null
-	},
-	lastname:{
-		type:String,
-		default: null
-	},
-	phone:{
-		type:String,
-		default: null
-	},
-	email:{
-		type:String,
-		default: null
-	},
-	school:{
-		type:String,
-		default: null
-	},
-	typeOf: {
-		type:String,
-		default: null
-	},
-	class_section:{
-		type:Array,
-		default: null
-	},
-	password:{
-		type:String,
-		default: null
-	},
-	subject:{
-		type:Array,
-		default: null
-	}
-
-
-});
 
 
 var schoolSchema=mongoose.Schema({
@@ -136,6 +96,10 @@ var teacherSchema=mongoose.Schema({
 		type:String,
 		default: null
 
+	},
+	rating:{
+		type:String,
+		default:null
 	},
 	email:{
 		type:String,
@@ -331,5 +295,6 @@ obj.teacher =  mongoose.model('teacher',teacherSchema);
 obj.school  =  mongoose.model('school', schoolSchema);
 obj.notice  =  mongoose.model('notice', noticeSchema);
 obj.assignment = mongoose.model('assignment',assignmentSchema);
+
 
 module.exports = obj;

@@ -47,6 +47,7 @@ router.get('/student-login',function (req,res) {
 router.get('/teacher-login',function (req,res) {
 	res.redirect('/loginTeacher.html')
 })
+
 router.use('/schoolOauth',isSchool,express.static(path.join(__dirname,'../frontend/schoolOauth')));
 router.use('/teacherOauth',isTeacher,express.static(path.join(__dirname,'../frontend/teacherOauth')));
 router.use('/studentOauth',isStudent,express.static(path.join(__dirname,'../frontend/studentOauth')));
@@ -71,6 +72,11 @@ router.get('/updateSubjects', isSchool, function (req,res) {
 router.get('/contactStudent' , isStudent, function (req,res) {
 	res.redirect('/studentOauth/contact.html');
 })
+
+router.get('/rating' , isStudent, function (req,res) {
+	res.redirect('/studentOauth/rating.html');
+})
+
 router.get('/contactTeacher' , isTeacher, function (req,res) {
 	res.redirect('/teacherOauth/contact.html');
 })
@@ -342,6 +348,8 @@ router.post('/contact',function (req,res) {
 	}
 })
 
+
+
 router.get('/getContact',isSchool,function (req,res) {
 	Contact.find({school: req.user._doc.name},function(err,data){
 		var arr=[];
@@ -349,6 +357,13 @@ router.get('/getContact',isSchool,function (req,res) {
 			arr.push(data[i]._doc);
 		}
 		res.json(arr);
+	})
+})
+
+router.post('/rating',function (req,res) {
+	var query = { firstname: req.body.firstname , lastname: req.body.lastname };
+	Teacher.find(query,function (err,data) {
+		console.log(data);
 	})
 })
 
@@ -360,6 +375,7 @@ router.post('/uploadAssignment',function (req,res) {
 			console.log(err);
 			return;
 		}
+		console.log(req);
 		var newAssignment = new Assignment();
 		newAssignment.topic = req.body.topic;
 		newAssignment.filePath = req.file.Path;
