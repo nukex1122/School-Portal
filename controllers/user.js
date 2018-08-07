@@ -363,7 +363,18 @@ router.get('/getContact',isSchool,function (req,res) {
 router.post('/rating',function (req,res) {
 	var query = { firstname: req.body.firstname , lastname: req.body.lastname };
 	Teacher.find(query,function (err,data) {
-		console.log(data);
+		var rat = data[0]._doc.rating;
+		var ans = rat + Number(req.body.rating);
+		console.log(req.body.rating);
+		ans = ans / 20;
+		ans = ans * 10;
+		console.log(ans);
+		console.log(rat);
+		Teacher.update(query,{rating: ans} , function (err,data) {
+			console.log(data);
+			res.redirect('/schoolOauth/schoolDashboard.html')
+		})
+
 	})
 })
 

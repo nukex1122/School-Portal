@@ -98,7 +98,7 @@ var teacherSchema=mongoose.Schema({
 
 	},
 	rating:{
-		type:String,
+		type:Number,
 		default:null
 	},
 	email:{
