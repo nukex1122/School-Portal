@@ -360,6 +360,18 @@ router.get('/getContact',isSchool,function (req,res) {
 	})
 })
 
+
+router.get('/getRating',isTeacher,function (req,res) {
+	var query = { firstname: req.user._doc.firstname , lastname: req.user._doc.lastname };
+	Teacher.find(query,function (err,data) {
+		res.json(data[0]._doc.rating);
+	})
+})
+
+
+
+
+
 router.post('/rating',function (req,res) {
 	var query = { firstname: req.body.firstname , lastname: req.body.lastname };
 	Teacher.find(query,function (err,data) {
