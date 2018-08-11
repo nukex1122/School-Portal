@@ -51,10 +51,7 @@ var studentSchema=mongoose.Schema({
 		type:String,
 		default: null
 	},
-	rating:{
-        type: Number,
-		default: null
-	},
+
 	subject:{
 		type:Array,
 		default: null

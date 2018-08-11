@@ -92,8 +92,7 @@ router.post('/schoolSignup',passport.authenticate('school.signup',{
     failureFlash: true
 
 }),function (req,res) {
-    console.log(req);
-    res.send('school logged in');
+	res.redirect('/schoolOauth/schoolDashboard.html');
 
 })
 
