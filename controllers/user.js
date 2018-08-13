@@ -368,11 +368,31 @@ router.get('/getRating',isTeacher,function (req,res) {
 })
 
 
+router.get('/teachers' , isStudent , function(req,res){
+	var query = {class_section : req.user._doc.class_section};
+	Teacher.find(query,function (err,data) {
+		var arr = [];
+		for(var i=0;i<data.length;i++){
+			var name = data[0].firstname + ' ' + data[0].lastname;
+			arr.push(name);
+		}
+		res.json(arr);
+	})
+})
+
+
+
+
+
 
 
 
 router.post('/rating',function (req,res) {
-	var query = { firstname: req.body.firstname , lastname: req.body.lastname };
+
+	var name = req.body.name;
+	console.log(name);
+	var arr = name.split(" ");
+	var query = { firstname: arr[0] , lastname: arr[1] };
 	Teacher.find(query,function (err,data) {
 		var rat = data[0]._doc.rating;
 		var ans = rat + Number(req.body.rating);
@@ -382,8 +402,8 @@ router.post('/rating',function (req,res) {
 		console.log(ans);
 		console.log(rat);
 		Teacher.update(query,{rating: ans} , function (err,data) {
-			console.log(data);
-			res.redirect('/schoolOauth/schoolDashboard.html')
+			
+			res.redirect('/studentOauth/studentDashboard.html');
 		})
 
 	})
@@ -426,6 +446,10 @@ router.get('/logout',function (req,res) {
     req.logout();
     res.redirect('/');
 })
+
+
+
+
 
 function isSchool(req,res,next) {
 	//console.log(req);
