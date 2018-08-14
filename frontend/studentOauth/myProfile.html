@@ -20,9 +20,10 @@
 	</head>
 	<body>
 		<header>
-			<nav class="light-blue lighten-1">
+			<nav class="light-blue lighten-2">
 				<div class="nav-wrapper container">
-					<a href="studentDashboard.html" class="brand-logo" style="font-size:1.5em"><i class="material-icons">cloud</i>Focado <span> - Student Dashboard</span></a>
+                    <img src = "images/logoWhite.png" style="height: 64px;">
+					<a href="studentDashboard.html" class="brand-logo" style="font-size:1.5em">Focado Student Dashboard</a>
 					<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 						<li>
@@ -45,6 +46,7 @@
 		<main>
 			<div class="container" style="margin-top:1%">
 				<div class="row">
+<!--
 					<div class="col s12 m12 l6">
 						<div class="card">
 							<div class="card-image">
@@ -54,8 +56,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="col s12 m12 l6">
-						<div class="card ">
+-->
+					<div class="col s12 m12 l12">
+						<div class="card z-depth-2">
 							<div class="card-content">
 								<!--          <span class="card-title">Card Title</span>-->
 								<div class= "container valign-center">
@@ -73,6 +76,75 @@
 													</div>
 													</div>
 													-->
+                                                <div class="row margin">
+								<div class="input-field col s12">
+									<i class="mdi-social-person-outline prefix material-icons">person_outline</i>
+									<input id="username" type="email" name="email">
+									<label for="username" class="center-align">Username</label>
+								</div>
+								<div class="input-field col s12">
+									<i class="prefix material-icons">lock_outline</i>
+									<input id="password" type="password" name="password">
+									<label for="password" name="password">Password</label>
+								</div>
+<!--
+								<div class="input-field col s12">
+									<i class="prefix material-icons">lock_outline</i>
+									<input id="confirmpassword" type="password" name="confirmpassword">
+									<label for="confirmpassword" name="confirmpassword">Confirm Password</label>
+								</div>
+-->
+								<div class="input-field col s6">
+									<i class="mdi-action-lock-w prefix material-icons">confirmation_number</i>
+									<input type="text" id="admissionNumber" name="admissionNumber"  />
+									<label for="admissionNumber" name="admissionNumber">Admission Number</label>
+								</div>
+								<div class="input-field col s6">
+									<i class="prefix material-icons">lock_outline</i>
+									<input type="text" id="phone" name="phone"  />
+									<label for="phone" name="phone">Phone Number</label>
+								</div>
+								<div class="input-field col s6">
+									<i class="prefix material-icons">person_pin</i>
+									<input type="text" id="firstname" name="firstname"  />
+									<label for="firstname" name="firstname">First Name</label>
+								</div>
+								<div class="input-field col s6">
+									<i class="prefix material-icons">person_pin</i>
+									<input type="text" id="lastname" name="lastname"  />
+									<label for="lastname" name="lastname">Last Name</label>
+								</div>
+								<div class="input-field col s6">
+									<i class="prefix material-icons">confirmation_number</i>
+									<input type="text" id="rollNumber" name="rollNumber"  />
+									<label for="rollNumber" name="rollNumber">Roll Number</label>
+								</div>
+								<div class="input-field col s6">
+									<i class="prefix material-icons">class</i>
+									<input type="text" id="class_section" name="class_section"  />
+									<label >Class/Section</label>
+								</div>
+								<div class="input-field col s6">
+									<i class="prefix material-icons">date_range</i>
+									<input type="text" id="age" name="age"  />
+									<label >Age</label>
+								</div>
+								<div class="input-field col s6">
+									<i class="prefix material-icons">subject</i>
+									<input type="text" id="subject" name="subject"  />
+									<label >Subjects</label>
+								</div>
+								<div class="input-field col s12">
+									<i class="prefix material-icons">home</i>
+									<input type="text" id="address" name="address"  />
+									<label >Address</label>
+								</div>
+                                                      <div class="input-field col s4 offset-s4">
+                        <input type="submit" class="btn col s12 blue-grey darken-1 accent-2 login-btn" value="Update Details">
+                    </div>
+							</div>
+
+<!--
 												<div class="row">
 													<div class="input-field col s6">
 														<input disabled value=" " id="disabled" type="text" class="validate first-name">
@@ -103,9 +175,10 @@
 													<div class="input-field col s12">
 														<input disabled value="**********" id="disabled" type="text" class="validate">
 														<label for="disabled">Password</label>
-														<!--            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">edit</i></a>-->
+														            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">edit</i></a>
 													</div>
 												</div>
+-->
 											</div>
 										</form>
 									</div>
@@ -116,7 +189,7 @@
 				</div>
 			</div>
 		</main>
-		<footer class="page-footer grey ">
+		<footer class="page-footer light-blue lighten-2 ">
 			<div class="container">
 				<div class="row">
 					<div class="col l6 s12">
