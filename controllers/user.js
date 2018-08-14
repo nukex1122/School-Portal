@@ -405,7 +405,7 @@ router.post('/rating',function (req,res) {
 		console.log(ans);
 		console.log(rat);
 		Teacher.update(query,{rating: ans} , function (err,data) {
-			
+
 			res.redirect('/studentOauth/studentDashboard.html');
 		})
 

@@ -13,14 +13,14 @@
 			color: #ee6e73;
 			font-weight: 300;
 			}
-            
+
 			footer {
 			position:fixed;
 			bottom:0rem;
 			width:100%;
 			background:#6cf;
 			}
-		
+
 		</style>
 	</head>
 	<body>
@@ -60,7 +60,7 @@
 											<th>S No.</th>
 											<th>Subject</th>
 											<th>Description of Assignment</th>
-											<th>Date</th>
+											<th>Deadline</th>
 											<th>Download Option</th>
 										</tr>
 									</thead>
@@ -130,7 +130,7 @@
 			        var str="<td>" + k + "</td>"
 			        str+="<td>" + data[i].subject + "</td>"
 			        str+="<td>" + data[i].description + "</td>"
-			        str+="<td>" + data[i].date + "</td>"
+			        str+="<td>" + data[i].deadline + "</td>"
 			        str+=`<td><a href=${data[i].filePath}>` + data[i].filePath.split("/")[data[i].filePath.split("/").length-1] + ' <i class="fa fa-download" aria-hidden="true"></i></a></td>'
 			          $('.notices tbody').append(`<tr>${str}</tr>`);
 
