@@ -139,10 +139,9 @@ router.post('/studentSignup', function(req,res){
 		newUser.address=req.body.address
 		newUser.school = req.user._doc.name;
 		newUser.email=req.body.email;
-		var arr=[];
-		var ans = req.body.subject;
-		arr=ans.split(',');
-		newUser.subject = arr;
+
+
+		newUser.subject = req.body.subject;
 
 		newUser.class_section = req.body.class_section;
 
@@ -175,11 +174,11 @@ router.post('/teacherSignup', function(req,res){
 		newUser.lastname = req.body.lastname;
 		newUser.phone = req.body.phone;
 		newUser.school = req.user._doc.name;
-		var arr=[];
+
 		var ans = req.body.subject;
-		arr=ans.split(',');
-		newUser.subject = arr;
-		var classarr =[];
+
+		newUser.subject = ans;
+		req.body.subject;
 		var ans1 = req.body.class_section;
 		classarr = ans1.split(',');
 		newUser.class_section = classarr;
@@ -423,7 +422,7 @@ router.post('/uploadAssignment',function (req,res) {
 		console.log(req);
 		var newAssignment = new Assignment();
 		newAssignment.topic = req.body.topic;
-		newAssignment.filePath = req.file.Path;
+		newAssignment.filePath = req.file.path;
 		newAssignment.deadline = req.body.deadline;
 		newAssignment.description = req.body.description;
 		newAssignment.teacherFirstname = req.user._doc.firstname;
