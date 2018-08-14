@@ -67,7 +67,9 @@
 								</div>
 								<div class="input-field col m6 s12">
 									<i class="prefix material-icons">subject</i>
-									<input type="text" id="subject" name="subject"  />
+									<select id="select" name="subject" multiple>
+										<option value="" disabled >Choose your option</option>
+									</select>
 									<label >Subjects</label>
 								</div>
 							</div>
@@ -117,6 +119,30 @@
 			          $(el).next().css('text-decoration', 'line-through'); //or addClass
 			      }
 			    }
+
+					document.addEventListener('DOMContentLoaded', function() {
+						var elems = document.querySelectorAll('select');
+						//var instances = M.FormSelect.init(elems, options);
+					});
+
+					// Or with jQuery
+
+					$(document).ready(function(){
+						$('select').formSelect();
+					});
+
+
+					$.ajax({
+					url: '/getSubjects',
+					type: 'GET',
+					success: function(data){
+								for(i in data){
+									$("#select").append("<option>"+data[i]+"</option>")
+								}
+								$('select').formSelect();
+							}
+						})
+
 
 
 		</script>

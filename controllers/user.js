@@ -242,6 +242,9 @@ router.post('/fillSubjects',isSchool, function (req,res) {
 	})
 })
 
+router.get('/getSubjects', function (req,res) {
+	res.json(req.user._doc.subject); //this api can be accessed only by school
+})
 
  router.get('/getNoticeSchool', isSchool, function (req,res) {
 	 Notice.find({school : req.user._doc.name},function (err,data) {
@@ -402,7 +405,7 @@ router.post('/rating',function (req,res) {
 		console.log(ans);
 		console.log(rat);
 		Teacher.update(query,{rating: ans} , function (err,data) {
-			
+
 			res.redirect('/studentOauth/studentDashboard.html');
 		})
 
