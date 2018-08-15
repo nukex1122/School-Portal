@@ -9,7 +9,7 @@
 		<link href="css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Notices | Student Dashboard</title>
+        <title>Ratings | Teacher Dashboard</title>
 		<style>
 			footer {
 			position:fixed;
@@ -31,40 +31,41 @@
 			<nav class="light-blue lighten-2">
 				<div class="nav-wrapper container">
                     <img src = "images/logoWhite.png" style="height: 64px;">
-					<a href="studentDashboard.html" class="brand-logo" style="font-size:1.5em">Focado Student Dashboard</a>
+					<a href="teacherDashboard.html" class="brand-logo" style="font-size:1.5em">Focado Teacher Dashboard</a>
 					<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 						<li>
 							<a href="#" class="name"></a>
 						</li>
 						<li>
-							<a class="waves-effect waves-teal btn-flat" style="color:#fff"><b>Sign Out</b></a>
+							<a class="waves-effect waves-teal btn-flat" style="color:#fff" href="../logout"><b>Sign Out</b></a>
 						</li>
-						<li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
 					</ul>
 				</div>
 			</nav>
 			<ul class="sidenav" id="mobile-demo">
-				<li><a href="sass.html">Sass</a></li>
-				<li><a href="badges.html">Components</a></li>
-				<li><a href="collapsible.html">Javascript</a></li>
-				<li><a href="mobile.html">Mobile</a></li>
+        <li>
+          <a href="#" class="name"></a>
+        </li>
+        <li>
+          <a class="waves-effect waves-teal btn-flat" href="../logout"><b>Sign Out</b></a>
+        </li>
 			</ul>
 		</header>
 		<main>
 			<div class="row">
 				<div class="col offset-m2 m8  s12">
 					<div id="highlight" class="section scrollspy">
-						<h3 class="header">Notices</h3>
+						<h3 class="header">Rating: <b><span style="color:#000" class="rating-data"></span></b></h3>
+
+
 						<div class="row">
 							<div class="col s12">
-								<table class=" notices highlight responsive-table">
+								<table class=" notices highlight responsive-table ">
 									<thead>
 										<tr>
 											<th>S No.</th>
-											<th>Subject of Notice</th>
-											<th>Date of Notice</th>
-											<th>Download Option</th>
+											<th>Rating</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -120,19 +121,16 @@
 			  })
 
 			$.ajax({
-			  url: '/getNoticeStudent',
+			  url: '/getRating',
 			  type: 'GET',
 			  success: function(data){
 			  	console.log(data);
+          $('.rating-data').text(data);
 			      var k = 1
 			      for(var i=0; i<data.length;i++){
 			        console.log(data[i]);
 			        var str="<td>" + k + "</td>"
 			        str+="<td>" + data[i].description + "</td>"
-			        str+="<td>" + data[i].date + "</td>"
-			        str+=`<td><a href=../${data[i].filePath}>` + data[i].filePath.split("/")[data[i].filePath.split("/").length-1] + ' <i class="fa fa-download" aria-hidden="true"></i></a></td>'
-			          $('.notices tbody').append(`<tr>${str}</tr>`);
-
 			        k++
 			      }
 

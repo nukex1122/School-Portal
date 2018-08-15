@@ -9,7 +9,7 @@
 		<link href="css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Notices | Student Dashboard</title>
+        <title> Complaints | School Dashboard</title>
 		<style>
 			footer {
 			position:fixed;
@@ -31,7 +31,7 @@
 			<nav class="light-blue lighten-2">
 				<div class="nav-wrapper container">
                     <img src = "images/logoWhite.png" style="height: 64px;">
-					<a href="studentDashboard.html" class="brand-logo" style="font-size:1.5em">Focado Student Dashboard</a>
+					<a href="schoolDashboard.html" class="brand-logo" style="font-size:1.5em">Focado School Dashboard</a>
 					<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
 						<li>
@@ -55,16 +55,16 @@
 			<div class="row">
 				<div class="col offset-m2 m8  s12">
 					<div id="highlight" class="section scrollspy">
-						<h3 class="header">Notices</h3>
+						<h3 class="header">Complaints</h3>
 						<div class="row">
 							<div class="col s12">
-								<table class=" notices highlight responsive-table">
+								<table class=" complaints highlight responsive-table">
 									<thead>
 										<tr>
 											<th>S No.</th>
-											<th>Subject of Notice</th>
-											<th>Date of Notice</th>
-											<th>Download Option</th>
+                      <th>Topic</th>
+											<th>Name</th>
+											<th>Class/Section</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -110,17 +110,17 @@
 
 			});
 
-			$.ajax({
-			url: '/data',
-			type: 'GET',
-			success: function(data){
-			      $('.name').text(data.firstname + " " + data.lastname);
 
-			    }
-			  })
+      				$.ajax({
+      					url: '/data',
+      					type: 'GET',
+      					success: function(data){
+      						$('.name').text(data.name);
+      					}
+      				})
 
 			$.ajax({
-			  url: '/getNoticeStudent',
+			  url: '/getContact',
 			  type: 'GET',
 			  success: function(data){
 			  	console.log(data);
@@ -128,10 +128,10 @@
 			      for(var i=0; i<data.length;i++){
 			        console.log(data[i]);
 			        var str="<td>" + k + "</td>"
-			        str+="<td>" + data[i].description + "</td>"
-			        str+="<td>" + data[i].date + "</td>"
-			        str+=`<td><a href=../${data[i].filePath}>` + data[i].filePath.split("/")[data[i].filePath.split("/").length-1] + ' <i class="fa fa-download" aria-hidden="true"></i></a></td>'
-			          $('.notices tbody').append(`<tr>${str}</tr>`);
+			        str+="<td>" + data[i].topic + "</td>"
+			        str+="<td>" + data[i].firstname + data[i].lastname + "</td>"
+              str+="<td>" + data[i].class_section+ "</td>"
+              $('.complaints tbody').append(`<tr>${str}</tr>`);
 
 			        k++
 			      }
