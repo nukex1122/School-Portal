@@ -85,12 +85,12 @@
                                                 <div class="row margin">
 								<div class="input-field col s12">
 									<i class="mdi-social-person-outline prefix material-icons">person_outline</i>
-									<input id="username" type="email" name="email">
-									<label for="username" class="center-align">Username</label>
+									<input placeholder="Placeholder" class = "username" id="username" type="email" name="email">
+									<label for="username" class="center-align">E-mail</label>
 								</div>
 								<div class="input-field col s12">
 									<i class="prefix material-icons">lock_outline</i>
-									<input id="password" type="password" name="password">
+									<input placeholder="**********" class = "password" id="password" type="password" name="password">
 									<label for="password" name="password">Password</label>
 								</div>
 <!--
@@ -102,47 +102,47 @@
 -->
 								<div class="input-field col s6">
 									<i class="mdi-action-lock-w prefix material-icons">confirmation_number</i>
-									<input type="text" id="admissionNumber" name="admissionNumber"  />
+									<input placeholder="Placeholder" class = "adm-no" type="text" id="admissionNumber" name="admissionNumber"  />
 									<label for="admissionNumber" name="admissionNumber">Admission Number</label>
 								</div>
 								<div class="input-field col s6">
 									<i class="prefix material-icons">lock_outline</i>
-									<input type="text" id="phone" name="phone"  />
+									<input placeholder="Placeholder" class = "number" type="text" id="phone" name="phone"  />
 									<label for="phone" name="phone">Phone Number</label>
 								</div>
 								<div class="input-field col s6">
 									<i class="prefix material-icons">person_pin</i>
-									<input type="text" id="firstname" name="firstname"  />
+									<input placeholder="Placeholder" class = "first-name" type="text" id="firstname" name="firstname"  />
 									<label for="firstname" name="firstname">First Name</label>
 								</div>
 								<div class="input-field col s6">
 									<i class="prefix material-icons">person_pin</i>
-									<input type="text" id="lastname" name="lastname"  />
+									<input placeholder="Placeholder" class = "last-name" type="text" id="lastname" name="lastname"  />
 									<label for="lastname" name="lastname">Last Name</label>
 								</div>
 								<div class="input-field col s6">
 									<i class="prefix material-icons">confirmation_number</i>
-									<input type="text" id="rollNumber" name="rollNumber"  />
+									<input placeholder="Placeholder" class = "roll-no" type="text" id="rollNumber" name="rollNumber"  />
 									<label for="rollNumber" name="rollNumber">Roll Number</label>
 								</div>
 								<div class="input-field col s6">
 									<i class="prefix material-icons">class</i>
-									<input type="text" id="class_section" name="class_section"  />
+									<input placeholder="Placeholder" class = "class_section" type="text" id="class_section" name="class_section"  />
 									<label >Class/Section</label>
 								</div>
 								<div class="input-field col s6">
 									<i class="prefix material-icons">date_range</i>
-									<input type="text" id="age" name="age"  />
+									<input placeholder="Placeholder" class = "age" type="text" id="age" name="age"  />
 									<label >Age</label>
 								</div>
 								<div class="input-field col s6">
 									<i class="prefix material-icons">subject</i>
-									<input type="text" id="subject" name="subject"  />
+									<input placeholder="Placeholder" class = "subjects" type="text" id="subject" name="subject"  />
 									<label >Subjects</label>
 								</div>
 								<div class="input-field col s12">
 									<i class="prefix material-icons">home</i>
-									<input type="text" id="address" name="address"  />
+									<input placeholder="Placeholder" class = "address" type="text" id="address" name="address"  />
 									<label >Address</label>
 								</div>
                                                       <div class="input-field col s4 offset-s4">
@@ -233,9 +233,15 @@
 			      console.log(data);
 			      $('.first-name').val(data.firstname);
 			      $('.last-name').val(data.lastname);
-			      $('.email').val(data.email);
-			      $('.class').val(data.class_section.split("-")[0]);
-			      $('.section').val(data.class_section.split("-")[1]);
+			      $('.username').val(data.email);
+			      $('.class_section').val(data.class_section);
+			      $('.adm-no').val(data.admissionNumber);
+			      $('.number').val(data.phone);
+			      $('.roll-no').val(data.rollNumber);
+			      $('.age').val(data.age);
+			      $('.subjects').val(data.subject);
+			      $('.address').val(data.address);                
+                    
 			      $('.name').text(data.firstname + " " + data.lastname);
 
 			    }

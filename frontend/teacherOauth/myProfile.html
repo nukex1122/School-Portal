@@ -47,37 +47,32 @@
                                             <div class="row margin">
 								<div class="input-field col s12">
 									<i class="mdi-social-person-outline prefix material-icons">person_outline</i>
-									<input id="username" type="email" name="email">
-									<label for="username" class="center-align">Username</label>
+									<input class = "email" placeholder="." id="username" type="email" name="email">
+									<label for="username" class="center-align">E-mail Address</label>
 								</div>
 								<div class="input-field col s12">
 									<i class="prefix material-icons">lock_outline</i>
-									<input id="password" type="password" name="password">
+									<input class = "password" placeholder="**********" id="password" type="password" name="password">
 									<label for="password" name="password">Password</label>
-								</div>
-								<div class="input-field col s12">
-									<i class="prefix material-icons">lock_outline</i>
-									<input id="confirmpassword" type="password" name="confirmpassword">
-									<label for="password" name="confirmpassword">Confirm Password</label>
 								</div>
 								<div class="input-field col m6 s12">
 									<i class="prefix material-icons">person_pin</i>
-									<input type="text" id="firstname" name="firstname"  />
+									<input class = "first-name" placeholder="." type="text" id="firstname" name="firstname"  />
 									<label for="firstname" name="firstname">First Name</label>
 								</div>
 								<div class="input-field col m6 s12">
 									<i class="prefix material-icons">person_pin</i>
-									<input type="text" id="lastname" name="lastname"  />
+									<input class = "last-name" placeholder="." type="text" id="lastname" name="lastname"  />
 									<label for="lastname" name="lastname">Last Name</label>
 								</div>
 								<div class="input-field col m6 s12">
 									<i class="prefix material-icons">lock_outline</i>
-									<input type="text" id="phone" name="phone"  />
+									<input class = "number" placeholder="." type="text" id="phone" name="phone"  />
 									<label for="phone" name="phone">Phone Number</label>
 								</div>
 								<div class="input-field col m6 s12">
 									<i class="prefix material-icons">class</i>
-									<input type="text" id="class_section" name="class_section"  />
+									<input class = "class_section" placeholder="." type="text" id="class_section" name="class_section"  />
 									<label >Class/Section</label>
 								</div>
 								<div class="input-field col m6 s12">
@@ -91,56 +86,7 @@
                         <input type="submit" class="btn col s12 blue-grey darken-1 accent-2 login-btn" value="Update Details">
                     </div>
 							</div>
-<!--											<div class="row">-->
-												<!--
-													<div class="input-field col s6">
-													  <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-													  <label for="first_name">First Name</label>
-													</div>
-													<div class="input-field col s6">
-													  <input id="last_name" type="text" class="validate">
-													  <label for="last_name">Last Name</label>
-													</div>
-													</div>
-													-->
-<!--
-												<div class="row">
-													<div class="input-field col s6">
-														<input disabled value=" " id="disabled" type="text" class="validate first-name">
-														<label for="disabled">First Name</label>
-													</div>
-													<div class="input-field col s6">
-														<input disabled value=" " id="disabled" type="text" class="validate last-name">
-														<label for="disabled">Last Name</label>
-													</div>
-												</div>
-												<div class="row">
-													<div class="input-field col s12">
-														<input disabled value=" " id="disabled" type="text" class="validate email">
-														<label for="disabled">E-Mail</label>
-													</div>
-												</div>
-												<div class="row">
-													<div class="input-field col s12">
-														<input disabled value=" " id="disabled" type="text" class="validate class-section">
-														<label for="disabled">Class</label>
-													</div>
-												</div>
-												<div class="row">
-													<div class="input-field col s12">
-														<input disabled value=" " id="disabled" type="text" class="validate subjects">
-														<label for="disabled">Subjects</label>
-													</div>
-												</div>
-												<div class="row">
-													<div class="input-field col s12">
-														<input disabled value="**********" id="disabled" type="text" class="validate">
-														<label for="disabled">Password</label>
-														            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">edit</i></a>
-													</div>
-												</div>
-											</div>
--->
+
 										</form>
 									</div>
 								</div>
@@ -150,7 +96,7 @@
 				</div>
 			</div>
 		</main>
-		<footer class="page-footer grey ">
+		<footer class="page-footer light-blue lighten-2">
 			<div class="container">
 				<div class="row">
 					<div class="col l6 s12">
@@ -176,6 +122,10 @@
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
 		<script>
+            $(document).ready(function(){
+                $('select').formSelect();
+                });
+			var window_width = $(window).width();
 			$(document).ready(function(){
 			  $('.sidenav').sidenav();
 			});
@@ -189,7 +139,8 @@
 			      $('.first-name').val(data.firstname);
 			      $('.last-name').val(data.lastname);
 			      $('.email').val(data.email);
-			      $('.class-section').val(data.class_section.join(", "));
+			      $('.number').val(data.phone);
+                  $('.class_section').val(data.class_section.join(", "));
 			      $('.subjects').val(data.subject.join(", "));
 			      $('.name').text(data.firstname + " " + data.lastname);
 
