@@ -9,6 +9,7 @@ var Notice = require('../model/user').notice;
 var School = require('../model/user').school;
 var Contact = require('../model/user').contact;
 var Assignment = require('../model/user').assignment;
+var Exam = require('../model/user').exam;
 
 
 var nodemailer = require('nodemailer');
@@ -385,6 +386,18 @@ router.get('/teachers' , isStudent , function(req,res){
 
 
 
+
+router.post('/addExam',function (req,res) {
+	var newExam = new Exam();
+	newExam.name = req.body.subject;
+	newExam.class = req.body.class;
+
+	newExam.save(function (err) {
+		if(err) throw (err);
+
+		res.redirect('/schoolOauth/schoolDashboard.html')
+	})
+})
 
 
 

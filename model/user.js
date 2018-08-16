@@ -258,6 +258,18 @@ var assignmentSchema=mongoose.Schema({
 });
 
 
+var examSchema = mongoose.Schema({
+	name:{
+		type:String,
+		default: null
+	},
+	class:{
+		type: Array,
+		default: null
+	}
+})
+
+
 
 
 
@@ -288,6 +300,7 @@ studentSchema.methods.validPassword = function (password) {
 
 
 
+
 var obj ={};
 
 obj.contact =  mongoose.model('contact', contactSchema);
@@ -296,6 +309,7 @@ obj.teacher =  mongoose.model('teacher',teacherSchema);
 obj.school  =  mongoose.model('school', schoolSchema);
 obj.notice  =  mongoose.model('notice', noticeSchema);
 obj.assignment = mongoose.model('assignment',assignmentSchema);
+obj.exam = mongoose.model('exam',examSchema);
 
 
 module.exports = obj;
