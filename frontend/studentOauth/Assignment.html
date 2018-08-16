@@ -58,7 +58,7 @@
 						<h3 class="header">Assignments</h3>
 						<div class="row">
 							<div class="col s12">
-								<table class=" assignments highlight responsive-table blue-grey darken-1 white-text">
+								<table class="assignments highlight responsive-table blue-grey darken-1 white-text">
 									<thead>
 										<tr>
 											<th>S No.</th>
@@ -136,8 +136,8 @@
 			        str+="<td>" + data[i].subject + "</td>"
 			        str+="<td>" + data[i].description + "</td>"
 			        str+="<td>" + data[i].deadline + "</td>"
-			        str+=`<td><a href=${data[i].filePath}>` + data[i].filePath.split("/")[data[i].filePath.split("/").length-1] + ' <i class="fa fa-download" aria-hidden="true"></i></a></td>'
-			          $('.notices tbody').append(`<tr>${str}</tr>`);
+			        str+=`<td><a href=${data[i].filePath}>` + data[i].filePath.split("/")[data[i].filePath.split("/").length-1] + '<i class="fa fa-download" aria-hidden="true"></i></a></td>'
+			          $('.assignments tbody').append(`<tr>${str}</tr>`);
 
 			        k++
 			      }
