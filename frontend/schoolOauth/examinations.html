@@ -8,7 +8,7 @@
 		<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Subjects | School Dashboard</title>
+        <title>Examinations | School Dashboard</title>
 	</head>
 	<style>
 		html, body{
@@ -51,20 +51,38 @@
 							<div class="row">
 								<div class="input-field col s12 center">
 									<img src="images/logo.png" alt="" class="circle responsive-img valign profile-image-login">
-									<h5 class="center login-form-text"><b>Fill Subjects</b></h5>
+									<h5 class="center login-form-text"><b>Add Examinations</b></h5>
 								</div>
 							</div>
 							<div class="row margin">
 								<div class="input-field col s12">
-									<i class="prefix material-icons">description</i>
+<!--									<i class="prefix material-icons">description</i>-->
 									<input type="text" id="subject" name="subject" >
-									<label>Subject Names</label>
+									<label>Examination Name</label>
 								</div>
+                                  <div class="input-field col s12">
+                                    <select multiple>
+                                      <option value="" disabled selected>Choose your option</option>
+                                      <option value="1">Class I</option>
+                                      <option value="2">Class II</option>
+                                      <option value="3">Class III</option>
+                                      <option value="4">Class IV</option>
+                                      <option value="5">Class V</option>
+                                      <option value="6">Class VI</option>
+                                      <option value="7">Class VII</option>
+                                      <option value="8">Class VIII</option>
+                                      <option value="9">Class IX</option>
+                                      <option value="10">Class X</option>
+                                      <option value="11">Class XI</option>
+                                      <option value="12">Class XII</option>    
+                                    </select>
+                                    <label>Select Classes</label>
+                                  </div>
 
 							</div>
 							<div class="row"  style="margin-bottom:0">
 								<div class="input-field col s12 ">
-									<input type="submit" class="btn col s12 blue-grey darken-1  accent-2 login-btn" value="Submit">
+									<input type="submit" class="btn col s12 blue-grey darken-1 accent-2 login-btn" value="Submit">
 								</div>
 							</div>
 						</form>
@@ -76,6 +94,9 @@
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
 		<script>
+              $(document).ready(function(){
+                $('select').formSelect();
+                });
 			var window_width = $(window).width();
 
 			  /*Preloader*/
