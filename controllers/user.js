@@ -424,6 +424,30 @@ router.post('/rating',function (req,res) {
 	})
 })
 
+router.get('/getexams',function (req,res) {
+	Exam.find({},function (err,data) {
+		var arr=[];
+		for(var j=0;j<data.length;j++){
+			var obj= {};
+			obj.name = data[j]._doc.name;
+			var ans = data[j]._doc.class;
+			var data2 = req.user._doc.class_section;
+			var ans2=[];
+			for(var i=0;i<data2.length;i++){
+				ans2.push(data2[i].charAt(0));
+			}
+			console.log(ans2);
+			var dataF = ans.filter(value => -1 !== ans2.indexOf(value));
+			console.log(dataF);
+			obj.class = dataF;
+			arr.push(obj);
+
+		}
+		res.json(arr);
+
+	})
+})
+
 
 router.post('/uploadAssignment',function (req,res) {
 	uploadAssignment(req, res, function (err) {
