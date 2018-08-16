@@ -371,11 +371,12 @@ router.get('/getRating',isTeacher,function (req,res) {
 
 
 router.get('/teachers' , isStudent , function(req,res){
+	console.log(req);
 	var query = {class_section : req.user._doc.class_section};
 	Teacher.find(query,function (err,data) {
 		var arr = [];
 		for(var i=0;i<data.length;i++){
-			var name = data[0].firstname + ' ' + data[0].lastname;
+			var name = data[i].firstname + ' ' + data[i].lastname;
 			arr.push(name);
 		}
 		res.json(arr);
@@ -390,7 +391,6 @@ router.get('/teachers' , isStudent , function(req,res){
 
 
 router.post('/rating',function (req,res) {
-
 	var name = req.body.name;
 	console.log(name);
 	var arr = name.split(" ");
@@ -479,5 +479,6 @@ function isStudent(req,res,next) {
 }
 
 module.exports = router;
+
 
 //http://localhost:3000/uploads/notice_uploads/notice-1533308933304.jpg

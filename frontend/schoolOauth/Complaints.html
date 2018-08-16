@@ -63,6 +63,7 @@
 										<tr >
 											<th>S No.</th>
                       <th>Topic</th>
+											<th>Description</th>
 											<th>Name</th>
 											<th>Class/Section</th>
 										</tr>
@@ -129,6 +130,7 @@
 			        console.log(data[i]);
 			        var str="<td>" + k + "</td>"
 			        str+="<td>" + data[i].topic + "</td>"
+					str+="<td>" + data[i].description + "</td>"
 			        str+="<td>" + data[i].firstname + data[i].lastname + "</td>"
               str+="<td>" + data[i].class_section+ "</td>"
               $('.complaints tbody').append(`<tr>${str}</tr>`);
