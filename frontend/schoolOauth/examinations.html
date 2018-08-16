@@ -47,7 +47,7 @@
 			<div class="container" style="margin-top:1%">
 				<div id="login-page" class="row">
 					<div class="col s6 offset-s3 z-depth-4 card-panel" >
-						<form class="login-form" style="padding: 0 0.75rem" action="/fillSubjects" method="post">
+						<form class="login-form" style="padding: 0 0.75rem" action="/addExam" method="post">
 							<div class="row">
 								<div class="input-field col s12 center">
 									<img src="images/logo.png" alt="" class="circle responsive-img valign profile-image-login">
@@ -61,8 +61,8 @@
 									<label>Examination Name</label>
 								</div>
                                   <div class="input-field col s12">
-                                    <select multiple>
-                                      <option value="" disabled selected>Choose your option</option>
+                                    <select multiple name="class">
+
                                       <option value="1">Class I</option>
                                       <option value="2">Class II</option>
                                       <option value="3">Class III</option>
