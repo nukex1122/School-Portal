@@ -565,10 +565,21 @@ router.get('/logout',function (req,res) {
 })
 
 router.post('/dataUpload',function (req,res) {
+	console.log(req);
 	var query = {class_section : req.body.class ,
-				subject: req.user._doc.subject
+				subject: req.body.subject,
+		school: req.user._doc.school
 	}
-	Student.find()
+	Student.find(query,function (err,data) {
+		var arr = [];
+		for(var i=0;i<data.length;i++){
+			var obj ={};
+			obj.nameStudent = data[i]._doc.firstname + ' ' + data[i]._doc.lastname;
+			obj.id = String(data[i]._doc._id);
+			arr.push(obj);
+		}
+		res.json(arr);
+	})
 })
 
 
