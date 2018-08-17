@@ -385,6 +385,20 @@ router.get('/teachers' , isStudent , function(req,res){
 })
 
 
+router.get('/students' , isTeacher , function(req,res){
+	console.log(req);
+	var query = {class_section : req.user._doc.class_section};
+	Student.find(query,function (err,data) {
+		var arr = [];
+		for(var i=0;i<data.length;i++){
+			var name = data[i].firstname + ' ' + data[i].lastname;
+			arr.push(name);
+		}
+		res.json(arr);
+	})
+})
+
+
 
 
 router.post('/addExam',function (req,res) {
@@ -410,16 +424,63 @@ router.post('/rating',function (req,res) {
 	var query = { firstname: arr[0] , lastname: arr[1] };
 	Teacher.find(query,function (err,data) {
 		var rat = data[0]._doc.rating;
-		var ans = rat + Number(req.body.rating);
-		console.log(req.body.rating);
-		ans = ans / 20;
-		ans = ans * 10;
-		console.log(ans);
-		console.log(rat);
-		Teacher.update(query,{rating: ans} , function (err,data) {
+		var finalans;
+		if(rat==null){
+			finalans = Number(req.body.rating);
+			Teacher.update(query,{rating: finalans} , function (err,data) {
 
-			res.redirect('/studentOauth/studentDashboard.html');
-		})
+				res.redirect('/studentOauth/studentDashboard.html');
+			})
+
+		}
+		else{
+			var ans = rat + Number(req.body.rating);
+			console.log(req.body.rating);
+			ans = ans / 20;
+			ans = ans * 10;
+			console.log(ans);
+			console.log(rat);
+			Teacher.update(query,{rating: ans} , function (err,data) {
+
+				res.redirect('/studentOauth/studentDashboard.html');
+			})
+		}
+
+
+	})
+})
+
+
+router.post('/ratingStudent',function (req,res) {
+	var name = req.body.name;
+	console.log(name);
+	var arr = name.split(" ");
+	var query = { firstname: arr[0] , lastname: arr[1] };
+	Student.find(query,function (err,data) {
+		var rat = data[0]._doc.rating;
+		var finalans;
+		if(rat==null){
+			finalans = Number(req.body.rating);
+			Student.update(query,{rating: finalans} , function (err,data) {
+
+				res.redirect('/teacherOauth/teacherDashboard.html');
+				return;
+			})
+
+		}
+		else{
+			var ans = rat + Number(req.body.rating);
+			console.log(req.body.rating);
+			ans = ans / 20;
+			ans = ans * 10;
+			console.log(ans);
+			console.log(rat);
+			Student.update(query,{rating: ans} , function (err,data) {
+
+				res.redirect('/teacherOauth/teacherDashboard.html');
+			})
+		}
+
 
 	})
 })

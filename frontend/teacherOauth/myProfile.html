@@ -54,8 +54,8 @@
 								</div>
 								<div class="input-field col s12">
 									<i class="prefix material-icons">lock_outline</i>
-									<input class = "password" placeholder="**********" id="password" type="password" name="password">
-									<label for="password" name="password">Password</label>
+									<input class = "rating" placeholder="10" id="rating" type="text" name="rating">
+									<label for="rating" name="password">Rating</label>
 								</div>
 								<div class="input-field col m6 s12">
 									<i class="prefix material-icons">person_pin</i>
@@ -147,6 +147,7 @@
 			      $('.last-name').val(data.lastname);
 			      $('.email').val(data.email);
 			      $('.number').val(data.phone);
+			      $('.rating').val(data.rating);
                   $('.class_section').val(data.class_section.join(", "));
 			      $('.subjects').val(data.subject.join(", "));
 			      $('.name').text(data.firstname + " " + data.lastname);

@@ -31,7 +31,7 @@
 							<a href="#">Mr. <span class="name">Dhruv Jain</span></a>
 						</li>
 						<li>
-							<a class="waves-effect waves-teal btn-flat" style="color:#fff"><b>Sign Out</b></a>
+							<a class="waves-effect waves-teal btn-flat" style="color:#fff" href="/logout"><b>Sign Out</b></a>
 						</li>
 
 					</ul>
@@ -92,8 +92,8 @@
 								</div>
 								<div class="input-field col s12">
 									<i class="prefix material-icons">lock_outline</i>
-									<input placeholder="**********" class = "password" id="password" type="password" name="password">
-									<label for="password" name="password">Password</label>
+									<input placeholder="rating" class = "rating" id="rating" type="text" name="rating">
+									<label for="rating" name="rating">Password</label>
 								</div>
 <!--
 								<div class="input-field col s12">
@@ -245,7 +245,7 @@
 			      $('.age').val(data.age);
 			      $('.subjects').val(data.subject);
 			      $('.address').val(data.address);                
-                    
+                  $('.rating').val(data.rating);
 			      $('.name').text(data.firstname + " " + data.lastname);
 
 			    }
