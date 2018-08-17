@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="25b85a59-8112-447e-b9b0-810850ae574b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/teacherOauth/dataSheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/teacherOauth/dataSheet.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -65,8 +66,8 @@
       <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="336" column="35" lean-forward="true" selection-start-line="336" selection-start-column="35" selection-end-line="336" selection-end-column="35" />
+            <state relative-caret-position="284">
+              <caret line="516" column="53" selection-start-line="516" selection-start-column="53" selection-end-line="516" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -145,7 +146,6 @@
         <option value="$PROJECT_DIR$/frontend/withoutOauth/loginStudent.html" />
         <option value="$PROJECT_DIR$/frontend/withoutOauth/signup.html" />
         <option value="$PROJECT_DIR$/frontend/schoolOauth/examinations.html" />
-        <option value="$PROJECT_DIR$/frontend/teacherOauth/dataSheet.html" />
         <option value="$PROJECT_DIR$/frontend/teacherOauth/teacherDashboard.html" />
         <option value="$PROJECT_DIR$/frontend/studentOauth/myProfile.html" />
         <option value="$PROJECT_DIR$/frontend/teacherOauth/Rating.html" />
@@ -158,6 +158,7 @@
         <option value="$PROJECT_DIR$/frontend/studentOauth/Assignment.html" />
         <option value="$PROJECT_DIR$/frontend/schoolOauth/Complaints.html" />
         <option value="$PROJECT_DIR$/model/user.js" />
+        <option value="$PROJECT_DIR$/frontend/teacherOauth/dataSheet.html" />
         <option value="$PROJECT_DIR$/controllers/user.js" />
       </list>
     </option>
@@ -219,6 +220,18 @@
               <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
               <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="studentOauth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="School-Portal" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="teacherOauth" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="School-Portal" type="b2602c69:ProjectViewProjectNode" />
@@ -315,12 +328,12 @@
       <workItem from="1533993395941" duration="811000" />
       <workItem from="1534162855233" duration="354000" />
       <workItem from="1534213899858" duration="5029000" />
-      <workItem from="1534474646801" duration="8425000" />
+      <workItem from="1534474646801" duration="10081000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107857000" />
+    <option name="totallyTimeSpent" value="109513000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="794" extended-state="0" />
@@ -401,8 +414,14 @@
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/controllers/user.js</url>
+          <line>564</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -596,13 +615,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/teacherOauth/dataSheet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1483">
-          <caret line="119" column="36" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/teacherOauth/contact.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
@@ -720,10 +732,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/teacherOauth/dataSheet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="63" column="84" selection-start-line="63" selection-start-column="84" selection-end-line="63" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="336" column="35" lean-forward="true" selection-start-line="336" selection-start-column="35" selection-end-line="336" selection-end-column="35" />
+        <state relative-caret-position="284">
+          <caret line="516" column="53" selection-start-line="516" selection-start-column="53" selection-end-line="516" selection-end-column="53" />
         </state>
       </provider>
     </entry>

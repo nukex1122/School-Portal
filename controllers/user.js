@@ -498,10 +498,23 @@ router.get('/getExams',function (req,res) {
 				ans2.push(data2[i].split("-")[0]);
 
 			}
+
 			console.log(ans2);
 			var dataF = ans.filter(value => -1 !== ans2.indexOf(value));
 			console.log(dataF);
-			obj[`${data[j]._doc.name}`.trim()] =  dataF;
+			var ret = [];
+			for(var i=0;i<data2.length ; i++){
+				for(var k=0;k<dataF.length;k++){
+					var temp = data2[i].search(dataF[j]);
+					if(temp == -1){
+
+					}
+					else{
+						ret.push(data2[i]);
+					}
+				}
+			}
+			obj[`${data[j]._doc.name}`.trim()] =  ret;
 
 
 		}
@@ -546,6 +559,10 @@ router.get('/logout',function (req,res) {
 
     req.logout();
     res.redirect('/');
+})
+
+router.post('/dataUpload',function (req,res) {
+	console.log(req);
 })
 
 
