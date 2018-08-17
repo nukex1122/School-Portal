@@ -16,10 +16,9 @@ var nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport({
 	service: 'gmail',
-	auth: {
 		user: 'focado11@gmail.com',
 		pass: 'schoolportal'
-	}
+
 });
 
 

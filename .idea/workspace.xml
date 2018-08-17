@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25b85a59-8112-447e-b9b0-810850ae574b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -67,8 +65,8 @@
       <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="505" lean-forward="true" selection-start-line="505" selection-end-line="505" />
+            <state relative-caret-position="237">
+              <caret line="336" column="35" lean-forward="true" selection-start-line="336" selection-start-column="35" selection-end-line="336" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -90,7 +88,6 @@
       <find>studentSignup</find>
       <find>teacherSignup</find>
       <find>teacherLog</find>
-      <find>/contact</find>
       <find>conta</find>
       <find>uploadAss</find>
       <find>getC</find>
@@ -108,6 +105,7 @@
       <find>teachers</find>
       <find>assignment</find>
       <find>getA</find>
+      <find>/contact</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -317,12 +315,12 @@
       <workItem from="1533993395941" duration="811000" />
       <workItem from="1534162855233" duration="354000" />
       <workItem from="1534213899858" duration="5029000" />
-      <workItem from="1534474646801" duration="7003000" />
+      <workItem from="1534474646801" duration="8425000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106435000" />
+    <option name="totallyTimeSpent" value="107857000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="794" extended-state="0" />
@@ -384,22 +382,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>130</line>
+          <line>129</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>168</line>
+          <line>167</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>374</line>
+          <line>373</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>489</line>
+          <line>488</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
@@ -724,8 +722,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="505" lean-forward="true" selection-start-line="505" selection-end-line="505" />
+        <state relative-caret-position="237">
+          <caret line="336" column="35" lean-forward="true" selection-start-line="336" selection-start-column="35" selection-end-line="336" selection-end-column="35" />
         </state>
       </provider>
     </entry>
