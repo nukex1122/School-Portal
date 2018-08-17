@@ -502,7 +502,7 @@ router.get('/getExams',function (req,res) {
 			console.log(ans2);
 			var dataF = ans.filter(value => -1 !== ans2.indexOf(value));
 			console.log(dataF);
-			obj[`${data[j]._doc.name}`] =  dataF;
+			obj[`${data[j]._doc.name}`.trim()] =  dataF;
 
 
 		}

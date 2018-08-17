@@ -44,7 +44,7 @@
 						<li>
 							<a class="waves-effect waves-teal btn-flat" style="color:#fff" href="/logout"><b>Sign Out</b></a>
 						</li>
-						
+
 					</ul>
 				</div>
 			</nav>
@@ -71,20 +71,14 @@
 							</div>
 							<div class="row margin">
 								  <div class="input-field col s12">
-                                    <select>
+                                    <select class="exam-name" name="exam-name">
                                       <option value="" disabled selected>Choose your option</option>
-                                      <option value="1">Unit Test - 1</option>
-                                      <option value="2">Unit Test - 2</option>
-                                      <option value="3">Mid Year Examination</option>
                                     </select>
                                     <label>Choose Examination</label>
                                   </div>
                                 <div class="input-field col s12">
-                                    <select>
+                                    <select id="classes" name="class">
                                       <option value="" disabled selected>Choose your option</option>
-                                      <option value="1">Class 11</option>
-                                      <option value="2">Class 12</option>
-                                      <option value="3">Class 10</option>
                                     </select>
                                     <label>Choose Class</label>
                                   </div>
@@ -127,7 +121,30 @@
     $(document).ready(function(){
     $('select').formSelect();
 	});
-       
+
+		var examData;
+		$.ajax({
+		url: '/getExams',
+		type: 'GET',
+		success: function(data){
+					examData = data;
+					console.log(data);
+					for(i in data){
+						if(data[i].length!=0)
+							$(".exam-name").append("<option>"+i+"</option>")
+					}
+					$('.exam-name').formSelect();
+
+				}
+			})
+			$('.exam-name').change(function(){
+				var class2 = examData[$(this).val()];
+				$('#classes').empty();
+				for(i in class2){
+					$("#classes").append("<option>"+class2[i]+"</option>")
+				}
+				$('#classes').formSelect();
+			})
     </script>
     </body>
 

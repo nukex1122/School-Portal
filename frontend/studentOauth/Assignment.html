@@ -60,8 +60,8 @@
 						<h3 class="header">Assignments</h3>
 						<div class="row">
 							<div class="col s12">
-								<table class="assignment highlight responsive-table blue-grey darken-1">
-									<thead class="white-text">
+								<table class="assignment highlight responsive-table ">
+									<thead >
 										<tr>
 											<th>S No.</th>
 											<th>Subject</th>
@@ -135,10 +135,10 @@
 			      for(var i=0; i<data.length;i++){
 			        console.log(data[i]);
 			        var str="<td>" + k + "</td>"
-			        str+="<td>" + data[i].subject + "</td>"
+			        str+="<td>" + data[i].topic + "</td>"
 			        str+="<td>" + data[i].description + "</td>"
 			        str+="<td>" + data[i].deadline + "</td>"
-			        str+=`<td><a href=${data[i].filePath}>` + data[i].filePath.split("/")[data[i].filePath.split("/").length-1] + '<i class="fa fa-download" aria-hidden="true"></i></a></td>'
+			        str+=`<td><a href=../${data[i].filePath}>` + data[i].filePath.split("/")[data[i].filePath.split("/").length-1] + '<i class="fa fa-download" aria-hidden="true"></i></a></td>'
 			          $('.assignment tbody').append(`<tr>${str}</tr>`);
 
 			        k++
