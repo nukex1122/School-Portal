@@ -14,7 +14,11 @@ var studentSchema=mongoose.Schema({
 		type:String,
 		default: null
 	},
-	rating:{
+	ratingSum:{
+		type:Number,
+		default:null
+	},
+	ratingNumber:{
 		type:Number,
 		default:null
 	},
@@ -98,7 +102,11 @@ var teacherSchema=mongoose.Schema({
 		default: null
 
 	},
-	rating:{
+	ratingSum:{
+		type:Number,
+		default:null
+	},
+	ratingNumber:{
 		type:Number,
 		default:null
 	},
