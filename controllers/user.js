@@ -245,6 +245,9 @@ router.get('/getSubjects', function (req,res) {
 	res.json(req.user._doc.subject); //this api can be accessed only by school
 })
 
+router.get('/getSubject',isTeacher,function (req,res) {
+	res.json(req.user._doc.subject);
+})
  router.get('/getNoticeSchool', isSchool, function (req,res) {
 	 Notice.find({school : req.user._doc.name},function (err,data) {
 	 	var arr=[];
@@ -562,7 +565,10 @@ router.get('/logout',function (req,res) {
 })
 
 router.post('/dataUpload',function (req,res) {
-	console.log(req);
+	var query = {class_section : req.body.class ,
+				subject: req.user._doc.subject
+	}
+	Student.find()
 })
 
 

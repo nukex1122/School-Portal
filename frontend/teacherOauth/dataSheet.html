@@ -60,8 +60,10 @@
         <main>
 			<div class="container" style="margin-top:1%">
 				<div id="login-page" class="row">
-					<div class="col m8 offset-m2 s12 z-depth-2 card-panel" >
-						<form class="data-form" style="padding: 0 0.75rem" action="/dataUpload" method="post" enctype="multipart/form-data">
+
+					<div class="col student-data-input-1 m8 offset-m2 s12 z-depth-2 card-panel" >
+						<form class="data-form" style="padding: 0 0.75rem" action="" method="post" enctype="multipart/form-data">
+
 							<div class="row">
 								<div class="input-field col s12 center">
 									<img src="images/logo.png" alt="" class="circle responsive-img valign profile-image-login">
@@ -85,10 +87,32 @@
 							</div>
 							<div class="row"  style="margin-bottom:0">
 								<div class="input-field col s12 ">
-									<input type="submit" class="btn col s12 blue-grey darken-1 accent-2 login-btn" value="Submit">
+									<input type="submit" class="btn col s12 blue-grey darken-1 accent-2 data-btn-1" value="Submit">
 								</div>
 							</div>
 						</form>
+					</div>
+				</div>
+				<div class="row student-data-input-2" style="display:none">
+					<div class="col offset-m2 m8  s12">
+						<div id="highlight" class="section scrollspy">
+							<h3 class="header subject-name">Subject</h3>
+							<div class="row">
+								<div class="col s12">
+									<table class=" data-list highlight responsive-table">
+										<thead>
+											<tr>
+												<th>S No.</th>
+												<th>Name of Student</th>
+												<th>Enter Marks</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -144,6 +168,42 @@
 					$("#classes").append("<option>"+class2[i]+"</option>")
 				}
 				$('#classes').formSelect();
+			})
+
+			$('.data-btn-1').click(function(e){
+				e.preventDefault()
+				$('.student-data-input-1').toggle()
+				$('.student-data-input-2').toggle()
+
+				data = {
+					examName: $(".exam-name").val(),
+					class: $("#classes").val()
+				}
+				console.log(data);
+				$.ajax({
+				url: '/dataUpload',
+				type: 'POST',
+				data:data,
+				success: function(data){
+					k=1;
+					$('.subject-name').val(data["subject"]);
+
+					for(i in data){
+						console.log(data[i]);
+						var str="<td>" + k + "</td>"
+						str+="<td>" + data[i].nameStudent + "</td>"
+						str+=`<td><input id="username" type="number" name="${data[i].id}"></td>`
+
+						$('.data-list tbody').append(`<tr>${str}</tr>`);
+
+						k++
+					}
+
+					$('.data-list').formSelect();
+
+						}
+					})
+
 			})
     </script>
     </body>
