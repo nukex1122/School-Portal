@@ -100,7 +100,10 @@ var teacherSchema=mongoose.Schema({
 	emp_id:{
 		type:String,
 		default: null
-
+	},
+	rating:{
+		type:Number,
+		default:null
 	},
 	ratingSum:{
 		type:Number,

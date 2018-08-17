@@ -425,32 +425,36 @@ router.post('/rating',function (req,res) {
 	var arr = name.split(" ");
 	var query = { firstname: arr[0] , lastname: arr[1] };
 	Teacher.find(query,function (err,data) {
-		var rat = data[0]._doc.rating;
-		var finalans;
-		if(rat==null){
-			finalans = Number(req.body.rating);
-			Teacher.update(query,{rating: finalans} , function (err,data) {
-
-				res.redirect('/studentOauth/studentDashboard.html');
-			})
-
+		var sum = data[0]._doc.ratingSum;
+		var num = data[0]._doc.ratingNumber;
+		if(sum == null){
+			sum = Number(req.body.rating);
+			num = 1;
 		}
 		else{
-			var ans = rat + Number(req.body.rating);
-			console.log(req.body.rating);
-			ans = ans / 20;
-			ans = ans * 10;
-			console.log(ans);
-			console.log(rat);
-			Teacher.update(query,{rating: ans} , function (err,data) {
-
-				res.redirect('/studentOauth/studentDashboard.html');
-			})
+			sum += Number(req.body.rating);
+			num++;
 		}
-
+		console.log(sum);
+		console.log(num);
+		var ans = sum / num;
+		Teacher.update(query,{rating : ans , ratingSum : sum , ratingNumber: num} , function (err,data) {
+			console.log(data);
+			res.redirect('/studentOauth/studentDashboard.html');
+		})
+//tocheck
 
 	})
 })
+
+
+router.get('/test',function (req,res) {
+	Student.find({class_section : ['6-B','12-A']},function (err,data) {
+		console.log(data);
+	})
+})
+
+
 
 
 router.post('/ratingStudent',function (req,res) {
