@@ -82,6 +82,12 @@
                                     </select>
                                     <label>Choose Class</label>
                                   </div>
+																	<div class="input-field col s12">
+	                                    <select class="subjects" name="subjects">
+	                                      <option value="" disabled selected>Choose your option</option>
+	                                    </select>
+	                                    <label>Choose Subject</label>
+	                                  </div>
 							</div>
 							<div class="row"  style="margin-bottom:0">
 								<div class="input-field col s12 ">
@@ -159,6 +165,17 @@
 
 				}
 			})
+			$.ajax({
+			url: '/getSubject',
+			type: 'GET',
+			success: function(data){
+				for(i in data){
+					$(".subjects").append("<option>"+data[i]+"</option>")
+				}
+				$('.subjects').formSelect();
+
+					}
+				})
 			$('.exam-name').change(function(){
 				var class2 = examData[$(this).val()];
 				$('#classes').empty();
@@ -175,7 +192,8 @@
 
 				data = {
 					examName: $(".exam-name").val(),
-					class: $("#classes").val()
+					class: $("#classes").val(),
+					subject: $(".subjects").val()
 				}
 				console.log(data);
 				$.ajax({
