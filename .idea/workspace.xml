@@ -2,20 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25b85a59-8112-447e-b9b0-810850ae574b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/views/hello.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/studentChat.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/teacherChat.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/schoolOauth/js/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/schoolOauth/js/materialize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/studentOauth/js/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/studentOauth/js/materialize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/Focado Icons.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/schoolOauth/images/dashboardIcons/analytics.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/schoolOauth/images/dashboardIcons/assignment.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/schoolOauth/images/dashboardIcons/contact.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/schoolOauth/images/dashboardIcons/dataUpload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/schoolOauth/images/dashboardIcons/notices.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/schoolOauth/images/dashboardIcons/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/schoolOauth/images/dashboardIcons/ranking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/schoolOauth/images/dashboardIcons/rating.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/schoolOauth/images/dashboardIcons/student.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/schoolOauth/images/dashboardIcons/teacher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/studentOauth/images/dashboardIcons/analytics.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/studentOauth/images/dashboardIcons/assignment.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/studentOauth/images/dashboardIcons/contact.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/studentOauth/images/dashboardIcons/notices.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/studentOauth/images/dashboardIcons/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/studentOauth/images/dashboardIcons/ranking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/teacherOauth/images/dashboardIcons/analytics.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/teacherOauth/images/dashboardIcons/assignment.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/teacherOauth/images/dashboardIcons/contact.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/teacherOauth/images/dashboardIcons/dataUpload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/teacherOauth/images/dashboardIcons/notices.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/teacherOauth/images/dashboardIcons/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/teacherOauth/images/dashboardIcons/ranking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/teacherOauth/images/dashboardIcons/rating.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/schoolOauth/schoolDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/schoolOauth/schoolDashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/studentOauth/studentDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/studentOauth/studentDashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/teacherOauth/js/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/teacherOauth/js/materialize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/teacherOauth/images/1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/teacherOauth/teacherDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/teacherOauth/teacherDashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/withoutOauth/js/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/withoutOauth/js/materialize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -75,14 +90,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="hello.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/hello.html">
+      <file leaf-file-name="teacherDashboard.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/teacherOauth/teacherDashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="175">
+              <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -99,7 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>/upl</find>
       <find>studentSignup</find>
       <find>teacherSignup</find>
       <find>teacherLog</find>
@@ -129,6 +140,7 @@
       <find>gu</find>
       <find>guru</find>
       <find>/studentC</find>
+      <find>/studentCh</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -352,27 +364,27 @@
       <workItem from="1534162855233" duration="354000" />
       <workItem from="1534213899858" duration="5029000" />
       <workItem from="1534474646801" duration="17782000" />
-      <workItem from="1534564569477" duration="8270000" />
+      <workItem from="1534564569477" duration="8512000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125484000" />
+    <option name="totallyTimeSpent" value="125726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="794" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25625" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007153" side_tool="true" weight="0.3298969" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32855093" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.32424676" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.32424676" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Mongo Explorer" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49928468" weight="0.32855093" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49928468" visible="true" weight="0.32855093" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39741752" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -731,24 +743,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/teacherOauth/teacherDashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="76" column="42" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="191" column="35" selection-start-line="191" selection-start-column="35" selection-end-line="191" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -779,6 +777,20 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="166" column="22" selection-start-line="166" selection-start-column="12" selection-end-line="166" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/teacherOauth/teacherDashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
         </state>
       </provider>
     </entry>
