@@ -100,22 +100,30 @@
 					</div>
 				</div>
 				<div class="row student-data-input-2" style="display:none">
-					<div class="col offset-m2 m8  s12">
+					<div class="col offset-m1 m10  s12">
 						<div id="highlight" class="section scrollspy">
-							<h3 class="header subject-name">Subject</h3>
+							<h3 class="header subject-name">Subject: <span class="subject-name-span"></span></h3>
 							<div class="row">
 								<div class="col s12">
-									<table class=" data-list highlight responsive-table">
-										<thead>
-											<tr>
-												<th>S No.</th>
-												<th>Name of Student</th>
-												<th>Enter Marks</th>
-											</tr>
-										</thead>
-										<tbody>
-										</tbody>
-									</table>
+									<form class="data-form" action="/uploadMarks" method="post" enctype="multipart/form-data">
+										<table class=" data-list highlight responsive-table">
+											<thead>
+												<tr>
+													<th>S No.</th>
+													<th>Name of Student</th>
+													<th>Enter Marks</th>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+										<input type="text" name="subject" class="subject-name-input" style="display:none">
+										<div class="row"  style="margin-bottom:0">
+											<div class="input-field col m4 offset-m8 s12 ">
+												<input type="submit" class="btn col s12 blue-grey darken-1 accent-2 data-btn-1" value="Submit">
+											</div>
+										</div>
+									</form>
 								</div>
 							</div>
 						</div>
@@ -197,7 +205,9 @@
 					class: $("#classes").val(),
 					subject: $(".subjects").val()
 				}
-				console.log(data);
+				$('.subject-name-span').text($(".subjects").val());
+				$('.subject-name-input').val($(".subjects").val());
+
 				$.ajax({
 				url: '/dataUpload',
 				type: 'POST',
@@ -210,14 +220,14 @@
 						console.log(data[i]);
 						var str="<td>" + k + "</td>"
 						str+="<td>" + data[i].nameStudent + "</td>"
-						str+=`<td><input id="username" type="number" name="${data[i].id}"></td>`
+						str+=`<td><input id="username" type="number" name="${data[i].id}" placeholder="Enter Marks"></td>`
 
 						$('.data-list tbody').append(`<tr>${str}</tr>`);
 
 						k++
 					}
 
-					$('.data-list').formSelect();
+
 
 						}
 					})
