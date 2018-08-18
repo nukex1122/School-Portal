@@ -30,6 +30,7 @@ app.use(session({
     saveUninitialized:true,
     store: new MongoStore({mongooseConnection : mongoose.connection })
 }));
+app.set('view engine','ejs');
 app.use(flash());
 require('./config/passport');
 app.use(passport.initialize());

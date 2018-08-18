@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CometChat Test</title>
+</head>
+<body>
+
+<script>
+	var chat_name = 'teacher lastteacher';
+	var chat_id = '5b652b4c808b84032da13eaf';
+	var chat_friends = '5b652b75808b84032da13eb0 , 5b6e562397fc5b02b635849a';
+</script>
+<script>
+	var chat_appid = '51429';
+
+	var chat_height = '710';
+	var chat_width = '1450px';
+
+	document.write('<div id="cometchat_embed_synergy_container" style="width:'+chat_width+';height:'+chat_height+';max-width:100%;border:1px solid #CCCCCC;border-radius:5px;overflow:hidden;"></div>');
+
+	var chat_js = document.createElement('script'); chat_js.type = 'text/javascript'; chat_js.src = 'https://fast.cometondemand.net/'+chat_appid+'x_xchatx_xcorex_xembedcode.js';
+	chat_js.onload = function() {
+		var chat_iframe = {};chat_iframe.module="synergy";chat_iframe.style="min-height:"+chat_height+";min-width:"+chat_width+";";chat_iframe.width=chat_width.replace('px','');chat_iframe.height=chat_height.replace('px','');chat_iframe.src='https://'+chat_appid+'.cometondemand.net/cometchat_embedded.php'; if(typeof(addEmbedIframe)=="function"){addEmbedIframe(chat_iframe);}
+	}
+	var chat_script = document.getElementsByTagName('script')[0]; chat_script.parentNode.insertBefore(chat_js, chat_script);
+</script>
+
+</body>
+</html>

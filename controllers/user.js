@@ -10,7 +10,25 @@ var School = require('../model/user').school;
 var Contact = require('../model/user').contact;
 var Assignment = require('../model/user').assignment;
 var Exam = require('../model/user').exam;
+var request = require("request");
 
+function createUserInComet(userId, userName) {
+	return new Promise(function(resolve, reject) {
+
+		var options = { method: 'POST',
+			url: 'https://api.cometondemand.net/api/v2/createUser',
+			headers:
+				{
+					'api-key': '51429x3f91156fa69639df9fba365fe0892855',
+				},
+			formData: { UID: userId, name: userName} };
+
+		request(options, function (error, response, body) {
+			if (error) reject(error);
+			resolve(body);
+		});
+	})
+}
 
 var nodemailer = require('nodemailer');
 
@@ -112,6 +130,70 @@ router.post('/studentLogin', passport.authenticate('student.login',{
 	res.redirect('/studentOauth/studentDashboard.html');
 })
 
+
+router.get('/teacherChat',function (req,res) {
+
+	var query = {class_section : req.user._doc.class_section,
+				school : req.user._doc.school
+	};
+	Student.find(query,function (err,data) {
+		var friends = "";
+		for(var i=0;i<data.length;i++){
+			var id = String(data[i]._doc._id);
+			friends += id + ',';
+			var name = data[i]._doc.firstname + ' ' + data[i]._doc.lastname;
+			createUserInComet(id,name)
+				.then((data)=>{
+					console.log(data);
+				})
+				.catch((err)=>{
+					console.log(err);
+				})
+		}
+		console.log(friends);
+		var obj = {};
+		obj.name = req.user._doc.firstname + ' ' + req.user._doc.lastname;
+		obj.id = String(req.user._doc._id);
+		obj.friends = friends;
+		console.log(obj);
+		setTimeout(function () {
+			res.render('teacherChat',obj);
+		},2000);
+
+	})
+
+})
+
+router.get('/studentChat',function (req,res) {
+	var query = {class_section : req.user._doc.class_section,
+		school : req.user._doc.school
+	};
+	Teacher.find(query,function (err,data) {
+		var friends = "";
+		for(var i=0;i<data.length;i++){
+			var id = String(data[i]._doc._id);
+			friends += id + ',';
+			var name = data[i]._doc.firstname + ' ' + data[i]._doc.lastname;
+			createUserInComet(id,name)
+				.then((data)=>{
+					console.log(data);
+				})
+				.catch((err)=>{
+					console.log(err);
+				})
+		}
+		console.log(friends);
+		var obj = {};
+		obj.name = req.user._doc.firstname + ' ' + req.user._doc.lastname;
+		obj.id = String(req.user._doc._id);
+		obj.friends = friends;
+		console.log(obj);
+		setTimeout(function () {
+			res.render('studentChat',obj);
+		},2000);
+
+	})
+})
 
 router.post('/teacherLogin', passport.authenticate('teacher.login',{
 

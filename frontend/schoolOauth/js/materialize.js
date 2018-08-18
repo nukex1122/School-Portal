@@ -6240,13 +6240,13 @@ $jscomp.polyfill = function (e, r, p, m) {
             right = left + window.innerWidth,
             bottom = top + window.innerHeight;
 
-        // determine which elements are in view
+        // determine which elements are in views
         var intersections = ScrollSpy._findElements(top, right, bottom, left);
         for (var i = 0; i < intersections.length; i++) {
           var scrollspy = intersections[i];
           var lastTick = scrollspy.tickId;
           if (lastTick < 0) {
-            // entered into view
+            // entered into views
             scrollspy._enter();
           }
 
@@ -6258,13 +6258,13 @@ $jscomp.polyfill = function (e, r, p, m) {
           var _scrollspy = ScrollSpy._elementsInView[_i];
           var _lastTick = _scrollspy.tickId;
           if (_lastTick >= 0 && _lastTick !== ScrollSpy._ticks) {
-            // exited from view
+            // exited from views
             _scrollspy._exit();
             _scrollspy.tickId = -1;
           }
         }
 
-        // remember elements in view for next tick
+        // remember elements in views for next tick
         ScrollSpy._elementsInView = intersections;
       }
 
@@ -8732,7 +8732,7 @@ $jscomp.polyfill = function (e, r, p, m) {
     // Used to create date object from current input string
     parse: null,
 
-    // The initial date to view when first opened
+    // The initial date to views when first opened
     defaultDate: null,
 
     // Make the `defaultDate` the initial selected value
@@ -8993,7 +8993,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
 
       /**
-       * change view to a specific date
+       * change views to a specific date
        */
 
     }, {
@@ -9469,7 +9469,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
 
       /**
-       * change view to a specific month (zero-index, e.g. 0: January)
+       * change views to a specific month (zero-index, e.g. 0: January)
        */
 
     }, {
@@ -9482,7 +9482,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       }
 
       /**
-       * change view to a specific full year (e.g. "2012")
+       * change views to a specific full year (e.g. "2012")
        */
 
     }, {
@@ -9942,7 +9942,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       key: "_buildHoursView",
       value: function _buildHoursView() {
         var $tick = $('<div class="timepicker-tick"></div>');
-        // Hours view
+        // Hours views
         if (this.options.twelveHour) {
           for (var i = 1; i < 13; i += 1) {
             var tick = $tick.clone();
@@ -9976,7 +9976,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       key: "_buildMinutesView",
       value: function _buildMinutesView() {
         var $tick = $('<div class="timepicker-tick"></div>');
-        // Minutes view
+        // Minutes views
         for (var i = 0; i < 60; i += 5) {
           var tick = $tick.clone();
           var radian = i / 30 * Math.PI;
@@ -10044,7 +10044,7 @@ $jscomp.polyfill = function (e, r, p, m) {
         $(this.spanHours).toggleClass('text-primary', isHours);
         $(this.spanMinutes).toggleClass('text-primary', !isHours);
 
-        // Transition view
+        // Transition views
         hideView.classList.add('timepicker-dial-out');
         $(nextView).css('visibility', 'visible').removeClass('timepicker-dial-out');
 
