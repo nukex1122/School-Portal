@@ -204,10 +204,14 @@ router.post('/uploadMarks',function (req,res) {
 		if(i=='subject'){
 			continue;
 		}
+		if(i=='class'){
+			continue;
+		}
 		var newExam = new Marks();
 		newExam.examName = req.body.examName;
 		newExam.subject = req.body.subject;
 		newExam.student = i;
+		newExam.class = req.body.class;
 		newExam.marks = Number(req.body[i]);
 		newExam.save(function (err) {
 			if(err) throw (err);
@@ -244,6 +248,10 @@ router.get('/marksData', isStudent ,function (req,res) {
 		res.json(obj);
 	})
 
+
+})
+
+router.get('/classData',isStudent,function (req,res) {
 
 })
 

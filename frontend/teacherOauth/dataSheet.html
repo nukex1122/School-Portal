@@ -117,6 +117,7 @@
 											<tbody>
 											</tbody>
 										</table>
+                                        <input type="text" name="class" class="class-name-input" style="display:none">
                                         <input type="text" name="examName" class="exam-name-input" style="display:none">
 										<input type="text" name="subject" class="subject-name-input" style="display:none">
 										<div class="row"  style="margin-bottom:0">
@@ -209,6 +210,7 @@
 				$('.subject-name-span').text($(".subjects").val());
 				$('.subject-name-input').val($(".subjects").val());
 				$('.exam-name-input').val($(".exam-name").val());
+				$('.class-name-input').val($("#classes").val());
 
 				$.ajax({
 				url: '/dataUpload',

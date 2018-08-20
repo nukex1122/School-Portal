@@ -299,6 +299,10 @@ var marksSchema = mongoose.Schema({
 	marks:{
 		type:Number,
 		default: null
+	},
+	class:{
+		type:String,
+		default: null
 	}
 
 })
