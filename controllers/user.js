@@ -220,6 +220,33 @@ router.post('/uploadMarks',function (req,res) {
 	},2000)
 })
 
+router.get('/marksData', isStudent ,function (req,res) {
+	var obj = {};
+
+
+	Marks.find({student: String(req.user._doc._id)},function (err,data) {
+		console.log(req);
+		for(var i=0;i<data.length;i++){
+			if(obj[`${data[i]._doc.subject}`]){
+				var temp ={};
+				temp.examName = data[i]._doc.examName;
+				temp.marks= data[i]._doc.marks;
+				obj[`${data[i]._doc.subject}`].push(temp);
+			}
+			else{
+				obj[`${data[i]._doc.subject}`]=[];
+				var temp ={};
+				temp.examName = data[i]._doc.examName;
+				temp.marks= data[i]._doc.marks;
+				obj[`${data[i]._doc.subject}`].push(temp);
+			}
+		}
+		res.json(obj);
+	})
+
+
+})
+
 router.post('/teacherLogin', passport.authenticate('teacher.login',{
 
 
