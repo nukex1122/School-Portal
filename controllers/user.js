@@ -10,6 +10,7 @@ var School = require('../model/user').school;
 var Contact = require('../model/user').contact;
 var Assignment = require('../model/user').assignment;
 var Exam = require('../model/user').exam;
+var Marks = require('../model/user').marks;
 var request = require("request");
 
 function createUserInComet(userId, userName) {
@@ -193,6 +194,30 @@ router.get('/studentChat',function (req,res) {
 		},2000);
 
 	})
+})
+router.post('/uploadMarks',function (req,res) {
+	console.log(req);
+	for(i in req.body){
+		if(i=='examName'){
+			continue;
+		}
+		if(i=='subject'){
+			continue;
+		}
+		var newExam = new Marks();
+		newExam.examName = req.body.examName;
+		newExam.subject = req.body.subject;
+		newExam.student = i;
+		newExam.marks = Number(req.body[i]);
+		newExam.save(function (err) {
+			if(err) throw (err);
+
+			console.log('hello');
+		})
+	}
+	setTimeout(function () {
+		res.redirect('/teacherOauth/teacherDashboard.html');
+	},2000)
 })
 
 router.post('/teacherLogin', passport.authenticate('teacher.login',{

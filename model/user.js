@@ -96,6 +96,8 @@ var schoolSchema=mongoose.Schema({
 
 });
 
+
+
 var teacherSchema=mongoose.Schema({
 	emp_id:{
 		type:String,
@@ -281,6 +283,27 @@ var examSchema = mongoose.Schema({
 })
 
 
+var marksSchema = mongoose.Schema({
+	examName:{
+		type:String,
+		default: null
+	},
+	subject:{
+		type:String,
+		default: null
+	},
+	student:{
+		type:String,
+		default: null
+	},
+	marks:{
+		type:Number,
+		default: null
+	}
+
+})
+
+
 
 
 
@@ -321,6 +344,7 @@ obj.school  =  mongoose.model('school', schoolSchema);
 obj.notice  =  mongoose.model('notice', noticeSchema);
 obj.assignment = mongoose.model('assignment',assignmentSchema);
 obj.exam = mongoose.model('exam',examSchema);
+obj.marks = mongoose.model('marks',marksSchema);
 
 
 module.exports = obj;
