@@ -4,8 +4,6 @@
     <list default="true" id="25b85a59-8112-447e-b9b0-810850ae574b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/teacherOauth/dataSheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/teacherOauth/dataSheet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -68,8 +66,8 @@
       <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="213" column="39" selection-start-line="213" selection-start-column="39" selection-end-line="213" selection-end-column="39" />
+            <state relative-caret-position="218">
+              <caret line="278" column="22" selection-start-line="278" selection-start-column="22" selection-end-line="278" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -340,12 +338,13 @@
       <workItem from="1534213899858" duration="5029000" />
       <workItem from="1534474646801" duration="17782000" />
       <workItem from="1534564569477" duration="9011000" />
-      <workItem from="1534759669351" duration="6837000" />
+      <workItem from="1534759669351" duration="6949000" />
+      <workItem from="1534825041593" duration="2558000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136710000" />
+    <option name="totallyTimeSpent" value="139380000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="794" extended-state="0" />
@@ -356,12 +355,12 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007153" side_tool="true" weight="0.3298969" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.32424676" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.32424676" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Mongo Explorer" order="3" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49928468" weight="0.32855093" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39741752" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39741752" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -374,19 +373,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3281471" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3986135" />
       <window_info anchor="right" id="Mongo Explorer" order="0" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3281471" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
@@ -407,49 +406,47 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>277</line>
+          <line>315</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>315</line>
+          <line>353</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>524</line>
+          <line>562</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>585</line>
+          <line>623</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>600</line>
+          <line>638</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>247</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>719</line>
-          <properties lambdaOrdinal="-1" />
+          <line>757</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
           <line>198</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="36" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/controllers/user.js</url>
+          <line>290</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="37" />
+      <option name="time" value="42" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -770,8 +767,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="213" column="39" selection-start-line="213" selection-start-column="39" selection-end-line="213" selection-end-column="39" />
+        <state relative-caret-position="218">
+          <caret line="278" column="22" selection-start-line="278" selection-start-column="22" selection-end-line="278" selection-end-column="22" />
         </state>
       </provider>
     </entry>
