@@ -76,7 +76,7 @@ router.get('/teacher-login',function (req,res) {
 router.use('/schoolOauth',isSchool,express.static(path.join(__dirname,'../frontend/schoolOauth')));
 router.use('/teacherOauth',isTeacher,express.static(path.join(__dirname,'../frontend/teacherOauth')));
 router.use('/studentOauth',isStudent,express.static(path.join(__dirname,'../frontend/studentOauth')));
-router.use('/uploads',isStudent,express.static(path.join(__dirname,'../uploads')));
+router.use('/uploads',express.static(path.join(__dirname,'../uploads')));
 router.use('/',express.static(path.join(__dirname,'../frontend/withoutOauth')));
 
 router.get('/studentSignup',isSchool ,function (req,res) {
