@@ -754,6 +754,41 @@ router.get('/logout',function (req,res) {
     res.redirect('/');
 })
 
+router.post('/changePassword',function (req,res) {
+
+    var email = req.body.email;
+    if(req.body.type == "Teacher"){
+    	Teacher.find({email:req.body.email},function (err,data) {
+
+
+		    var password = Math.random().toString(36).substring(7);
+
+
+		    console.log(password);
+		    var teacher = new Teacher();
+		    var hash = teacher.encryptPassword();
+		    console.log(hash);
+		    Teacher.update({email:req.body.email},{password: hash},function (err,data) {
+			    console.log(data);
+		    })
+
+
+	    })
+    }
+    else if(req.body.type == "Student"){
+	    Student.find({email:req.body.email},function (err,data) {
+		    for(var i=0;i<data.length;i++){
+
+		    }
+	    })
+    }
+    else{
+
+    }
+
+
+})
+
 router.post('/dataUpload',function (req,res) {
 	console.log(req);
 	var query = {class_section : req.body.class ,
