@@ -279,6 +279,10 @@ var examSchema = mongoose.Schema({
 	class:{
 		type: Array,
 		default: null
+	},
+	school:{
+		type:String,
+		default: null
 	}
 })
 
@@ -303,6 +307,10 @@ var marksSchema = mongoose.Schema({
 	class:{
 		type:String,
 		default: null
+	},
+	school: {
+		type:String,
+		default:null
 	}
 
 })

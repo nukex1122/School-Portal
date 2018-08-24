@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="25b85a59-8112-447e-b9b0-810850ae574b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -65,8 +66,8 @@
       <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="793" column="26" selection-start-line="793" selection-start-column="26" selection-end-line="793" selection-end-column="26" />
+            <state relative-caret-position="99">
+              <caret line="255" column="26" selection-start-line="255" selection-start-column="14" selection-end-line="255" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -83,7 +84,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rating</find>
       <find>teachers</find>
       <find>assignment</find>
       <find>getA</find>
@@ -106,13 +106,14 @@
       <find>classes</find>
       <find>exam-name</find>
       <find>dataUpload</find>
-      <find>uploadMa</find>
       <find>class</find>
       <find>/fill</find>
       <find>/getN</find>
       <find>upload</find>
       <find>studentS</find>
       <find>.update</find>
+      <find>uploadMa</find>
+      <find>addExa</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -166,13 +167,13 @@
         <option value="$PROJECT_DIR$/frontend/teacherOauth/teacherDashboard.html" />
         <option value="$PROJECT_DIR$/frontend/studentOauth/studentDashboard.html" />
         <option value="$PROJECT_DIR$/frontend/teacherOauth/dataSheet.html" />
-        <option value="$PROJECT_DIR$/model/user.js" />
         <option value="$PROJECT_DIR$/frontend/studentOauth/contact.html" />
         <option value="$PROJECT_DIR$/frontend/teacherOauth/uploadAssignment.html" />
         <option value="$PROJECT_DIR$/frontend/teacherOauth/Notices.html" />
         <option value="$PROJECT_DIR$/frontend/withoutOauth/forgot-password.html" />
         <option value="$PROJECT_DIR$/frontend/withoutOauth/loginStudent.html" />
         <option value="$PROJECT_DIR$/frontend/withoutOauth/loginTeacher.html" />
+        <option value="$PROJECT_DIR$/model/user.js" />
         <option value="$PROJECT_DIR$/controllers/user.js" />
       </list>
     </option>
@@ -351,12 +352,12 @@
       <workItem from="1534564569477" duration="9011000" />
       <workItem from="1534759669351" duration="6949000" />
       <workItem from="1534825041593" duration="2558000" />
-      <workItem from="1535026814593" duration="3285000" />
+      <workItem from="1535026814593" duration="7246000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144361000" />
+    <option name="totallyTimeSpent" value="148322000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="794" extended-state="0" />
@@ -367,12 +368,12 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007153" side_tool="true" weight="0.3298969" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.32424676" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.32424676" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Mongo Explorer" order="3" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49928468" weight="0.32855093" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39741752" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39741752" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -418,27 +419,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>315</line>
+          <line>357</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>353</line>
+          <line>395</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>562</line>
+          <line>604</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>623</line>
+          <line>666</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>638</line>
+          <line>681</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -448,27 +449,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>290</line>
+          <line>332</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>793</line>
+          <line>638</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="46" />
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/controllers/user.js</url>
+          <line>257</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="47" />
+      <option name="time" value="53" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/schoolOauth/schoolDashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="137" column="31" selection-start-line="137" selection-start-column="27" selection-end-line="137" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/studentOauth/myProfile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1420">
@@ -744,13 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="296" column="21" lean-forward="true" selection-start-line="296" selection-start-column="21" selection-end-line="296" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/withoutOauth/forgot-password.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -772,10 +765,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/studentOauth/markAnalytics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2015" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="282" column="12" lean-forward="true" selection-start-line="282" selection-start-column="12" selection-end-line="282" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="793" column="26" selection-start-line="793" selection-start-column="26" selection-end-line="793" selection-end-column="26" />
+        <state relative-caret-position="99">
+          <caret line="255" column="26" selection-start-line="255" selection-start-column="14" selection-end-line="255" selection-end-column="26" />
         </state>
       </provider>
     </entry>

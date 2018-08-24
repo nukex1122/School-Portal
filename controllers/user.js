@@ -213,6 +213,7 @@ router.post('/uploadMarks',function (req,res) {
 		newExam.student = i;
 		newExam.class = req.body.class;
 		newExam.marks = Number(req.body[i]);
+		newExam.school = req.user._doc.school;
 		newExam.save(function (err) {
 			if(err) throw (err);
 
@@ -228,7 +229,7 @@ router.get('/marksData', isStudent ,function (req,res) {
 	var obj = {};
 
 
-	Marks.find({student: String(req.user._doc._id)},function (err,data) {
+	Marks.find({student: String(req.user._doc._id),school: req.user._doc.school},function (err,data) {
 		console.log(req);
 		for(var i=0;i<data.length;i++){
 			if(obj[`${data[i]._doc.subject}`]){
@@ -245,15 +246,56 @@ router.get('/marksData', isStudent ,function (req,res) {
 				obj[`${data[i]._doc.subject}`].push(temp);
 			}
 		}
+
 		res.json(obj);
 	})
 
 
 })
 
+router.post('/examWiseData',function (req,res) {
+	var obj = {};
+	console.log(req);
+	Marks.find({school : "bbps" ,examName: req.body.examName},function (err,data) {
+		for(var i=0;i<data.length;i++){
+
+			if(obj[`${data[i]._doc.subject}`]){
+
+				marks= data[i]._doc.marks;
+				obj[`${data[i]._doc.subject}`].push(marks);
+			}
+			else{
+				obj[`${data[i]._doc.subject}`]=[];
+
+				marks= data[i]._doc.marks;
+				obj[`${data[i]._doc.subject}`].push(marks);
+			}
+		}
+		console.log(obj);
+		var tosend ={};
+		for(i in obj){
+			var arr = obj[i];
+			var max = 0;
+
+			var sum =0;
+			for(var j =0 ;j<arr.length;j++){
+				sum+= arr[j];
+				if(arr[j] > max){
+					max = arr[j];
+				}
+			}
+			sum = sum / arr.length;
+			tosend[i]={};
+			tosend[i].max = max;
+			tosend[i].avg = sum;
+		}
+		res.json(tosend);
+	})
+})
+
 router.get('/classData',isStudent,function (req,res) {
 	var obj = {};
-	Marks.find({class : req.user._doc.class_section},function (err,data) {
+	Marks.find({class : req.user._doc.class_section,school:req.user._doc.school},function (err,data) {
 			console.log(data);
 		for(var i=0;i<data.length;i++){
 			if(obj[`${data[i]._doc.subject}`]){
@@ -593,7 +635,8 @@ router.post('/addExam',function (req,res) {
 	var newExam = new Exam();
 	newExam.name = req.body.subject;
 	newExam.class = req.body.class;
-
+	newExam.school = req.user._doc.name;
+	console.log(newExam.school);
 	newExam.save(function (err) {
 		if(err) throw (err);
 
@@ -678,8 +721,8 @@ router.post('/ratingStudent',function (req,res) {
 })
 
 router.get('/getExams',function (req,res) {
-	Exam.find({},function (err,data) {
-		console.log(data);
+	Exam.find({school : req.user._doc.school},function (err,data) {
+		
 		var obj={};
 		for(var j=0;j<data.length;j++){
 
@@ -792,6 +835,8 @@ router.post('/changePassword',function (req,res) {
 router.get('/teacherAssignmentClass',isTeacher,function (req,res) {
 	res.json(req.user._doc.class_section);
 })
+
+
 
 router.post('/dataUpload',function (req,res) {
 	console.log(req);
