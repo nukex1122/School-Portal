@@ -789,6 +789,10 @@ router.post('/changePassword',function (req,res) {
 
 })
 
+router.get('/teacherAssignmentClass',isTeacher,function (req,res) {
+	res.json(req.user._doc.class_section);
+})
+
 router.post('/dataUpload',function (req,res) {
 	console.log(req);
 	var query = {class_section : req.body.class ,
