@@ -59,41 +59,10 @@
                         <h5 style="text-align: center">Distinction Chart</h5>
                         <br>
                         <canvas id="distinction" width="200" height="200"></canvas>
-                    </div> 
-                </div>
-                <div class="row" style="margin-top: 4em; margin-bottom: 4em;">
-                    <div class="col l4">
-                        <h5 style="text-align: center">Subject 1</h5>
-                        <br>
-                        <canvas id="subject1" width="200" height="200"></canvas>
-                    </div>
-                    <div class="col l4">
-                        <h5 style="text-align: center">Subject 2</h5>
-                        <br>
-                        <canvas id="subject2" width="200" height="200"></canvas>
-                    </div>
-                    <div class="col l4">
-                        <h5 style="text-align: center">Subject 3</h5>
-                        <br>
-                        <canvas id="subject3" width="200" height="200"></canvas>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 4em; margin-bottom: 4em;">
-                    <div class="col l4">
-                        <h5 style="text-align: center">Subject 4</h5>
-                        <br>
-                        <canvas id="subject4" width="200" height="200"></canvas>
-                    </div>
-                    <div class="col l4">
-                        <h5 style="text-align: center">Subject 5</h5>
-                        <br>
-                        <canvas id="subject5" width="200" height="200"></canvas>
-                    </div>
-                    <div class="col l4">
-                        <h5 style="text-align: center">Subject 6</h5>
-                        <br>
-                        <canvas id="subject6" width="200" height="200"></canvas>
-                    </div>
+                <div class="row graphs" style="margin-top: 4em; margin-bottom: 4em;">
+
                 </div>
             </div>
         </main>
@@ -135,7 +104,7 @@ var myChart = new Chart(ctx, {
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)'
-               
+
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -166,10 +135,10 @@ var myPieChart = new Chart(ctx2,{
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)'
-               
+
             ]
     }],
-        
+
 
     // These labels appear in the legend and in the tooltips when hovering different arcs
     labels: [
@@ -188,39 +157,63 @@ var myPieChart = new Chart(ctx2,{
         }
     }
 });
-var sub1 = document.getElementById("subject1").getContext('2d');
-var myChart = new Chart(sub1, {
-    type: 'bar',
-    data: {
-        labels: ["Your %age", "Average %age", "Highest %age"],
-        datasets: [{
-            label: '# of Marks',
-            data: [82, 78, 90],
-            backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
-               
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
-            ],
-            borderWidth: 2
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
 
+$.ajax({
+	url: '/classData',
+	type: 'GET',
+	success: function(data){
+		console.log(data);
+		var k=0;
+		for(i in data){
+				var str = `<div class="col l4">
+						<h5 style="text-align: center">${i}</h5>
+						<br>
+						<canvas id="subject${k}" width="200" height="200"></canvas>
+				</div>`;
+				$('.graphs').append(str);
+				var sub1 = document.getElementById(`subject${k}`).getContext('2d');
+
+				var myChart = new Chart(sub1, {
+						type: 'bar',
+						data: {
+								labels: ["Your %age", "Average %age", "Highest %age"],
+								datasets: [{
+										label: '# of Marks',
+										data: [82, data[i].avg, data[i].max],
+										backgroundColor: [
+												'rgba(255, 99, 132, 1)',
+												'rgba(54, 162, 235, 1)',
+												'rgba(255, 206, 86, 1)'
+
+										],
+										borderColor: [
+												'rgba(255,99,132,1)',
+												'rgba(54, 162, 235, 1)',
+												'rgba(255, 206, 86, 1)'
+										],
+										borderWidth: 2
+								}]
+						},
+						options: {
+								scales: {
+										yAxes: [{
+												ticks: {
+														beginAtZero:true
+												}
+										}]
+								}
+						}
+				});
+
+				k++;
+		}
+
+
+
+	}
+})
+
+/*
 var sub2 = document.getElementById("subject2").getContext('2d');
 var myChart = new Chart(sub2, {
     type: 'bar',
@@ -233,7 +226,7 @@ var myChart = new Chart(sub2, {
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)'
-               
+
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -265,7 +258,7 @@ var myChart = new Chart(sub3, {
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)'
-               
+
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -297,7 +290,7 @@ var myChart = new Chart(sub4, {
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)'
-               
+
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -329,7 +322,7 @@ var myChart = new Chart(sub5, {
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)'
-               
+
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -361,7 +354,7 @@ var myChart = new Chart(sub6, {
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)'
-               
+
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -380,7 +373,8 @@ var myChart = new Chart(sub6, {
             }]
         }
     }
-});            
+});
+*/
 </script>
     </body>
 </html>
