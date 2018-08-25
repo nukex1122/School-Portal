@@ -471,7 +471,7 @@ router.post('/fillSubjects',isSchool, function (req,res) {
 })
 
 router.get('/getSubjects', function (req,res) {
-	res.json(req.user._doc.subject); //this api can be accessed only by school
+	res.json(req.user._doc.subject);
 })
 
 router.get('/getSubject',isTeacher,function (req,res) {
@@ -486,6 +486,30 @@ router.get('/getSubject',isTeacher,function (req,res) {
 		res.json(arr);
 	 })
  })
+
+router.post('/ranking',function (req,res) {
+	var student = {};
+	Marks.find({school: 'bbps',
+				class:'12-C',
+				subject:req.body.subject
+				},function (err,Maindata) {
+					for(var i=0;i<Maindata.length;i++){
+						Student.findOne({_id: Maindata[i].student},function (err,data) {
+							if(student[`${data.firstname + ' '+ data.lastname}`]){
+								student[`${data.firstname + ' '+ data.lastname}`]+=Maindata[i].marks;
+							}
+							else{
+								student[`${data.firstname + ' '+ data.lastname}`] = Maindata[i].marks;
+
+							}
+						})
+					}
+					setTimeout(function () {
+						console.log(student);
+					},2000)
+				//incomplete
+				})
+})
 
 
 router.get('/getAssignment' ,function (req,res) {
@@ -683,6 +707,7 @@ router.get('/test',function (req,res) {
 		console.log(data);
 	})
 })
+
 
 
 

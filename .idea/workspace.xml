@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25b85a59-8112-447e-b9b0-810850ae574b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -67,8 +65,8 @@
       <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="888" column="28" lean-forward="true" selection-start-line="888" selection-start-column="28" selection-end-line="888" selection-end-column="28" />
+            <state relative-caret-position="336">
+              <caret line="507" column="45" selection-start-line="507" selection-start-column="45" selection-end-line="507" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -85,7 +83,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getS</find>
       <find>ratin</find>
       <find>/con</find>
       <find>/</find>
@@ -109,12 +106,13 @@
       <find>upload</find>
       <find>studentS</find>
       <find>.update</find>
-      <find>uploadMa</find>
       <find>addExa</find>
       <find>teacher-login</find>
       <find>chan</find>
       <find>change</find>
       <find>mailO</find>
+      <find>getSu</find>
+      <find>uploadMa</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -353,12 +351,12 @@
       <workItem from="1534564569477" duration="9011000" />
       <workItem from="1534759669351" duration="6949000" />
       <workItem from="1534825041593" duration="2558000" />
-      <workItem from="1535026814593" duration="12485000" />
+      <workItem from="1535026814593" duration="15507000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153561000" />
+    <option name="totallyTimeSpent" value="156583000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="794" extended-state="0" />
@@ -369,12 +367,12 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007153" side_tool="true" weight="0.3298969" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.32424676" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.32424676" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Mongo Explorer" order="3" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49928468" weight="0.32855093" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39741752" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39741752" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -430,17 +428,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>605</line>
+          <line>629</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>667</line>
+          <line>691</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>682</line>
+          <line>706</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -455,7 +453,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/user.js</url>
-          <line>639</line>
+          <line>663</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="48" />
         </line-breakpoint>
@@ -465,8 +463,14 @@
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/controllers/user.js</url>
+          <line>507</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="56" />
+      <option name="time" value="57" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -780,8 +784,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="888" column="28" lean-forward="true" selection-start-line="888" selection-start-column="28" selection-end-line="888" selection-end-column="28" />
+        <state relative-caret-position="336">
+          <caret line="507" column="45" selection-start-line="507" selection-start-column="45" selection-end-line="507" selection-end-column="45" />
         </state>
       </provider>
     </entry>
