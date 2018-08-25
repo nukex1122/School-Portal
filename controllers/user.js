@@ -511,6 +511,22 @@ router.post('/ranking',function (req,res) {
 				})
 })
 
+router.get('/getStudents',isTeacher,function (req,res) {
+
+	var query = {class_section : req.user._doc.class_section};
+	Student.find(query,function (err,data) {
+		var arr = [];
+		for(var i=0;i<data.length;i++){
+			var obj={};
+			obj.id = String(data[i]._id);
+
+			obj.name = data[i].firstname + ' ' + data[i].lastname;
+			arr.push(obj);
+		}
+		res.json(arr);
+	})
+})
+
 
 router.get('/getAssignment' ,function (req,res) {
 	Assignment.find({school : req.user._doc.school,
