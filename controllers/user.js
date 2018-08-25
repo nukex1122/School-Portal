@@ -254,6 +254,74 @@ router.get('/marksData', isStudent ,function (req,res) {
 
 })
 
+
+router.post('/marksDataTeacher' ,function (req,res) {
+	var obj = {};
+	Marks.find({student: req.body.id,school: req.user._doc.school},function (err,data) {
+		console.log(req);
+		for(var i=0;i<data.length;i++){
+			if(obj[`${data[i]._doc.subject}`]){
+				var temp ={};
+				temp.examName = data[i]._doc.examName;
+				temp.marks= data[i]._doc.marks;
+				obj[`${data[i]._doc.subject}`].push(temp);
+			}
+			else{
+				obj[`${data[i]._doc.subject}`]=[];
+				var temp ={};
+				temp.examName = data[i]._doc.examName;
+				temp.marks= data[i]._doc.marks;
+				obj[`${data[i]._doc.subject}`].push(temp);
+			}
+		}
+
+		res.json(obj);
+	})
+
+
+})
+
+router.post('/examWiseDataTeacher',function (req,res) {
+	var obj = {};   // examName in post request
+	console.log(req);
+	Marks.find({school : "bbps" ,examName: req.body.examName},function (err,data) {
+		for(var i=0;i<data.length;i++){
+
+			if(obj[`${data[i]._doc.subject}`]){
+
+				marks= data[i]._doc.marks;
+				obj[`${data[i]._doc.subject}`].push(marks);
+			}
+			else{
+				obj[`${data[i]._doc.subject}`]=[];
+
+				marks= data[i]._doc.marks;
+				obj[`${data[i]._doc.subject}`].push(marks);
+			}
+		}
+		console.log(obj);
+		var tosend ={};
+		for(i in obj){
+			var arr = obj[i];
+			var max = 0;
+
+			var sum =0;
+			for(var j =0 ;j<arr.length;j++){
+				sum+= arr[j];
+				if(arr[j] > max){
+					max = arr[j];
+				}
+			}
+			sum = sum / arr.length;
+			tosend[i]={};
+			tosend[i].max = max;
+			tosend[i].avg = sum;
+		}
+		res.json(tosend);
+	})
+})
+
+
 router.post('/examWiseData',function (req,res) {
 	var obj = {};
 	console.log(req);
@@ -293,6 +361,49 @@ router.post('/examWiseData',function (req,res) {
 		res.json(tosend);
 	})
 })
+
+router.get('/classDataTeacher',isStudent,function (req,res) {
+	var obj = {};
+	Marks.find({class : req.user._doc.class_section,school:req.user._doc.school},function (err,data) {
+		console.log(data);
+		for(var i=0;i<data.length;i++){
+			if(obj[`${data[i]._doc.subject}`]){
+				var temp ={};
+				temp.examName = data[i]._doc.examName;
+				temp.marks= data[i]._doc.marks;
+				obj[`${data[i]._doc.subject}`].push(temp);
+			}
+			else{
+				obj[`${data[i]._doc.subject}`]=[];
+				var temp ={};
+				temp.examName = data[i]._doc.examName;
+				temp.marks= data[i]._doc.marks;
+				obj[`${data[i]._doc.subject}`].push(temp);
+			}
+		}
+		console.log(obj);
+		var tosend ={};
+		for(i in obj){
+			var arr = obj[i];
+			var max = 0;
+
+			var sum =0;
+			for(var j =0 ;j<arr.length;j++){
+				sum+= arr[j].marks;
+				if(arr[j].marks > max){
+					max = arr[j].marks;
+				}
+			}
+			sum = sum / arr.length;
+			tosend[i]={};
+			tosend[i].max = max;
+			tosend[i].avg = sum;
+		}
+		res.json(tosend);
+	})
+
+})
+
 
 router.get('/classData',isStudent,function (req,res) {
 	var obj = {};
@@ -526,6 +637,8 @@ router.get('/getStudents',isTeacher,function (req,res) {
 		res.json(arr);
 	})
 })
+
+
 
 
 router.get('/getAssignment' ,function (req,res) {
