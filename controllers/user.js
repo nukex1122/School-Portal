@@ -1,6 +1,7 @@
 const express=require('express');
 const path =require('path');
 const router=express.Router();
+const bcrypt = require('bcrypt-nodejs');
 var Student = require('../model/user').student;
 var Teacher = require('../model/user').teacher;
 var upload = require('../config/multer').noticeUpload;
@@ -801,32 +802,100 @@ router.post('/changePassword',function (req,res) {
 
     var email = req.body.email;
     if(req.body.type == "Teacher"){
-    	Teacher.find({email:req.body.email},function (err,data) {
+    	Teacher.findOne({email:req.body.email},function (err,data) {
+    		console.log(data);
+    		var newPass = Math.random().toString(36).substring(7);
 
+			console.log(newPass);
+		    var temp =  bcrypt.hashSync(newPass,bcrypt.genSaltSync(10),null);
+		    Teacher.findOneAndUpdate({email:req.body.email}, {$set:{password:temp}}, {new: true}, function(err, doc){
+			    if(err){
+				    console.log("Something wrong when updating data!");
+			    }
+			    var mailOptions = {
+				    from: 'focado11@gmail.com',
+				    to: `${req.body.email}`,
+				    subject: 'password changed',
+				    text: `New Password set to ${newPass}`
+			    };
 
-		    var password = Math.random().toString(36).substring(7);
+			    transporter.sendMail(mailOptions, function(error, info){
+				    if (error) {
+					    console.log(error);
+				    } else {
+					    console.log('Email sent: ' + info.response);
+					    res.redirect('/');
+				    }
+			    })
 
-
-		    console.log(password);
-		    var teacher = new Teacher();
-		    var hash = teacher.encryptPassword();
-		    console.log(hash);
-		    Teacher.update({email:req.body.email},{password: hash},function (err,data) {
-			    console.log(data);
-		    })
+		    });
 
 
 	    })
     }
     else if(req.body.type == "Student"){
-	    Student.find({email:req.body.email},function (err,data) {
-		    for(var i=0;i<data.length;i++){
+	    Student.findOne({email:req.body.email},function (err,data) {
+		    console.log(data);
+		    var newPass = Math.random().toString(36).substring(7);
 
-		    }
+		    console.log(newPass);
+		    var temp =  bcrypt.hashSync(newPass,bcrypt.genSaltSync(10),null);
+		    Student.findOneAndUpdate({email:req.body.email}, {$set:{password:temp}}, {new: true}, function(err, doc){
+			    if(err){
+				    console.log("Something wrong when updating data!");
+			    }
+			    var mailOptions = {
+				    from: 'focado11@gmail.com',
+				    to: `${req.body.email}`,
+				    subject: 'password changed',
+				    text: `New Password set to ${newPass}`
+			    };
+
+			    transporter.sendMail(mailOptions, function(error, info){
+				    if (error) {
+					    console.log(error);
+				    } else {
+					    console.log('Email sent: ' + info.response);
+					    res.redirect('/');
+				    }
+			    })
+
+		    });
+
+
 	    })
     }
     else{
+	    School.findOne({email:req.body.email},function (err,data) {
+		    console.log(data);
+		    var newPass = Math.random().toString(36).substring(7);
 
+		    console.log(newPass);
+		    var temp =  bcrypt.hashSync(newPass,bcrypt.genSaltSync(10),null);
+		    School.findOneAndUpdate({email:req.body.email}, {$set:{password:temp}}, {new: true}, function(err, doc){
+			    if(err){
+				    console.log("Something wrong when updating data!");
+			    }
+			    var mailOptions = {
+				    from: 'focado11@gmail.com',
+				    to: `${req.body.email}`,
+				    subject: 'password changed',
+				    text: `New Password set to ${newPass}`
+			    };
+
+			    transporter.sendMail(mailOptions, function(error, info){
+				    if (error) {
+					    console.log(error);
+				    } else {
+					    console.log('Email sent: ' + info.response);
+					    res.redirect('/');
+				    }
+			    })
+
+		    });
+
+
+	    })
     }
 
 

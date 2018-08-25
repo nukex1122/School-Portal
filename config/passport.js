@@ -158,7 +158,7 @@ passport.use('teacher.login',new LocalStratergy({
 		}
 		if(!user){
 			req.flash('loggingError', 'user email not found')
-			console.log('hello');
+
 			return done(null,false);
 		}
 		if(!user.validPassword(req.body.password)){
