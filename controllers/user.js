@@ -605,21 +605,33 @@ router.post('/ranking',function (req,res) {
 				subject:req.body.subject
 				},function (err,Maindata) {
 					for(var i=0;i<Maindata.length;i++){
-						Student.findOne({_id: Maindata[i].student},function (err,data) {
-							if(student[`${data.firstname + ' '+ data.lastname}`]){
-								student[`${data.firstname + ' '+ data.lastname}`]+=Maindata[i].marks;
-							}
-							else{
-								student[`${data.firstname + ' '+ data.lastname}`] = Maindata[i].marks;
+						if(student[`${Maindata[i].student}`]){
+							student[`${Maindata[i].student}`] += Maindata[i].marks;
+						}
+						else{
+							student[`${Maindata[i].student}`] = Maindata[i].marks;
+						}
+					}
+				var sortable=[];
+				for(var key in student)
+					if(student.hasOwnProperty(key))
+						sortable.push([key, student[key]]); // each item is an array in format [key, value]
 
-							}
+				// sort items by value
+				sortable.sort(function(a, b)
+				{
+					return b[1]-a[1]; // compare numbers
+				});
+				console.log(sortable);
+				for(var i=0;i<sortable.length;i++){
+					if(sortable[i][0]==req.body.id){
+						res.json({
+							id:req.body.id,
+							rank: i+1
 						})
 					}
-					setTimeout(function () {
-						console.log(student);
-					},2000)
-				//incomplete
-				})
+				}
+	})
 })
 
 router.get('/getStudents',isTeacher,function (req,res) {
