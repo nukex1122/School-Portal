@@ -48,7 +48,18 @@
 
 		</header>
         <main>
+
+
             <div class="container">
+							<div class="row" style="margin-top:4em">
+								<div class="input-field col s12">
+									<i class="prefix material-icons">subject</i>
+									<select id="select" name="subject" >
+										<option value="" disabled >Choose your option</option>
+									</select>
+									<label >Exam Name</label>
+								</div>
+							</div>
                 <div class="row" style="margin-top: 4em; margin-bottom: 4em;">
                     <div class="col l6">
                         <h5 style="text-align: center">Percentage Analysis</h5>
@@ -92,6 +103,8 @@
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
         <script>
+
+
 var ctx = document.getElementById("percentage").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
@@ -159,222 +172,91 @@ var myPieChart = new Chart(ctx2,{
 });
 
 $.ajax({
-	url: '/classData',
-	type: 'GET',
-	success: function(data){
-		console.log(data);
-		var k=0;
-		for(i in data){
-				var str = `<div class="col l4">
-						<h5 style="text-align: center">${i}</h5>
-						<br>
-						<canvas id="subject${k}" width="200" height="200"></canvas>
-				</div>`;
-				$('.graphs').append(str);
-				var sub1 = document.getElementById(`subject${k}`).getContext('2d');
-
-				var myChart = new Chart(sub1, {
-						type: 'bar',
-						data: {
-								labels: ["Your %age", "Average %age", "Highest %age"],
-								datasets: [{
-										label: '# of Marks',
-										data: [82, data[i].avg, data[i].max],
-										backgroundColor: [
-												'rgba(255, 99, 132, 1)',
-												'rgba(54, 162, 235, 1)',
-												'rgba(255, 206, 86, 1)'
-
-										],
-										borderColor: [
-												'rgba(255,99,132,1)',
-												'rgba(54, 162, 235, 1)',
-												'rgba(255, 206, 86, 1)'
-										],
-										borderWidth: 2
-								}]
-						},
-						options: {
-								scales: {
-										yAxes: [{
-												ticks: {
-														beginAtZero:true
-												}
-										}]
-								}
-						}
-				});
-
-				k++;
+url: '/examName',
+type: 'GET',
+success: function(data){
+			for(i in data){
+				$("#select").append(`<option value=${data[i]} >`+data[i]+"</option>")
+			}
+			$('select').formSelect();
+			getExamData($("#select").val());
 		}
+	})
 
-
-
-	}
-})
-
-/*
-var sub2 = document.getElementById("subject2").getContext('2d');
-var myChart = new Chart(sub2, {
-    type: 'bar',
-    data: {
-        labels: ["Your %age", "Average %age", "Highest %age"],
-        datasets: [{
-            label: '# of Marks',
-            data: [82, 78, 90],
-            backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
-
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
-            ],
-            borderWidth: 2
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
+$('#select').change(function() {
+	getExamData($(this).val());
 });
-var sub3 = document.getElementById("subject3").getContext('2d');
-var myChart = new Chart(sub3, {
-    type: 'bar',
-    data: {
-        labels: ["Your %age", "Average %age", "Highest %age"],
-        datasets: [{
-            label: '# of Marks',
-            data: [82, 78, 90],
-            backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
 
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
-            ],
-            borderWidth: 2
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-var sub4 = document.getElementById("subject4").getContext('2d');
-var myChart = new Chart(sub4, {
-    type: 'bar',
-    data: {
-        labels: ["Your %age", "Average %age", "Highest %age"],
-        datasets: [{
-            label: '# of Marks',
-            data: [82, 78, 90],
-            backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
+var marksData;
+$.ajax({
+url: '/marksData',
+type: 'GET',
+async:false,
+success: function(data){
+	console.log(data);
+			marksData = data;
+		}
+	})
+function getExamData(examName){
+	$.ajax({
+		url: '/classData',
+		type: 'GET',
+		success: function(data){
+			console.log(data);
+			var k=0;
+			$('.graphs').empty();
+			for(i in data){
+					var str = `<div class="col l4">
+							<h5 style="text-align: center">${i}</h5>
+							<br>
+							<canvas id="subject${k}" width="200" height="200"></canvas>
+					</div>`;
+					$('.graphs').append(str);
+					var sub1 = document.getElementById(`subject${k}`).getContext('2d');
 
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
-            ],
-            borderWidth: 2
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-var sub5 = document.getElementById("subject5").getContext('2d');
-var myChart = new Chart(sub5, {
-    type: 'bar',
-    data: {
-        labels: ["Your %age", "Average %age", "Highest %age"],
-        datasets: [{
-            label: '# of Marks',
-            data: [82, 78, 90],
-            backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
+					var myChart = new Chart(sub1, {
+							type: 'bar',
+							data: {
+									labels: ["Your %age", "Average %age", "Highest %age"],
+									datasets: [{
+											label: '# of Marks',
+											data: [marksData[examName][i], data[i].avg, data[i].max],
+											backgroundColor: [
+													'rgba(255, 99, 132, 1)',
+													'rgba(54, 162, 235, 1)',
+													'rgba(255, 206, 86, 1)'
 
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
-            ],
-            borderWidth: 2
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-var sub6 = document.getElementById("subject6").getContext('2d');
-var myChart = new Chart(sub6, {
-    type: 'bar',
-    data: {
-        labels: ["Your %age", "Average %age", "Highest %age"],
-        datasets: [{
-            label: '# of Marks',
-            data: [82, 78, 90],
-            backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
+											],
+											borderColor: [
+													'rgba(255,99,132,1)',
+													'rgba(54, 162, 235, 1)',
+													'rgba(255, 206, 86, 1)'
+											],
+											borderWidth: 2
+									}]
+							},
+							options: {
+									scales: {
+											yAxes: [{
+													ticks: {
+															beginAtZero:true
+													}
+											}]
+									}
+							}
+					});
 
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
-            ],
-            borderWidth: 2
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-*/
+					k++;
+			}
+
+
+
+		}
+	})
+
+}
+
+
 </script>
     </body>
 </html>

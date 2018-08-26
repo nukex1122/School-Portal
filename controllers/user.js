@@ -227,28 +227,20 @@ router.post('/uploadMarks',function (req,res) {
 })
 
 router.get('/marksData', isStudent ,function (req,res) {
-	var obj = {};
-
+	var o2 = {};
 
 	Marks.find({student: String(req.user._doc._id),school: req.user._doc.school},function (err,data) {
-		console.log(req);
+		//console.log(req);
 		for(var i=0;i<data.length;i++){
-			if(obj[`${data[i]._doc.subject}`]){
-				var temp ={};
-				temp.examName = data[i]._doc.examName;
-				temp.marks= data[i]._doc.marks;
-				obj[`${data[i]._doc.subject}`].push(temp);
+			if (!o2[data[i]._doc.examName]) {
+				o2[data[i]._doc.examName] = {}
 			}
-			else{
-				obj[`${data[i]._doc.subject}`]=[];
-				var temp ={};
-				temp.examName = data[i]._doc.examName;
-				temp.marks= data[i]._doc.marks;
-				obj[`${data[i]._doc.subject}`].push(temp);
-			}
+			o2[data[i]._doc.examName][data[i]._doc.subject]= data[i]._doc.marks;
 		}
 
-		res.json(obj);
+		console.log(o2);
+		//console.log("-----------");
+		res.json(o2);
 	})
 
 
@@ -903,7 +895,7 @@ router.post('/ratingStudent',function (req,res) {
 
 router.get('/getExams',function (req,res) {
 	Exam.find({school : req.user._doc.school},function (err,data) {
-		
+
 		var obj={};
 		for(var j=0;j<data.length;j++){
 
