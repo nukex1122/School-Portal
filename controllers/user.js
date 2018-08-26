@@ -281,10 +281,24 @@ router.post('/marksDataTeacher' ,function (req,res) {
 
 })
 
+
+router.get('/examName',function (req,res) {
+	var arr=[];
+	Exam.find({school:req.user._doc.school},function (err,data) {
+		for(var i=0;i<data.length;i++){
+			console.log(data[i].name)
+			arr.push(data[i].name)
+			console.log(arr);
+		}
+		res.json(arr);
+	})
+
+})
+
 router.post('/examWiseDataTeacher',function (req,res) {
 	var obj = {};   // examName in post request
 	console.log(req);
-	Marks.find({school : "bbps" ,examName: req.body.examName},function (err,data) {
+	Marks.find({school : req.user._doc.school ,examName: req.body.examName},function (err,data) {
 		for(var i=0;i<data.length;i++){
 
 			if(obj[`${data[i]._doc.subject}`]){
@@ -325,7 +339,7 @@ router.post('/examWiseDataTeacher',function (req,res) {
 router.post('/examWiseData',function (req,res) {
 	var obj = {};
 	console.log(req);
-	Marks.find({school : "bbps" ,examName: req.body.examName},function (err,data) {
+	Marks.find({school : req.user._doc.school ,examName: req.body.examName},function (err,data) {
 		for(var i=0;i<data.length;i++){
 
 			if(obj[`${data[i]._doc.subject}`]){
