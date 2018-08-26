@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+        <title>Score Analytics | Teacher Dashboard</title>
+		<style>
+			.header {
+			color: lightskyblue;
+			font-weight: 300;
+			}
+
+			footer {
+/*			position:fixed;*/
+			bottom:0rem;
+			width:100%;
+			background:#6cf;
+			}
+
+		</style>
+	</head>
+	<body>
+		<header>
+			<nav class="light-blue lighten-2">
+				<div class="nav-wrapper container">
+                    <img src = "images/logoWhite.png" style="height: 64px;">
+
+					<a href="teacherDashboard.html" class="brand-logo" style="font-size:1.5em">Focado Teacher Dashboard</a>
+					<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+					<ul class="right hide-on-med-and-down">
+						<li>
+							<a href="#" class="name"></a>
+						</li>
+						<li>
+							<a class="waves-effect waves-teal btn-flat" style="color:#fff" href="/logout"><b>Sign Out</b></a>
+						</li>
+<!--						<li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>-->
+					</ul>
+				</div>
+			</nav>
+
+		</header>
+        <main>
+
+
+            <div class="container">
+							<div class="row" style="margin-top:4em">
+								<div class="input-field col s12">
+									<i class="prefix material-icons">subject</i>
+									<select id="select" name="subject" >
+										<option value="" disabled >Choose your option</option>
+									</select>
+									<label >Exam Name</label>
+								</div>
+							</div>
+                <div class="row" style="margin-top: 4em; margin-bottom: 4em;">
+                    <div class="col l6">
+                        <h5 style="text-align: center">Percentage Analysis</h5>
+                        <br>
+                        <canvas id="percentage" width="200" height="200"></canvas>
+                    </div>
+                    <div class="col l6">
+                        <h5 style="text-align: center">Distinction Chart</h5>
+                        <br>
+                        <canvas id="distinction" width="200" height="200"></canvas>
+                    </div>
+                </div>
+                <div class="row graphs" style="margin-top: 4em; margin-bottom: 4em;">
+
+                </div>
+            </div>
+        </main>
+        <footer class="page-footer light-blue lighten-2">
+			<div class="container">
+				<div class="row">
+					<div class="col l6">
+						<h5 class="white-text">Focado</h5>
+						<p class="grey-text text-lighten-4">Lorem Ipsum Dolor Sit Amet.</p>
+					</div>
+					<div class="col l4 offset-l2">
+						<h5 class="white-text">Links</h5>
+						<ul>
+							<li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					© 2018 Copyright
+				</div>
+			</div>
+		</footer>
+		<!--JavaScript at end of body for optimized loading-->
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+        <script>
+
+
+var ctx = document.getElementById("percentage").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Your %age", "Average %age", "Highest %age"],
+        datasets: [{
+            label: '# of Marks',
+            data: [82, 78, 90],
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+var ctx2 = document.getElementById("distinction").getContext('2d');
+var myPieChart = new Chart(ctx2,{
+    type: 'pie',
+    data: {
+    datasets: [{
+        data: [10, 20, 30]
+        ,
+               backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+
+            ]
+    }],
+
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: [
+        'Red',
+        'Yellow',
+        'Blue'
+    ]
+},
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+$.ajax({
+url: '/examName',
+type: 'GET',
+success: function(data){
+			for(i in data){
+				$("#select").append(`<option value=${data[i]} >`+data[i]+"</option>")
+			}
+			$('select').formSelect();
+			getExamData($("#select").val());
+		}
+	})
+
+$('#select').change(function() {
+	getExamData($(this).val());
+});
+$.urlParam = function(name){
+	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	return results[1] || 0;
+}
+var marksData;
+$.ajax({
+url: '/marksDataTeacher',
+type: 'POST',
+data:{id:$.urlParam('q')},
+async:false,
+success: function(data){
+	console.log(data);
+			marksData = data;
+		}
+	})
+function getExamData(examName){
+	$.ajax({
+		url: '/classDataTeacher',
+		type: 'GET',
+		success: function(data){
+			console.log(data);
+			var k=0;
+			$('.graphs').empty();
+			for(i in data){
+					var str = `<div class="col l4">
+							<h5 style="text-align: center">${i}</h5>
+							<br>
+							<canvas id="subject${k}" width="200" height="200"></canvas>
+					</div>`;
+					$('.graphs').append(str);
+					var sub1 = document.getElementById(`subject${k}`).getContext('2d');
+
+					var myChart = new Chart(sub1, {
+							type: 'bar',
+							data: {
+									labels: ["Your %age", "Average %age", "Highest %age"],
+									datasets: [{
+											label: '# of Marks',
+											data: [marksData[examName][i], data[i].avg, data[i].max],
+											backgroundColor: [
+													'rgba(255, 99, 132, 1)',
+													'rgba(54, 162, 235, 1)',
+													'rgba(255, 206, 86, 1)'
+
+											],
+											borderColor: [
+													'rgba(255,99,132,1)',
+													'rgba(54, 162, 235, 1)',
+													'rgba(255, 206, 86, 1)'
+											],
+											borderWidth: 2
+									}]
+							},
+							options: {
+									scales: {
+											yAxes: [{
+													ticks: {
+															beginAtZero:true
+													}
+											}]
+									}
+							}
+					});
+
+					k++;
+			}
+
+
+
+		}
+	})
+
+}
+
+
+</script>
+    </body>
+</html>

@@ -248,26 +248,20 @@ router.get('/marksData', isStudent ,function (req,res) {
 
 
 router.post('/marksDataTeacher' ,function (req,res) {
-	var obj = {};
+	var o2 = {};
 	Marks.find({student: req.body.id,school: req.user._doc.school},function (err,data) {
-		console.log(req);
+		console.log(data);
 		for(var i=0;i<data.length;i++){
-			if(obj[`${data[i]._doc.subject}`]){
-				var temp ={};
-				temp.examName = data[i]._doc.examName;
-				temp.marks= data[i]._doc.marks;
-				obj[`${data[i]._doc.subject}`].push(temp);
+			if (!o2[data[i]._doc.examName]) {
+				o2[data[i]._doc.examName] = {}
 			}
-			else{
-				obj[`${data[i]._doc.subject}`]=[];
-				var temp ={};
-				temp.examName = data[i]._doc.examName;
-				temp.marks= data[i]._doc.marks;
-				obj[`${data[i]._doc.subject}`].push(temp);
-			}
+			o2[data[i]._doc.examName][data[i]._doc.subject]= data[i]._doc.marks;
 		}
 
-		res.json(obj);
+
+			console.log(o2);
+			//console.log("-----------");
+			res.json(o2);
 	})
 
 
@@ -368,7 +362,7 @@ router.post('/examWiseData',function (req,res) {
 	})
 })
 
-router.get('/classDataTeacher',isStudent,function (req,res) {
+router.get('/classDataTeacher',isTeacher,function (req,res) {
 	var obj = {};
 	Marks.find({class : req.user._doc.class_section,school:req.user._doc.school},function (err,data) {
 		console.log(data);
@@ -630,7 +624,7 @@ router.post('/ranking',function (req,res) {
 				});
 				console.log(sortable);
 				for(var i=0;i<sortable.length;i++){
-					if(sortable[i][0]==req.body.id){
+					if(sortable[i][0]==req.user._id){
 						res.json({
 							id:req.body.id,
 							rank: i+1
