@@ -470,7 +470,7 @@ router.post('/studentSignup', function(req,res){
 		console.log(req);
 		var newUser=new Student();
 		newUser.typeOf = 'Student';
-		newUser.firstname = req.body.firstname;
+		newUser.firstnamegit  = req.body.firstname;
 		newUser.lastname = req.body.lastname;
 		newUser.phone = req.body.phone;
 		newUser.age= req.body.age;
@@ -599,9 +599,10 @@ router.get('/getSubject',isTeacher,function (req,res) {
  })
 
 router.post('/ranking',function (req,res) {
+
 	var student = {};
-	Marks.find({school: 'bbps',
-				class:'12-C',
+	Marks.find({school: req.user._doc.school,
+				class:req.user._doc.class_section,
 				subject:req.body.subject
 				},function (err,Maindata) {
 					for(var i=0;i<Maindata.length;i++){
@@ -623,14 +624,34 @@ router.post('/ranking',function (req,res) {
 					return b[1]-a[1]; // compare numbers
 				});
 				console.log(sortable);
+				var final = {}
+				var top5 = []
+				var studentRank = {};
 				for(var i=0;i<sortable.length;i++){
-					if(sortable[i][0]==req.user._id){
-						res.json({
-							id:req.body.id,
+
+					if(sortable[i][0]== String(req.user._doc._id)){
+						studentRank = {
+							id:sortable[i][0],
 							rank: i+1
-						})
+						}
 					}
 				}
+				for(var i=0;i<sortable.length;i++){
+					if(i<5){
+						top5.push({
+							id: sortable[i][0],
+							rank: i+1,
+						})
+					}
+					else{
+						break;
+					}
+
+				}
+				final.top5rank = top5;
+				final.studentRank = studentRank;
+				res.json(final);
+
 	})
 })
 
