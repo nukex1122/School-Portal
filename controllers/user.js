@@ -601,7 +601,7 @@ router.get('/getSubject',isTeacher,function (req,res) {
 router.post('/ranking',function (req,res) {
 
 	var student = {};
-	Marks.find({school: req.user._doc.school,
+	Marks.find({school: req.user_doc.school,
 				class:req.user._doc.class_section,
 				subject:req.body.subject
 				},function (err,Maindata) {
@@ -628,28 +628,33 @@ router.post('/ranking',function (req,res) {
 				var top5 = []
 				var studentRank = {};
 				for(var i=0;i<sortable.length;i++){
-
+//
 					if(sortable[i][0]== String(req.user._doc._id)){
 						studentRank = {
 							id:sortable[i][0],
 							rank: i+1,
-							name: req.user._doc.firstname+" "+req.user._doc.lastname
+							//name: req.user._doc.firstname+" "+req.user._doc.lastname
 						}
 					}
 				}
 				for(var i=0;i<sortable.length;i++){
 					if(i<5){
-						top5.push({
-							id: sortable[i][0],
-							name : "mohan Kukreja",
-							rank: i+1,
+						Student.findOne({_id:sortable[i][0] },function (err,data) {
+							console.log(data);
+							top5.push({
+								id: sortable[i][0],
+								name : data._doc.firstname + " "+ data._doc.lastname,
+								rank: i+1
+							})
 						})
+
 					}
 					else{
 						break;
 					}
 
 				}
+
 				final.top5rank = top5;
 				final.studentRank = studentRank;
 				res.json(final);
