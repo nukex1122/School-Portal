@@ -632,7 +632,8 @@ router.post('/ranking',function (req,res) {
 					if(sortable[i][0]== String(req.user._doc._id)){
 						studentRank = {
 							id:sortable[i][0],
-							rank: i+1
+							rank: i+1,
+							name: req.user._doc.firstname+" "+req.user._doc.lastname
 						}
 					}
 				}

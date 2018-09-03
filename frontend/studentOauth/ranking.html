@@ -58,24 +58,8 @@
 				<div class="col offset-m2 m8  s12">
 					<div id="highlight" class="section scrollspy">
 						<h3 class="header">Rank</h3>
-						<div class="row">
-							<div class="col s12">
-								<table class=" Rank highlight responsive-table">
-									<thead>
-										<tr>
-											<th>Overall</th>
-										</tr>
-									</thead>
-									<tbody>
-                    <tr>
-                      <td class="overall">
+						<div class="row rank-data">
 
-                      </td>
-
-                    </tr>
-									</tbody>
-								</table>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -130,17 +114,38 @@
         type: 'GET',
         success: function(data){
             for(var i=0; i<data.length;i++){
-                $('thead tr').append("<th>" + data[i] + "</th>");
+                //$('thead tr').append("<th>" + data[i] + "</th>");
+								var str = `<div class="col s12 m6">
+									<table class=" Rank highlight responsive-table" id="sel-${data[i]}">
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>${data[i]} Rank</th>
+											</tr>
+										</thead>
+										<tbody>
+
+										</tbody>
+									</table>
+								</div>`;
+
+								$('.rank-data').append(str);
 
                 $.ajax({
                 url: '/ranking',
                 type: 'POST',
                 data:{subject:data[i]},
                 success: function(data2){
+
+									var sub = this.data.split("=")[1];
+									console.log(sub);
                   console.log(data2);
-                      overall+=data2.rank;
-                      $('tbody tr').append("<td>" + data2.rank + "</td>");
-                      $('.overall').html(overall/data.length);
+									for (var k = 0; k < data2.top5rank.length; k++) {
+										$('#sel-'+ sub + ' tbody').append("<tr><td>" + data2.top5rank[k].name + "</td><td>" + data2.top5rank[k].rank + "</td></tr>");
+									}
+                      overall+=data2.studentRank.rank;
+											$('#sel-'+ sub + ' tbody').append("<tr style=\"background-color: rgba(242,242,242,0.5);\"><td>" + data2.studentRank.name + "</td><td>" + data2.studentRank.rank + "</td></tr>");
+                      //$('.overall').html(overall/data.length);
                     }
                   })
 
