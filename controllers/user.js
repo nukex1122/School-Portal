@@ -78,7 +78,8 @@ router.use('/schoolOauth',isSchool,express.static(path.join(__dirname,'../fronte
 router.use('/teacherOauth',isTeacher,express.static(path.join(__dirname,'../frontend/teacherOauth')));
 router.use('/studentOauth',isStudent,express.static(path.join(__dirname,'../frontend/studentOauth')));
 router.use('/uploads',express.static(path.join(__dirname,'../uploads')));
-router.use('/',express.static(path.join(__dirname,'../frontend/withoutOauth')));
+router.use('/home',express.static(path.join(__dirname,'../frontend/withoutOauth')));
+router.use('/',express.static(path.join(__dirname,'../homepage')));
 
 router.get('/studentSignup',isSchool ,function (req,res) {
 	res.redirect('/schoolOauth/studentSignup.html');
