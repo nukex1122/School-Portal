@@ -6,6 +6,7 @@ var Student = require('../model/user').student;
 var Teacher = require('../model/user').teacher;
 var upload = require('../config/multer').noticeUpload;
 var uploadAssignment = require('../config/multer').assignmentUpload;
+var uploadTimeTable = require('../config/multer').timeTableUpload;
 var Notice = require('../model/user').notice;
 var School = require('../model/user').school;
 var Contact = require('../model/user').contact;
@@ -13,7 +14,7 @@ var Assignment = require('../model/user').assignment;
 var Exam = require('../model/user').exam;
 var Marks = require('../model/user').marks;
 var request = require("request");
-
+var timeTable = require('../model/user').timeTable;
 function createUserInComet(userId, userName) {
 	return new Promise(function(resolve, reject) {
 
@@ -545,6 +546,30 @@ router.post('/login',passport.authenticate('school.login',{
 }),function (req,res) {
 	res.redirect('/schoolOauth/schoolDashboard.html')
 })
+router.post('/uploadTimeTable',(req,res)=> {
+	console.log(req);
+	uploadTimeTable(req, res, function (err) {
+		if (err) {
+			// An error occurred when uploading
+			console.log(err);
+			return;
+		}
+		console.log(req);
+		var newTimeTable = new timeTable();
+		newNotice.topic = req.body.topic;
+		newNotice.target = req.body.target;
+		newNotice.date = req.body.date;
+		newNotice.description = req.body.description;
+		newNotice.filePath = req.file.path;
+		newTimeTable.school = req.user._doc.name;
+		newNotice.save(function (err) {
+			if(err) throw (err);
+
+			res.redirect('/schoolOauth/schoolDashboard.html')
+		})
+	})
+});
+
 
 
 router.post('/uploadNotice',(req,res)=> {

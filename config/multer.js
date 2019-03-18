@@ -10,6 +10,15 @@ const storage = multer.diskStorage({
 	}
 });
 
+const storage2 = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, './uploads/time_table_upload')
+	},
+	filename: function(req, file, cb){
+		cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+	}
+});
+
 
 const storage1 = multer.diskStorage({
 	destination: function (req, file, cb) {
@@ -34,8 +43,12 @@ const upload1 = multer({
 
 }).single('assignment');
 
+const upload2 = multer({
+	storage: storage2,
+}).single('timeTable');
+
 var obj = {};
 obj.noticeUpload = upload;
 obj.assignmentUpload = upload1;
-
+obj.timeTableUpload = upload2;
 module.exports = obj;
