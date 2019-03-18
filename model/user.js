@@ -315,6 +315,20 @@ var marksSchema = mongoose.Schema({
 
 })
 
+var timeTableSchema = mongoose.Schema({
+	class_section:{
+		type:String,
+		default: null
+	},
+	filePath: {
+		type:String,
+		default: null
+	}
+
+
+
+
+})
 
 
 
@@ -348,7 +362,7 @@ studentSchema.methods.validPassword = function (password) {
 
 
 var obj ={};
-
+obj.timeTable = mongoose.model('timeTable',timeTableSchema);
 obj.contact =  mongoose.model('contact', contactSchema);
 obj.student =  mongoose.model('student',studentSchema);
 obj.teacher =  mongoose.model('teacher',teacherSchema);

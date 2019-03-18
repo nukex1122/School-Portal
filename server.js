@@ -10,7 +10,13 @@ const flash=require('express-flash');
 
 var app=express();
 
-mongoose.connect('mongodb://mohan_kukreja:school_portal1@ds247171.mlab.com:47171/school_portal', function(err, db) {
+mongoose.connect('mongodb://mohan_kukreja:school_portal1@ds247171.mlab.com:47171/school_portal', { server: { 
+    // sets how many times to try reconnecting
+    reconnectTries: Number.MAX_VALUE,
+    // sets the delay between every retry (milliseconds)
+    reconnectInterval: 1000 
+    } 
+}, function(err, db) {
     if (err) {
         console.log('Unable to connect to the server. Please start the server. Error:', err);
     } else {

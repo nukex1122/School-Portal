@@ -285,19 +285,21 @@ Teachers are the real life superheroes. Classroom teaching is the backbone of In
 //    }
 //});
           $(".emailmessage").hide();
-         var $form = $('form#test-form'),
-           url = '#'
+
 
          function isEmail(email) {
            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
            return regex.test(email);
          }
+          var $form = $('form#test-form'),
+          url = 'https://script.google.com/macros/s/AKfycbx5lMDWPp_FjGTpJZeddaMiJMipM7u7003Xn2imX1ZXYFXWgJA/exec'
+
+
 
 
 
          $('#submit-form').on('click', function(e) {
            e.preventDefault();
-
 
 
 	         var formData = $form.serializeArray();
@@ -306,7 +308,7 @@ Teachers are the real life superheroes. Classroom teaching is the backbone of In
 	         		data[formData[i].name] = formData[i].value;
 	         }
 
-
+           console.log(data);
 	         if (isEmail(data.email)) {
 						 var jqxhr = $.ajax({
 						 	url: url,
