@@ -621,6 +621,17 @@ router.get('/getSubject',isTeacher,function (req,res) {
 	 })
  })
 
+ router.get('/getTimeTable',isStudent,function(req,res){
+	 console.log(req);
+	  timeTable.find({school : req.user._doc.school, class_section : req.user._doc.class_section},function(err,data){
+			var arr = [];
+			for(i=0;i<data.length;i++){
+				arr.push(data[i]._doc);
+			}
+			res.json(arr);
+	  })
+ })
+
 router.post('/ranking',function (req,res) {
 
 	var student = {};
