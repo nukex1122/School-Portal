@@ -556,13 +556,10 @@ router.post('/uploadTimeTable',(req,res)=> {
 		}
 		console.log(req);
 		var newTimeTable = new timeTable();
-		newNotice.topic = req.body.topic;
-		newNotice.target = req.body.target;
-		newNotice.date = req.body.date;
-		newNotice.description = req.body.description;
-		newNotice.filePath = req.file.path;
+		newTimeTable.class_section = req.body.class;
 		newTimeTable.school = req.user._doc.name;
-		newNotice.save(function (err) {
+		newTimeTable.filePath = req.file.path;
+		newTimeTable.save(function (err) {
 			if(err) throw (err);
 
 			res.redirect('/schoolOauth/schoolDashboard.html')

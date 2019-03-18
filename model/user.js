@@ -323,6 +323,10 @@ var timeTableSchema = mongoose.Schema({
 	filePath: {
 		type:String,
 		default: null
+	},
+	school:{
+		type:String,
+		default: null
 	}
 
 
