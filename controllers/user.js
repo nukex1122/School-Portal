@@ -15,6 +15,7 @@ var Exam = require('../model/user').exam;
 var Marks = require('../model/user').marks;
 var request = require("request");
 var timeTable = require('../model/user').timeTable;
+var blog = require('../model/user').blog;
 function createUserInComet(userId, userName) {
 	return new Promise(function(resolve, reject) {
 
@@ -1133,7 +1134,26 @@ router.get('/teacherAssignmentClass',isTeacher,function (req,res) {
 	res.json(req.user._doc.class_section);
 })
 
+router.post('/blog',function(req,res){
+	var newBlog = new blog();
+	newBlog.title = req.body.title;
+	newBlog.content = req.body.content;
+	newBlog.name = req.body.name;
+	newBlog.date = req.body.date;
+	newBlog.save(function (err) {
+		if(err) throw (err);
 
+		res.redirect('/home');
+	})
+})
+
+router.get('/blog',function(req,res){
+	blog.find({}).limit(10).exec(function(err,data){
+		if(err) throw err;
+		res.json(data);
+
+	})
+})
 
 router.post('/dataUpload',function (req,res) {
 	console.log(req);

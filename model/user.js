@@ -334,6 +334,29 @@ var timeTableSchema = mongoose.Schema({
 
 })
 
+var blogScenma = mongoose.Schema({
+	title:{
+		type:String,
+		default: null
+	},
+	date: {
+		type:String,
+		default: null
+	},
+	name:{
+		type:String,
+		default: null
+	},
+	content:{
+		type:String,
+		default: null
+	}
+
+
+
+
+})
+
 
 
 
@@ -366,6 +389,7 @@ studentSchema.methods.validPassword = function (password) {
 
 
 var obj ={};
+obj.blog = mongoose.model('blog',blogScenma);
 obj.timeTable = mongoose.model('timeTable',timeTableSchema);
 obj.contact =  mongoose.model('contact', contactSchema);
 obj.student =  mongoose.model('student',studentSchema);
