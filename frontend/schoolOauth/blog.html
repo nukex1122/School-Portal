@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Blog Post | School Dashboard</title>
+</head>
+<style>
+    html,
+    body {
+        width: 100%;
+    }
+
+    .waves-button-input {
+        color: #fff;
+    }
+</style>
+
+<body style="background-color:#F5F5F5 ">
+    <header>
+        <nav class="blue-grey darken-1">
+            <div class="nav-wrapper container">
+                <img src="images/logoWhite.png" style="height: 64px;">
+                <a href="schoolDashboard.html" class="brand-logo" style="font-size:1.5em">Focado School Dashboard</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="#" class="name">Mr. Lorem Ipsum</a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-teal btn-flat" style="color:#fff" href="/logout"><b>Sign Out</b></a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!--
+			<ul class="sidenav" id="mobile-demo">
+				<li><a href="sass.html">Sass</a></li>
+				<li><a href="badges.html">Components</a></li>
+				<li><a href="collapsible.html">Javascript</a></li>
+				<li><a href="mobile.html">Mobile</a></li>
+			</ul>
+-->
+    </header>
+    <main>
+        <div class="container" style="margin-top:1%">
+            <div id="login-page" class="row">
+                <div class="col m8 s12 offset-m2 z-depth-4 card-panel">
+                    <form class="login-form" style="padding: 0 0.75rem" action="/blog" method="post" >
+                        <div class="row">
+                            <div class="input-field col s12 center">
+                                <img src="images/logo.png" alt="" class="circle responsive-img valign profile-image-login">
+                                <h5 class="center login-form-text">Blog Post</h5>
+                            </div>
+                        </div>
+                        <div class="row margin">
+                            <div class="input-field col s6">
+                                <i class="mdi-social-person-outline prefix material-icons">person_outline</i>
+                                <input type="text" name="title">
+                                <label class="center-align">Title</label>
+                            </div>
+                            <div class="input-field col m6 s12">
+                                <i class="prefix material-icons">date_range</i>
+                                <input id="date" type="text" name="date" class="datepicker" />
+                                <label for="date">Date</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="prefix material-icons">description</i>
+                                <input name="content" type="text" placeholder="content">
+                                <label>Content</label>
+                            </div>
+                            <div class="input-field col m6 s12">
+                                <i class="prefix material-icons">class</i>
+                                <input name = "name" type="text" placeholder="name">
+                                <label>Name of author</label>
+                            </div>
+                            <div class="file-field input-field col m6 s12">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input id="file" type="file" name="notice">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Choose the File">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom:0">
+                            <div class="input-field col m6 s12 offset-m3">
+                                <input type="submit" class="btn col s12 blue-grey darken-1 accent-2 login-btn" value="Upload">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script>
+        var window_width = $(window).width();
+
+        /*Preloader*/
+
+        // Search class for focus
+        $('.header-search-input').focus(
+            function() {
+                $(this).parent('div').addClass('header-search-wrapper-focus');
+            }).blur(
+            function() {
+                $(this).parent('div').removeClass('header-search-wrapper-focus');
+            });
+
+        // Check first if any of the task is checked
+        $('#task-card input:checkbox').each(function() {
+            checkbox_check(this);
+        });
+
+        // Task check box
+        $('#task-card input:checkbox').change(function() {
+            checkbox_check(this);
+        });
+
+        $(document).ready(function() {
+            $('select').formSelect();
+        });
+
+        $(document).ready(function() {
+            $('.datepicker').datepicker();
+        });
+
+        // Check Uncheck function
+        function checkbox_check(el) {
+            if (!$(el).is(':checked')) {
+                $(el).next().css('text-decoration', 'none'); // or addClass
+            } else {
+                $(el).next().css('text-decoration', 'line-through'); //or addClass
+            }
+        }
+    </script>
+</body>
+
+</html>
