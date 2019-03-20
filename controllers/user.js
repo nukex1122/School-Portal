@@ -547,6 +547,8 @@ router.post('/login',passport.authenticate('school.login',{
 }),function (req,res) {
 	res.redirect('/schoolOauth/schoolDashboard.html')
 })
+
+
 router.post('/uploadTimeTable',(req,res)=> {
 	console.log(req);
 	uploadTimeTable(req, res, function (err) {
@@ -1143,7 +1145,7 @@ router.post('/blog',function(req,res){
 	newBlog.save(function (err) {
 		if(err) throw (err);
 
-		res.redirect('/home');
+		res.redirect('/schoolOauth/schoolDashboard.html');
 	})
 })
 
