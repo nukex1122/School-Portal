@@ -16,6 +16,7 @@ var Marks = require('../model/user').marks;
 var request = require("request");
 var timeTable = require('../model/user').timeTable;
 var blog = require('../model/user').blog;
+var healthForm = require('../model/user').healthForm;
 function createUserInComet(userId, userName) {
 	return new Promise(function(resolve, reject) {
 
@@ -1130,6 +1131,38 @@ router.post('/changePassword',function (req,res) {
     }
 
 
+})
+
+router.post('/healthForm',isStudent,function(req,res){
+	var newHealthForm = {};
+	var query = {'admissionNumber':req.user._doc.admissionNumber,'school':req.user._doc.school};
+	newHealthForm.admissionNumber = req.user._doc.admissionNumber;
+	newHealthForm.school = req.user._doc.school;
+	newHealthForm.bloodGroup = req.body.bloodGroup;
+	newHealthForm.allergy = req.body.allergy;
+	newHealthForm.chronicDisease = req.body.chronicDisease;
+	newHealthForm.regularMedicine = req.body.regularMedicine;
+	newHealthForm.tetanus = req.body.tetanus;
+	newHealthForm.vaccinationCompleted = req.body.vaccinationCompleted;
+	newHealthForm.fathersName = req.body.fathersName;
+	newHealthForm.fathersNumber = req.body.fathersNumber;
+	newHealthForm.mothersName = req.body.mothersName;
+	newHealthForm.mathersNumber = req.body.mathersNumber;
+	newHealthForm.doctorsName = req.body.doctorsName;
+	newHealthForm.doctorsNumber = req.body.doctorsNumber;
+	newHealthForm.fitToParticipate = req.body.fitToParticipate;
+	healthForm.findOneAndUpdate(query,newHealthForm,{upsert:true},function(err, doc){
+		if (err) return res.send(500, { error: err });
+		return res.send("succesfully saved");
+	})
+})
+
+router.post('/getMedicalForm',function(req,res){
+	var query = {'admissionNumber':req.body.admissionNumber,'school':req.user._doc.school};
+	healthForm.find(query,function(err,user){
+		if(err) throw err;
+		res.json(user);
+	})
 })
 
 router.get('/teacherAssignmentClass',isTeacher,function (req,res) {

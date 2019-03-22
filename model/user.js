@@ -357,6 +357,75 @@ var blogScenma = mongoose.Schema({
 
 })
 
+var healthFormSchema = mongoose.Schema({
+	admissionNumber:{
+		type:String,
+		default: null
+	},
+	school: {
+		type:String,
+		default: null
+	},
+	bloodGroup:{
+		type:String,
+		default: null
+	},
+	allergy:{
+		type:String,
+		default: null
+	},
+	chronicDisease:{
+		type:String,
+		default: null
+	},
+	regularMedicine:{
+		type:String,
+		default: null
+	},
+	tetanus:{
+		type:String,
+		default: null
+	},
+	vaccinationCompleted:{
+		type:String,
+		default: null
+	},
+	fathersName:{
+		type:String,
+		default: null
+	},
+	fathersNumber:{
+		type:String,
+		default: null
+	},
+	mothersName:{
+		type:String,
+		default: null
+	},
+	mathersNumber:{
+		type:String,
+		default: null
+	},
+	doctorsName:{
+		type:String,
+		default: null
+	},
+	doctorsNumber:{
+		type:String,
+		default: null
+	},
+	fitToParticipate:{
+		type:String,
+		default: null
+	}
+
+
+
+
+
+
+})
+
 
 
 
@@ -389,6 +458,7 @@ studentSchema.methods.validPassword = function (password) {
 
 
 var obj ={};
+obj.healthForm = mongoose.model('healthForm',healthFormSchema);
 obj.blog = mongoose.model('blog',blogScenma);
 obj.timeTable = mongoose.model('timeTable',timeTableSchema);
 obj.contact =  mongoose.model('contact', contactSchema);
