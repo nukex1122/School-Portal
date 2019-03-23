@@ -1136,6 +1136,7 @@ router.post('/changePassword',function (req,res) {
 router.post('/healthForm',isStudent,function(req,res){
 	var newHealthForm = {};
 	var query = {'admissionNumber':req.user._doc.admissionNumber,'school':req.user._doc.school};
+	console.log(query);
 	newHealthForm.admissionNumber = req.user._doc.admissionNumber;
 	newHealthForm.school = req.user._doc.school;
 	newHealthForm.bloodGroup = req.body.bloodGroup;
@@ -1159,6 +1160,7 @@ router.post('/healthForm',isStudent,function(req,res){
 
 router.post('/getMedicalForm',function(req,res){
 	var query = {'admissionNumber':req.body.admissionNumber,'school':req.user._doc.school};
+	console.log(query);
 	healthForm.find(query,function(err,user){
 		if(err) throw err;
 		res.json(user);
