@@ -107,37 +107,37 @@
 
     								</div>
 
-    								<div class="input-field col s6">
+    								<div class="input-field col s12 m6">
     									<i class="mdi-social-person-outline prefix material-icons">person_outline</i>
-    									<input id="allergy" type="text" name="allergy" disabled>
+    									<input placeholder="" placeholder="" id="allergy" type="text" name="allergy" disabled>
     									<label for="allergy" class="center-align">Does Your Child Suffer From any Allergy?</label>
     								</div>
 
 
-    								<div class="input-field col s6">
+    								<div class="input-field col s12 m6">
     									<i class="prefix material-icons">person_pin</i>
-    									<input type="text" id="chronicDisease" name="chronicDisease"  disabled/>
+    									<input placeholder="" type="text" id="chronicDisease" name="chronicDisease"  disabled/>
     									<label for="chronicDisease" name="chronicDisease">Does Your Child Suffer From any kind of Chronic Disease?</label>
     								</div>
-    								<div class="input-field col s6">
+    								<div class="input-field col s12 m6">
     									<i class="prefix material-icons">person_pin</i>
-    									<input type="text" id="regularMedicine" name="regularMedicine"  disabled/>
+    									<input placeholder="" type="text" id="regularMedicine" name="regularMedicine"  disabled/>
     									<label for="regularMedicine" name="regularMedicine">Is your child on any Regular Medication?</label>
     								</div>
-    								<div class="input-field col s6">
+    								<div class="input-field col s12 m6">
     									<i class="prefix material-icons">confirmation_number</i>
-    									<input type="text" id="tetanus" name="tetanus"  disabled/>
+    									<input placeholder="" type="text" id="tetanus" name="tetanus"  disabled/>
     									<label for="tetanus" name="tetanus">When was the last Tetanus vaccine taken?</label>
     								</div>
-    								<div class="input-field col s6">
+    								<div class="input-field col s12 m6">
     									<i class="prefix material-icons">class</i>
-    									<input type="text" id="vaccinationCompleted" name="vaccinationCompleted"  disabled/>
+    									<input placeholder="" type="text" id="vaccinationCompleted" name="vaccinationCompleted"  disabled/>
     									<label >Are all Vaccinations Completed as per age?</label>
     								</div>
 
-    								<div class="input-field col s6">
+    								<div class="input-field col s12 m6">
     									<i class="prefix material-icons">class</i>
-    									<input type="text" id="fitToParticipate" name="fitToParticipate"  disabled/>
+    									<input placeholder="" type="text" id="fitToParticipate" name="fitToParticipate"  disabled/>
     									<label >Is your child fit to participate in sports?</label>
     								</div>
 
@@ -150,36 +150,36 @@
 
     							<div class="row ">
 
-    								<div class="input-field col s6">
+    								<div class="input-field col s12 m6">
     									<i class="prefix material-icons">class</i>
-    									<input type="text" id="fathersName" name="fathersName"  disabled/>
+    									<input placeholder="" type="text" id="fathersName" name="fathersName"  disabled/>
     									<label >Fathers Name</label>
     								</div>
-    								<div class="input-field col s6">
+    								<div class="input-field col s12 m6">
     									<i class="prefix material-icons">class</i>
-    									<input type="text" id="fathersNumber" name="fathersNumber"  disabled/>
+    									<input placeholder="" type="text" id="fathersNumber" name="fathersNumber"  disabled/>
     									<label >Fathers Number</label>
     								</div>
 
-    								<div class="input-field col s6">
+    								<div class="input-field col s12 m6">
     									<i class="prefix material-icons">class</i>
-    									<input type="text" id="mothersName" name="mothersName"  disabled/>
+    									<input placeholder="" type="text" id="mothersName" name="mothersName"  disabled/>
     									<label >Mothers Name</label>
     								</div>
-    								<div class="input-field col s6">
+    								<div class="input-field col s12 m6">
     									<i class="prefix material-icons">class</i>
-    									<input type="text" id="mathersNumber" name="mathersNumber"  disabled/>
+    									<input placeholder="" type="text" id="mathersNumber" name="mathersNumber"  disabled/>
     									<label >Mothers Number</label>
     								</div>
 
-    								<div class="input-field col s6">
+    								<div class="input-field col s12 m6">
     									<i class="prefix material-icons">class</i>
-    									<input type="text" id="doctorsName" name="doctorsName"  disabled/>
+    									<input placeholder="" type="text" id="doctorsName" name="doctorsName"  disabled/>
     									<label >Doctors Name</label>
     								</div>
-    								<div class="input-field col s6">
+    								<div class="input-field col s12 m6">
     									<i class="prefix material-icons">class</i>
-    									<input type="text" id="doctorsNumber" name="doctorsNumber"  disabled/>
+    									<input placeholder="" type="text" id="doctorsNumber" name="doctorsNumber"  disabled/>
     									<label >Doctors Number</label>
     								</div>
     							</div>
@@ -239,9 +239,20 @@
           type: 'POST',
           data:{admissionNumber:$("#admissionNumber").val()},
           success: function(data){
-            console.log(data);
                 for(i in data){
-                  $("#select").append("<option>"+data[i]+"</option>")
+                  $("#allergy").val(data[i].allergy)
+                  $("#chronicDisease").val(data[i].chronicDisease)
+                  $("#doctorsName").val(data[i].doctorsName)
+                  $("#doctorsNumber").val(data[i].doctorsNumber)
+                  $("#fathersName").val(data[i].fathersName)
+                  $("#fathersNumber").val(data[i].fathersNumber)
+                  $("#fitToParticipate").val(data[i].fitToParticipate)
+                  $("#mathersNumber").val(data[i].mathersNumber)
+                  $("#mothersName").val(data[i].mothersName)
+                  $("#regularMedicine").val(data[i].regularMedicine)
+                  $("#tetanus").val(data[i].tetanus)
+                  $("#vaccinationCompleted").val(data[i].vaccinationCompleted)
+                  $("#select").val(data[i].bloodGroup)
                 }
                 $('select').formSelect();
               }
