@@ -1159,8 +1159,8 @@ router.post('/healthForm',isStudent,function(req,res){
 })
 
 router.post('/getMedicalForm',function(req,res){
-	var query = {'admissionNumber':req.body.admissionNumber,'school':req.user._doc.school};
-	console.log(query);
+	var query = {'admissionNumber':req.body.admissionNumber,'school':req.user._doc.name};
+	console.log(req);
 	healthForm.find(query,function(err,user){
 		if(err) throw err;
 		res.json(user);
