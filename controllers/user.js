@@ -1177,6 +1177,8 @@ router.post('/blog',function(req,res){
 	newBlog.content = req.body.content;
 	newBlog.name = req.body.name;
 	newBlog.date = req.body.date;
+	newBlog.school = req.user._doc.name
+
 	newBlog.save(function (err) {
 		if(err) throw (err);
 
@@ -1185,7 +1187,7 @@ router.post('/blog',function(req,res){
 })
 
 router.get('/blog',function(req,res){
-	blog.find({}).limit(10).exec(function(err,data){
+	blog.find({school: req.user._doc.school}).limit(10).exec(function(err,data){
 		if(err) throw err;
 		res.json(data);
 

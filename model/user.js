@@ -350,6 +350,10 @@ var blogScenma = mongoose.Schema({
 	content:{
 		type:String,
 		default: null
+	},
+	school:{
+		type:String,
+		default: null
 	}
 
 
