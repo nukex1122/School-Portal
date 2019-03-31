@@ -881,19 +881,22 @@ router.post('/addExam',function (req,res) {
 
 
 router.post('/rating',function (req,res) {
+	console.log(req);
 	var name = req.body.name;
 	console.log(name);
 	var arr = name.split(" ");
-	var query = { firstname: arr[0] , lastname: arr[1] };
+	var rat = Number(req.body.approach) + Number(req.body.assignment) + Number(req.body.depth)+ Number(req.body.marking) + Number(req.body.pace) + Number(req.body.presentation) + Number(req.body.response) + Number(req.body.syllabus);
+	rat= rat / 8;
+	var query = { firstname: arr[0] , lastname: arr[1],school: req.user._doc.school };
 	Teacher.find(query,function (err,data) {
 		var sum = data[0]._doc.ratingSum;
 		var num = data[0]._doc.ratingNumber;
 		if(sum == null){
-			sum = Number(req.body.rating);
+			sum = rat;
 			num = 1;
 		}
 		else{
-			sum += Number(req.body.rating);
+			sum += rat;
 			num++;
 		}
 		console.log(sum);
