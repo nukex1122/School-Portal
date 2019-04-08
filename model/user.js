@@ -157,6 +157,21 @@ var teacherSchema=mongoose.Schema({
 	school: {
 		type:String,
 		default: null
+	},
+	approach:{
+
+	},
+	assignment:{
+
+	},
+	depth:{
+
+	},
+	marking:{
+
+	},
+	pace:{
+		
 	}
 
 

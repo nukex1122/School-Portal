@@ -878,6 +878,13 @@ router.get('/getAllTeachers', isSchool,function(req,res){
 })
 
 
+router.post('/getTeacherRating',isSchool,function(req,res){
+	Teacher.find({_id:"5b652b4c808b84032da13eaf"},function(err,data){
+		console.log(data);
+	})
+})
+
+
 
 router.post('/addExam',function (req,res) {
 	var newExam = new Exam();
