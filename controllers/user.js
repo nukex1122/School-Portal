@@ -17,6 +17,7 @@ var request = require("request");
 var timeTable = require('../model/user').timeTable;
 var blog = require('../model/user').blog;
 var healthForm = require('../model/user').healthForm;
+
 function createUserInComet(userId, userName) {
 	return new Promise(function(resolve, reject) {
 
@@ -169,6 +170,8 @@ router.get('/teacherChat',function (req,res) {
 	})
 
 })
+
+
 
 router.get('/studentChat',function (req,res) {
 	var query = {class_section : req.user._doc.class_section,
@@ -860,6 +863,19 @@ router.get('/students' , isTeacher , function(req,res){
 	})
 })
 
+router.get('/getAllTeachers', isSchool,function(req,res){
+	Teacher.find({school: req.user._doc.name},function(err,data){
+			var arr = [];
+			for(var i=0;i<data.length;i++){
+				var obj = {};
+				
+				obj.id = data[i].id;
+				obj.name = data[i].firstname+ " " + data[i].lastname;
+				arr.push(obj);
+			}
+			res.json(arr);
+	})
+})
 
 
 
