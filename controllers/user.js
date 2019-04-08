@@ -893,6 +893,24 @@ router.post('/getTeacherRating',isSchool,function(req,res){
 	})
 })
 
+router.get('/getStudentRating',isStudent,function(req,res){
+	console.log(req);
+	Student.find({_id:req.user.id},function(err,data){
+		var obj = {};
+		var counter = data[0]._doc.ratingNumber;
+		obj.discipline = data[0]._doc.discipline/counter;
+		obj.interaction = data[0]._doc.interaction/counter;
+		obj.listening = data[0]._doc.listening/counter;
+		obj.participation = data[0]._doc.participation/counter;
+		obj.punctuality = data[0]._doc.punctuality/counter;
+		obj.tackling = data[0]._doc.tackling/counter;
+		obj.understanding = data[0]._doc.understanding/counter;
+		obj.creativity = data[0]._doc.creativity/counter;
+		obj.curiosity = data[0]._doc.curiosity/counter;
+		res.json(obj);
+	})
+})
+
 
 
 router.post('/addExam',function (req,res) {
@@ -962,37 +980,54 @@ router.get('/test',function (req,res) {
 
 
 router.post('/ratingStudent',function (req,res) {
-	console.log(req);
-	var name = req.body.name;
-	console.log(name);
-	var arr = name.split(" ");
+	console.log(req.body);
+	
 	var query = {_id: req.body.id};
 	Student.find(query,function (err,data) {
 		console.log(data);
-		var rat = data[0]._doc.ratingSum;
+		var discipline = (data[0]._doc.discipline);
+		discipline += Number(req.body.discipline);
+		var interaction = data[0]._doc.interaction;
+		interaction += Number(req.body.interaction);
+		var understanding = data[0]._doc.understanding;
+		understanding += Number(req.body.understanding);
+		var tackling = data[0]._doc.tackling;
+		tackling += Number(req.body.tackling);
+		var listening = data[0]._doc.listening;
+		listening += Number(req.body.listening);
+		var participation = data[0]._doc.participation;
+		participation += Number(req.body.participation);
+		var punctuality = data[0]._doc.punctuality;
+		punctuality += Number(req.body.punctuality);
+		var creativity = data[0]._doc.creativity;
+		creativity += Number(req.body.creativity);
+		var curiosity = data[0]._doc.curiosity;
+		curiosity += Number(req.body.curiosity);
+		var counter = data[0]._doc.ratingNumber;
+		counter++;
 		
 		
-		if(rat==null){
-			finalans = Number(req.body.rating);
-			Student.update(query,{rating: finalans} , function (err,data) {
+		
+			
+			Student.update(query,{
+				discipline:discipline,
+				interaction:interaction,
+				understanding:understanding,
+				tackling:tackling,
+				listening:listening,
+				participation:participation,
+				punctuality:punctuality,
+				creativity:creativity,
+				curiosity:curiosity,
+				ratingNumber : counter
+			}  , function (err,data) {
 
 				res.redirect('/teacherOauth/teacherDashboard.html');
 				return;
 			})
 
-		}
-		else{
-			var ans = rat + Number(req.body.rating);
-			console.log(req.body.rating);
-			ans = ans / 20;
-			ans = ans * 10;
-			console.log(ans);
-			console.log(rat);
-			Student.update(query,{rating: ans} , function (err,data) {
-
-				res.redirect('/teacherOauth/teacherDashboard.html');
-			})
-		}
+		
+		
 
 
 	})

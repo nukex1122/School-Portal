@@ -64,7 +64,43 @@ var studentSchema=mongoose.Schema({
 		type:Array,
 		default: null
 	},
-	
+	discipline:{
+		type:Number,
+		default:null
+	},
+	understanding:{
+		type:Number,
+		default:null
+	},
+	tackling:{
+		type:Number,
+		default:null
+	},
+	participation:{
+		type:Number,
+		default:null
+	},
+	punctuality:{
+		type:Number,
+		default:null
+	},
+	creativity:{
+		type:Number,
+		default:null
+	},
+	curiosity:{
+		type:Number,
+		default:null
+	},
+	interaction:{
+		type:Number,
+		default:null
+	},
+	listening:{
+		type:Number,
+		default:null
+	}
+
 
 
 });
