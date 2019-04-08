@@ -159,37 +159,38 @@ var teacherSchema=mongoose.Schema({
 		default: null
 	},
 	approach:{
-		type:String,
+		type:Number,
 		default: null
 	},
 	assignment:{
-		type:String,
+		type:Number,
 		default: null
 	},
 	depth:{
-		type:String,
+		type:Number,
 		default: null
 	},
 	marking:{
-		type:String,
+		type:Number,
 		default: null
 	},
 	pace:{
-		type:String,
+		type:Number,
 		default: null
 	},
 	presentation:{
-		type:String,
+		type:Number,
 		default: null
 	},
 	response:{
-		type:String,
+		type:Number,
 		default: null
 	},
 	syllabus:{
-		type:String,
+		type:Number,
 		default: null
-	}
+	},
+	
 
 
 });

@@ -881,13 +881,14 @@ router.get('/getAllTeachers', isSchool,function(req,res){
 router.get('/getTeacherRating',isSchool,function(req,res){
 	Teacher.find({_id:req.body.id},function(err,data){
 		var obj = {};
-		obj.approach = data[0]._doc.approach;
-		obj.assignment = data[0]._doc.assignment;
-		obj.depth = data[0]._doc.depth;
-		obj.marking = data[0]._doc.marking;
-		obj.pace = data[0]._doc.pace;
-		obj.response = data[0]._doc.response;
-		obj.syllabus = data[0]._doc.syllabus;
+		var counter = data[0]._doc.ratingNumber;
+		obj.approach = data[0]._doc.approach/counter;
+		obj.assignment = data[0]._doc.assignment/counter;
+		obj.depth = data[0]._doc.depth/counter;
+		obj.marking = data[0]._doc.marking/counter;
+		obj.pace = data[0]._doc.pace/counter;
+		obj.response = data[0]._doc.response/counter;
+		obj.syllabus = data[0]._doc.syllabus/counter;
 		res.json(obj);
 	})
 })
@@ -916,12 +917,31 @@ router.post('/rating',function (req,res) {
 	var name = req.body.name;
 	console.log(name);
 	var arr = name.split(" ");
-	var rat = Number(req.body.approach) + Number(req.body.assignment) + Number(req.body.depth)+ Number(req.body.marking) + Number(req.body.pace) + Number(req.body.presentation) + Number(req.body.response) + Number(req.body.syllabus);
+	var rat = Number(req.body.approach) + Number(req.body.assignment) + Number(req.body.marking) + Number(req.body.pace) + Number(req.body.presentation) + Number(req.body.response) + Number(req.body.syllabus);
 	
 	var query = { firstname: arr[0] , lastname: arr[1],school: req.user._doc.school };
 	Teacher.find(query,function (err,data) {
 		console.log(data);
-		Teacher.update(query,{approach : Number(req.body.approach) , assignment : Number(req.body.assignment) , depth: Number(req.body.depth),marking:Number(req.body.marking),pace:Number(req.body.pace),response: Number(req.body.response),syllabus:Number(req.body.syllabus)} , function (err,data) {
+		var approach = (data[0]._doc.approach);
+		approach += Number(req.body.approach);
+		var assignment = data[0]._doc.assignment;
+		assignment += Number(req.body.assignment);
+		var depth = data[0]._doc.depth;
+		depth += Number(req.body.depth);
+		var marking = data[0]._doc.marking;
+		marking += Number(req.body.marking);
+		var pace = data[0]._doc.pace;
+		pace += Number(req.body.pace);
+		var response = data[0]._doc.response;
+		response += Number(req.body.response);
+		var syllabus = data[0]._doc.syllabus;
+		syllabus += Number(req.body.syllabus); 
+		var counter = data[0]._doc.ratingNumber;
+		counter++;
+		
+
+
+		Teacher.update(query,{approach : approach , assignment : assignment , depth: depth,marking:marking,pace:pace,response: response,syllabus:syllabus,ratingNumber : counter} , function (err,data) {
 			console.log(data);
 			res.redirect('/studentOauth/studentDashboard.html');
 		})
