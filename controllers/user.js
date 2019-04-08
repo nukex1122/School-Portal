@@ -857,7 +857,7 @@ router.get('/students' , isTeacher , function(req,res){
 		var arr = [];
 		for(var i=0;i<data.length;i++){
 			var name = data[i].firstname + ' ' + data[i].lastname;
-			arr.push(name);
+			arr.push({id:data[i].id,name:name});
 		}
 		res.json(arr);
 	})
@@ -868,7 +868,7 @@ router.get('/getAllTeachers', isSchool,function(req,res){
 			var arr = [];
 			for(var i=0;i<data.length;i++){
 				var obj = {};
-				
+
 				obj.id = data[i].id;
 				obj.name = data[i].firstname+ " " + data[i].lastname;
 				arr.push(obj);
@@ -878,7 +878,7 @@ router.get('/getAllTeachers', isSchool,function(req,res){
 })
 
 
-router.get('/getTeacherRating',isSchool,function(req,res){
+router.post('/getTeacherRating',isSchool,function(req,res){
 	Teacher.find({_id:req.body.id},function(err,data){
 		var obj = {};
 		var counter = data[0]._doc.ratingNumber;
@@ -917,8 +917,8 @@ router.post('/rating',function (req,res) {
 	var name = req.body.name;
 	console.log(name);
 	var arr = name.split(" ");
-	var rat = Number(req.body.approach) + Number(req.body.assignment) + Number(req.body.marking) + Number(req.body.pace) + Number(req.body.presentation) + Number(req.body.response) + Number(req.body.syllabus);
-	
+
+
 	var query = { firstname: arr[0] , lastname: arr[1],school: req.user._doc.school };
 	Teacher.find(query,function (err,data) {
 		console.log(data);
@@ -935,10 +935,10 @@ router.post('/rating',function (req,res) {
 		var response = data[0]._doc.response;
 		response += Number(req.body.response);
 		var syllabus = data[0]._doc.syllabus;
-		syllabus += Number(req.body.syllabus); 
+		syllabus += Number(req.body.syllabus);
 		var counter = data[0]._doc.ratingNumber;
 		counter++;
-		
+
 
 
 		Teacher.update(query,{approach : approach , assignment : assignment , depth: depth,marking:marking,pace:pace,response: response,syllabus:syllabus,ratingNumber : counter} , function (err,data) {

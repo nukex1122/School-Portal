@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<style>
+	html, body{
+		width: 100%;
+	}
+	.waves-button-input{
+		color: #fff;
+	}
+</style>
+<body class="cyan">
+<main>
+	<div class="container" style="margin-top:1%">
+		<div id="login-page" class="row">
+			<div class="col s6 offset-s3 z-depth-4 card-panel" >
+				<form class="login-form" style="padding: 0 0.75rem" action="#" >
+					<div class="row">
+						<div class="input-field col s12 center">
+							<img src="images/logo.png" alt="" class="circle responsive-img valign profile-image-login">
+							<h5 class="center login-form-text"><b>View Rating</b></h5>
+						</div>
+					</div>
+					<div class="row margin">
+						<div class="input-field col s12">
+							<i class="prefix material-icons">person_outline</i>
+							<select id="select" name="name">
+								<option value="" disabled >Choose your option</option>
+							</select>
+							<label >Teacher Name</label>
+						</div>
+            <div class="input-field col s12">
+              <i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+              <input type="number" name="syllabus" id="syllabus" max="10" min="0" disabled placeholder="None">
+              <label for="username" class="center-align">Syllabus completion</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+              <input type="number" name="depth" id="depth" max="10" min="0" disabled placeholder="None">
+              <label for="username" class="center-align">Depth of course content</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+              <input type="number" name="approach" id="approach" max="10" min="0" disabled placeholder="None">
+              <label for="username" class="center-align">Approachability outside class</label>
+            </div>
+
+            <div class="input-field col s12">
+              <i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+              <input type="number" name="assignment" id="assignment" max="10" min="0" disabled placeholder="None">
+              <label for="username" class="center-align">Regular Assignment</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+              <input type="number" name="pace" id="pace" max="10" min="0" disabled placeholder="None">
+              <label for="username" class="center-align">Pace</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+              <input type="number" name="response" id="response" max="10" min="0" disabled placeholder="None">
+              <label for="username" class="center-align">Response to Question</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+              <input type="number" name="marking" id="marking" max="10" min="0" disabled placeholder="None">
+              <label for="username" class="center-align">Marking</label>
+            </div>
+
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</main>
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script>
+	var window_width = $(window).width();
+
+	/*Preloader*/
+
+
+	// Search class for focus
+	$('.header-search-input').focus(
+		function(){
+			$(this).parent('div').addClass('header-search-wrapper-focus');
+		}).blur(
+		function(){
+			$(this).parent('div').removeClass('header-search-wrapper-focus');
+		});
+
+	// Check first if any of the task is checked
+	$('#task-card input:checkbox').each(function() {
+		checkbox_check(this);
+	});
+
+	// Task check box
+	$('#task-card input:checkbox').change(function() {
+		checkbox_check(this);
+	});
+
+	$(document).ready(function(){
+		$('select').formSelect();
+	});
+
+
+
+	// Check Uncheck function
+	function checkbox_check(el){
+		if (!$(el).is(':checked')) {
+			$(el).next().css('text-decoration', 'none'); // or addClass
+		} else {
+			$(el).next().css('text-decoration', 'line-through'); //or addClass
+		}
+	}
+
+	$.ajax({
+		url: '/getAllTeachers',
+		type: 'GET',
+		success: function(data){
+			for(i in data){
+				$("#select").append("<option value=\""+ data[i].id +"\">"+data[i].name+"</option>")
+			}
+			$('select').formSelect();
+      $.ajax({
+    		url: '/getTeacherRating',
+    		type: 'POST',
+        data:{id:$('select').val()},
+    		success: function(data){
+          console.log(data);
+          $('#syllabus').val(data.syllabus)
+          $('#approach').val(data.approach)
+          $('#assignment').val(data.assignment)
+          $('#depth').val(data.depth)
+          $('#marking').val(data.marking)
+          $('#pace').val(data.pace)
+          $('#response').val(data.response)
+    		}
+    	})
+		}
+	})
+
+  $('select').on('change', function(){
+    $.ajax({
+  		url: '/getTeacherRating',
+  		type: 'POST',
+      data:{id:$(this).val()},
+  		success: function(data){
+        $('#syllabus').val(data.syllabus)
+        $('#approach').val(data.approach)
+        $('#assignment').val(data.assignment)
+        $('#depth').val(data.depth)
+        $('#marking').val(data.marking)
+        $('#pace').val(data.pace)
+        $('#response').val(data.response)
+  		}
+  	})
+  })
+
+
+</script>
+</body>
+</html>
