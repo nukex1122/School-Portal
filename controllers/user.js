@@ -545,7 +545,7 @@ router.post('/teacherSignup', function(req,res){
 router.post('/login',passport.authenticate('school.login',{
 
 
-    failureRedirect: '/login',
+    failureRedirect: '/home/login',
     failureFlash: true
 
 }),function (req,res) {
@@ -878,9 +878,17 @@ router.get('/getAllTeachers', isSchool,function(req,res){
 })
 
 
-router.post('/getTeacherRating',isSchool,function(req,res){
-	Teacher.find({_id:"5b652b4c808b84032da13eaf"},function(err,data){
-		console.log(data);
+router.get('/getTeacherRating',isSchool,function(req,res){
+	Teacher.find({_id:req.body.id},function(err,data){
+		var obj = {};
+		obj.approach = data[0]._doc.approach;
+		obj.assignment = data[0]._doc.assignment;
+		obj.depth = data[0]._doc.depth;
+		obj.marking = data[0]._doc.marking;
+		obj.pace = data[0]._doc.pace;
+		obj.response = data[0]._doc.response;
+		obj.syllabus = data[0]._doc.syllabus;
+		res.json(obj);
 	})
 })
 
@@ -909,23 +917,11 @@ router.post('/rating',function (req,res) {
 	console.log(name);
 	var arr = name.split(" ");
 	var rat = Number(req.body.approach) + Number(req.body.assignment) + Number(req.body.depth)+ Number(req.body.marking) + Number(req.body.pace) + Number(req.body.presentation) + Number(req.body.response) + Number(req.body.syllabus);
-	rat= rat / 8;
+	
 	var query = { firstname: arr[0] , lastname: arr[1],school: req.user._doc.school };
 	Teacher.find(query,function (err,data) {
-		var sum = data[0]._doc.ratingSum;
-		var num = data[0]._doc.ratingNumber;
-		if(sum == null){
-			sum = rat;
-			num = 1;
-		}
-		else{
-			sum += rat;
-			num++;
-		}
-		console.log(sum);
-		console.log(num);
-		var ans = sum / num;
-		Teacher.update(query,{rating : ans , ratingSum : sum , ratingNumber: num} , function (err,data) {
+		console.log(data);
+		Teacher.update(query,{approach : Number(req.body.approach) , assignment : Number(req.body.assignment) , depth: Number(req.body.depth),marking:Number(req.body.marking),pace:Number(req.body.pace),response: Number(req.body.response),syllabus:Number(req.body.syllabus)} , function (err,data) {
 			console.log(data);
 			res.redirect('/studentOauth/studentDashboard.html');
 		})
