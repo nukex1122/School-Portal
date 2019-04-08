@@ -965,10 +965,12 @@ router.post('/ratingStudent',function (req,res) {
 	var name = req.body.name;
 	console.log(name);
 	var arr = name.split(" ");
-	var query = { firstname: arr[0] , lastname: arr[1] };
+	var query = { firstname: arr[0] , lastname: arr[1]};
 	Student.find(query,function (err,data) {
-		var rat = data[0]._doc.rating;
-		var finalans;
+		console.log(data);
+		var rat = data[0]._doc.ratingSum;
+		var 
+		var finalans = ;
 		if(rat==null){
 			finalans = Number(req.body.rating);
 			Student.update(query,{rating: finalans} , function (err,data) {
