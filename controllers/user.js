@@ -962,15 +962,16 @@ router.get('/test',function (req,res) {
 
 
 router.post('/ratingStudent',function (req,res) {
+	console.log(req);
 	var name = req.body.name;
 	console.log(name);
 	var arr = name.split(" ");
-	var query = { firstname: arr[0] , lastname: arr[1]};
+	var query = {_id: req.body.id};
 	Student.find(query,function (err,data) {
 		console.log(data);
 		var rat = data[0]._doc.ratingSum;
-		var 
-		var finalans = ;
+		
+		
 		if(rat==null){
 			finalans = Number(req.body.rating);
 			Student.update(query,{rating: finalans} , function (err,data) {

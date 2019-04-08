@@ -63,7 +63,8 @@ var studentSchema=mongoose.Schema({
 	subject:{
 		type:Array,
 		default: null
-	}
+	},
+	
 
 
 });
