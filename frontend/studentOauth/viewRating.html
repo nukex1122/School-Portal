@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<style>
+	html, body{
+		width: 100%;
+	}
+	.waves-button-input{
+		color: #fff;
+	}
+</style>
+<body class="cyan">
+<main>
+	<div class="container" style="margin-top:1%">
+		<div id="login-page" class="row">
+			<div class="col s10 offset-s1 z-depth-4 card-panel" >
+				<form class="login-form" style="padding: 0 4rem 0 2rem" action="#" >
+					<div class="row">
+						<div class="input-field col s4 offset-s4 center">
+							<img src="images/logo.png" alt="" class="circle responsive-img valign profile-image-login">
+							<h5 class="center login-form-text"><b>View Your Rating</b></h5>
+						</div>
+					</div>
+					<div class="row margin">
+            <div class="input-field col s6">
+							<i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+							<input type="number" id="discipline" name="discipline" max="10" min="0" disabled placeholder="None">
+							<label for="discipline" class="center-align">Discipline</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+							<input type="number" id="interaction" name="interaction" max="10" min="0" disabled placeholder="None">
+							<label for="interaction" class="center-align">Interaction in Class</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+							<input type="number" id="understanding" name="understanding" max="10" min="0" disabled placeholder="None">
+							<label for="understanding" class="center-align">Understanding Topics</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+							<input type="number" id="tackling" name="tackling" max="10" min="0" disabled placeholder="None">
+							<label for="tackling" class="center-align">Tackling Problems</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+							<input type="number" id="listening" name="listening" max="10" min="0" disabled placeholder="None">
+							<label for="listening" class="center-align">Listening Skills</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+							<input type="number" id="participation" name="participation" max="10" min="0" disabled placeholder="None">
+							<label for="participation" class="center-align">Participation in co-curricular Activities</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+							<input type="number" id="punctuality" name="punctuality" max="10" min="0" disabled placeholder="None">
+							<label for="punctuality" class="center-align">Punctuality</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+							<input type="number" id="creativity" name="creativity" max="10" min="0" disabled placeholder="None">
+							<label for="creativity" class="center-align">Creativity</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="mdi-social-person-outline prefix material-icons">rate_review</i>
+							<input type="number" id="curiosity" name="curiosity" max="10" min="0" disabled placeholder="None">
+							<label for="curiosity" class="center-align">Curiosity</label>
+						</div>
+
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</main>
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script>
+	var window_width = $(window).width();
+
+	/*Preloader*/
+
+
+	// Search class for focus
+	$('.header-search-input').focus(
+		function(){
+			$(this).parent('div').addClass('header-search-wrapper-focus');
+		}).blur(
+		function(){
+			$(this).parent('div').removeClass('header-search-wrapper-focus');
+		});
+
+	// Check first if any of the task is checked
+	$('#task-card input:checkbox').each(function() {
+		checkbox_check(this);
+	});
+
+	// Task check box
+	$('#task-card input:checkbox').change(function() {
+		checkbox_check(this);
+	});
+
+
+
+	// Check Uncheck function
+	function checkbox_check(el){
+		if (!$(el).is(':checked')) {
+			$(el).next().css('text-decoration', 'none'); // or addClass
+		} else {
+			$(el).next().css('text-decoration', 'line-through'); //or addClass
+		}
+	}
+
+
+    $.ajax({
+  		url: '/getStudentRating',
+  		type: 'GET',
+  		success: function(data){
+        $('#creativity').val(data.creativity);
+        $('#curiosity').val(data.curiosity);
+        $('#discipline').val(data.discipline);
+        $('#interaction').val(data.interaction);
+        $('#listening').val(data.listening);
+        $('#participation').val(data.participation);
+        $('#punctuality').val(data.punctuality);
+        $('#tackling').val(data.tackling);
+        $('#understanding').val(data.understanding);
+
+  		}
+  	})
+
+
+
+</script>
+</body>
+</html>
