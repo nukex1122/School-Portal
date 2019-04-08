@@ -102,8 +102,9 @@
 		url: '/students',
 		type: 'GET',
 		success: function(data){
+			console.log(data);
 			for(i in data){
-				$("#select").append("<option>"+data[i]+"</option>")
+				$("#select").append(`<option value="${data[i].id}">`+data[i].name+"</option>")
 			}
 			$('select').formSelect();
 		}

@@ -857,7 +857,7 @@ router.get('/students' , isTeacher , function(req,res){
 		var arr = [];
 		for(var i=0;i<data.length;i++){
 			var name = data[i].firstname + ' ' + data[i].lastname;
-			arr.push(name);
+			arr.push({id:data[i].id,name:name});
 		}
 		res.json(arr);
 	})
@@ -935,10 +935,10 @@ router.post('/rating',function (req,res) {
 		var response = data[0]._doc.response;
 		response += Number(req.body.response);
 		var syllabus = data[0]._doc.syllabus;
-		syllabus += Number(req.body.syllabus); 
+		syllabus += Number(req.body.syllabus);
 		var counter = data[0]._doc.ratingNumber;
 		counter++;
-		
+
 
 
 		Teacher.update(query,{approach : approach , assignment : assignment , depth: depth,marking:marking,pace:pace,response: response,syllabus:syllabus,ratingNumber : counter} , function (err,data) {
